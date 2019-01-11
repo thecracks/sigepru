@@ -15,7 +15,7 @@
 
 
         <!--Form Wizard-->
-        <link rel="stylesheet" type="text/css" href="<?= __APP_PLUGINS__ ?>/jquery.steps/css/jquery.steps.css" />
+        <link rel="stylesheet" type="text/css" href="<?= __APP_PLUGINS__ ?>/jquery.steps/css/jquery.steps.css">
 
         <link href="<?= __APP_PLUGINS__ ?>/switchery/switchery.min.css" rel="stylesheet" type="text/css">
         <link href="<?= __APP_PLUGINS__ ?>/jquery-circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css">

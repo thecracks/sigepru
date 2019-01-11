@@ -155,16 +155,13 @@
         </script>
         
         <!-- Counter Up  -->
-        
         <script src="<?= __APP_PLUGINS__ ?>/waypoints/lib/jquery.waypoints.min.js"></script>
         <script src="<?= __APP_PLUGINS__ ?>/counterup/jquery.counterup.min.js"></script>
 
 
         <!-- circliful Chart -->
-        
         <script src="<?= __APP_PLUGINS__ ?>/jquery-circliful/js/jquery.circliful.min.js"></script>
         <script src="<?= __APP_PLUGINS__ ?>/jquery-sparkline/jquery.sparkline.min.js"></script>
-
 
         <!-- skycons -->
         <script src="<?= __APP_PLUGINS__ ?>/skyicons/skycons.min.js"></script>
@@ -172,24 +169,20 @@
         <!-- Page js  -->
         <script src="<?= __APP_PAGES__ ?>/jquery.dashboard.js"></script>
 
-
         <!-- Custom main Js -->
         <script src="<?= __APP_JS__ ?>/jquery.core.js"></script>
         <script src="<?= __APP_JS__ ?>/jquery.app.js"></script>
         
-        
-                <!-- Modal-Effect -->
+        <!-- Modal-Effect -->
         <script src="<?= __APP_PLUGINS__ ?>/custombox/dist/custombox.min.js"></script>
         <script src="<?= __APP_PLUGINS__ ?>/custombox/dist/legacy.min.js"></script>
-        
-        
-                <!--Form Wizard-->
+       
+        <!--Form Wizard-->
         <script src="<?= __APP_PLUGINS__ ?>/jquery.steps/js/jquery.steps.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="<?= __APP_PLUGINS__ ?>/jquery-validation/js/jquery.validate.min.js"></script>
 
         <!--wizard initialization-->
         <script src="<?= __APP_PAGES__ ?>/jquery.wizard-init.js" type="text/javascript"></script>
-
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
