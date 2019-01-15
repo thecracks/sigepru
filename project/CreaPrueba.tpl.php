@@ -68,7 +68,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
                     </p>
 
                     <!--<form id="basic-form" action="#">-->
-                    <div role="application" class="wizard clearfix" id="steps-uid-0"><div class="steps clearfix"><ul role="tablist"><li id="li_paso_0"  role="tab" class="first current" aria-disabled="false" aria-selected="true"><a  onclick="return false;" id="steps-uid-0-t-0" href="#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0"><span class="current-info audible">current step: </span><span class="number">1.</span> Estructura Previa</a></li><li role="tab" id="li_paso_1" class="disabled" aria-disabled="true"><a  onclick="return false;" id="steps-uid-0-t-1" href="#steps-uid-0-h-1" aria-controls="steps-uid-0-p-1"><span class="number">2.</span> Diseño de la Prueba</a></li><li role="tab" id="li_paso_2" class="disabled" aria-disabled="true"><a onclick="return false;" id="steps-uid-0-t-2" href="#steps-uid-0-h-2" aria-controls="steps-uid-0-p-2"><span class="number">3.</span> Hints</a></li><li role="tab" id="li_paso_3" class="disabled last" aria-disabled="true"><a  onclick="return false;" id="steps-uid-0-t-3" href="#steps-uid-0-h-3" aria-controls="steps-uid-0-p-3"><span class="number">4.</span> Finish</a></li></ul></div><div class="content clearfix">
+                    <div role="application" class="wizard clearfix" id="steps-uid-0"><div class="steps clearfix"><ul role="tablist"><li id="li_paso_0"  role="tab" class="first current" aria-disabled="false" aria-selected="true"><a  onclick="return false;" id="steps-uid-0-t-0" href="#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0"><span class="current-info audible">current step: </span><span class="number">1.</span> Estructura Previa</a></li><li role="tab" id="li_paso_1" class="disabled" aria-disabled="true"><a  onclick="return false;" id="steps-uid-0-t-1" href="#steps-uid-0-h-1" aria-controls="steps-uid-0-p-1"><span class="number">2.</span> Diseño de la Prueba</a></li><li role="tab" id="li_paso_2" class="disabled" aria-disabled="true"><a onclick="return false;" id="steps-uid-0-t-2" href="#steps-uid-0-h-2" aria-controls="steps-uid-0-p-2"><span class="number">3.</span> Correción Automática</a></li><li role="tab" id="li_paso_3" class="disabled last" aria-disabled="true"><a  onclick="return false;" id="steps-uid-0-t-3" href="#steps-uid-0-h-3" aria-controls="steps-uid-0-p-3"><span class="number">4.</span> Presentación Final</a></li></ul></div><div class="content clearfix">
                             <h3 id="steps-uid-0-h-0" tabindex="-1" class="title current">Account</h3>
                             <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false">
 
@@ -78,26 +78,26 @@ require(__CONFIGURATION__ . '/header.inc.php');
                                         <h5 class="header-title">Contenido de Encabezado:</h5>
                                         <div class="mt-2">
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="ckb_nombres">
+                                                <input type="checkbox" class="custom-control-input" id="ckb_nombres" checked="">
                                                 <label class="custom-control-label" for="ckb_nombres">Nombres y Apellidos</label>
                                             </div>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="ckb_fecha">
+                                                <input type="checkbox" class="custom-control-input" id="ckb_fecha"  checked="">
                                                 <label class="custom-control-label" for="ckb_fecha">Fecha</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="ckb_grado">
+                                                <input type="checkbox" class="custom-control-input" id="ckb_grado"  checked="">
                                                 <label class="custom-control-label" for="ckb_grado">Grado</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="ckb_seccion">
+                                                <input type="checkbox" class="custom-control-input" id="ckb_seccion"  checked="">
                                                 <label class="custom-control-label" for="ckb_seccion">Sección</label>
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="ckb_logo_ie">
+                                                <input type="checkbox" class="custom-control-input" id="ckb_logo_ie"  checked="">
                                                 <label class="custom-control-label" for="ckb_logo_ie">Logo de la I.E.</label>
                                             </div>
                                         </div>
@@ -131,14 +131,14 @@ require(__CONFIGURATION__ . '/header.inc.php');
                                 <div class="form-group row">
                                     <label class="col-md-10 header-title">Número aproximado de preguntas:</label>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="txt_numero_preguntas" value="10">
+                                        <input class="form-control" type="number" id="txt_numero_preguntas" value="10">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-md-10 header-title">Número  aproximado de alternativas:</label>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="txt_numero_alternativas" value="5">
+                                        <input class="form-control" type="number" id="txt_numero_alternativas" value="5">
                                     </div>
                                 </div>
 
@@ -148,94 +148,83 @@ require(__CONFIGURATION__ . '/header.inc.php');
                             <h3 id="steps-uid-0-h-1" tabindex="-1" class="title">Profilesfsdfsd</h3>
                             <section id="steps-uid-0-p-1" role="tabpanel" aria-labelledby="steps-uid-0-h-1" class="body" aria-hidden="true" style="display: none;">
 
-                                <div class="row formato_a4" id="div_preview" >
+                                <div class="row">
 
-                                    <div class="col-lg-12">
+                                    <div class="col-md-4">                                  
+                                        <button type="button" class="btn btn-success btn-block waves-effect w-md waves-light m-b-5">Success</button>
+                                        <!--<button type="button" class="btn btn-block btn--md btn-primary waves-effect waves-light">Block Button</button>-->
+                                    </div>
 
+                                </div>
 
-                                        <table id="table_cabecera" class="table-bordered" style="width: 100%" >
-                                            <tr>
-                                                <td colspan="2"></td>
-                                                <td colspan="4">PRACTICA CALIFICADA DE LENGUAJE</td>
-                                                <td colspan="2"></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">Nombres y Apellidos:</td>
-                                                <td colspan="4">                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                <td rowspan="2" colspan="2">notaaaaaaaaaaa</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grado:</td>
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                <td>Sección:</td>
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                <td>Fecha:</td>
-                                                <td>            </td>
-                                                <td>Fecha:</td>
-                                                <td>            </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="7">________________________________________________________________________________________________</td>
-                                            </tr>
-                                        </table>
+                                <div class="row">
 
-
-
-
-
-
+                                    <div class="col-lg-12" id="div_tabla_cabecera">
                                         <table border=0 cellpadding=0 cellspacing=0 class="table-bordered" style="width: 100%">
 
                                             <tr height=20 >
-                                                <td width=34 style='width:26pt'></td>                                                
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
-                                                <td width=34 style='width:26pt'></td>
+                                                <td width=34 ></td>                                                
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
                                             </tr>
                                             <tr height=60 >
-                                                <td colspan=2  rowspan=3 width=68 >&nbsp;</td>
-                                                <td colspan=12 rowspan=3 width=408 >EXAMEN DE COMUNICACION</td>
-                                                <td colspan=2  rowspan=3 width=68 >&nbsp;</td>
+                                                <td colspan=2   width=68 >&nbsp;</td>
+                                                <td colspan=12  width=408 >EXAMEN DE COMUNICACION</td>
+                                                <td colspan=2   width=68 >&nbsp;</td>
                                             </tr>
 
                                             <tr height=20 >
                                                 <td colspan=4 height=20 >Nombre y Apelllidos</td>
-                                                <td colspan=12 class=xl66 style='border-left:none'>&nbsp;</td>
+                                                <td colspan=12 >&nbsp;</td>
                                             </tr>
-                                            <tr height=20 style='height:15.0pt'>
-                                                <td colspan=2 height=20 class=xl66 style='height:15.0pt'>Grado:</td>
-                                                <td colspan=4 class=xl66 style='border-left:none'>&nbsp;</td>
-                                                <td colspan=2 class=xl66 style='border-left:none'>seccion</td>
-                                                <td colspan=3 class=xl66 style='border-left:none'>&nbsp;</td>
-                                                <td colspan=2 class=xl66 style='border-left:none'>fecha</td>
-                                                <td colspan=3 class=xl66 style='border-left:none'>&nbsp;</td>
+                                            <tr height=20 >
+                                                <td colspan=2 >Grado:</td>
+                                                <td colspan=4  >&nbsp;</td>
+                                                <td colspan=2 >seccion</td>
+                                                <td colspan=3 >&nbsp;</td>
+                                                <td colspan=2 >fecha</td>
+                                                <td colspan=3 >&nbsp;</td>
+                                            </tr>
+                                            <tr height=20 >
+                                                <td width=34 ></td>                                                
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
+                                                <td width=34 ></td>
                                             </tr>
 
 
                                         </table>
-
-
-
-
-
-
-
                                     </div>
+                                </div>
 
+                                <div class="row">
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12" id="div_tabla_contenido">
                                         <table id="table_contenido" class="table-bordered" style="width: 100%">
                                             <tr>
                                                 <td>1.-</td>
@@ -254,63 +243,17 @@ require(__CONFIGURATION__ . '/header.inc.php');
                                                 <td>e)</td>
                                                 <td>No sé</td>
                                             </tr>
-                                            <tr>
-                                                <td>2.-</td>
-                                                <td colspan="10">Debido a qué sustancia las hojas de las plantas tienen color verde.</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>a)</td>
-                                                <td>Clorofila</td>
-                                                <td>b)</td>
-                                                <td>Estambres</td>
-                                                <td>c)</td>
-                                                <td>Nectar</td>
-                                                <td>d)</td>
-                                                <td>Sabia</td>
-                                                <td>e)</td>
-                                                <td>No sé</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3.-</td>
-                                                <td colspan="10">Debido a qué sustancia las hojas de las plantas tienen color verde.</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>a)</td>
-                                                <td>Clorofila</td>
-                                                <td>b)</td>
-                                                <td>Estambres</td>
-                                                <td>c)</td>
-                                                <td>Nectar</td>
-                                                <td>d)</td>
-                                                <td>Sabia</td>
-                                                <td>e)</td>
-                                                <td>No sé</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4.-</td>
-                                                <td colspan="10">Debido a qué sustancia las hojas de las plantas tienen color verde.</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>a)</td>
-                                                <td>Clorofila</td>
-                                                <td>b)</td>
-                                                <td>Estambres</td>
-                                                <td>c)</td>
-                                                <td>Nectar</td>
-                                                <td>d)</td>
-                                                <td>Sabia</td>
-                                                <td>e)</td>
-                                                <td>No sé</td>
-                                            </tr>
+
                                         </table>
 
                                     </div>
 
 
+
                                 </div>
+
+
+
 
 
 
@@ -356,120 +299,25 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
 
 
-
-<!--modals-->
-<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title">Creando estructura de la práctica</h3>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <h5 class="header-title">Contenido de Encabezado:</h5>
-                        <div class="mt-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="ckb_nombres">
-                                <label class="custom-control-label" for="ckb_nombres">Nombres y Apellidos</label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="ckb_fecha">
-                                <label class="custom-control-label" for="ckb_fecha">Fecha</label>
-                            </div>
-
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="ckb_grado">
-                                <label class="custom-control-label" for="ckb_grado">Grado</label>
-                            </div>
-
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="ckb_seccion">
-                                <label class="custom-control-label" for="ckb_seccion">Sección</label>
-                            </div>
-
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="ckb_logo_ie">
-                                <label class="custom-control-label" for="ckb_logo_ie">Logo de la I.E.</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-top: 10px">
-                    <div class="col-md-12">
-                        <h5 class="header-title">Tipo de enumeración de las preguntas:</h5>
-                        <div class="mt-2">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="rb_tipo_enumeracion1" name="customRadio" class="custom-control-input">
-                                <label class="custom-control-label" for="rb_tipo_enumeracion1">Números decimales</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="rb_tipo_enumeracion2" name="customRadio" class="custom-control-input">
-                                <label class="custom-control-label" for="rb_tipo_enumeracion2">Números romanos</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="rb_tipo_enumeracion3" name="customRadio" class="custom-control-input">
-                                <label class="custom-control-label" for="rb_tipo_enumeracion3">Letras minúsculas</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="rb_tipo_enumeracion4" name="customRadio" class="custom-control-input">
-                                <label class="custom-control-label" for="rb_tipo_enumeracion4">Letras mayúsculas</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-9 col-form-label">Número aproximado de preguntas:</label>
-                    <div class="col-md-3">
-                        <input class="form-control" type="number" name="txt_numero_preguntas" value="10">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-9 col-form-label">Número  aproximado de alternativas:</label>
-                    <div class="col-md-3">
-                        <input class="form-control" type="number" name="txt_numero_alternativas" value="5">
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info waves-effect waves-light">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <?php $this->RenderEnd() ?>
 
 
 <script>
+
+    var numeroPreguntas = 10;
+    var numeroAlternativas = 5;
+    var tipoEnumeracion = "decimal";
+    var tieneNombreAlumno = true;
+    var tieneFecha = true;
+    var tieneSeccion = true;
+    var tieneGrado = true;
+    var tieneLogo = true;
+
     $(document).ready(function () {
-        $("#table_cabecera td, #table_contenido td").click(function () {
-
-            var td = $(this);
-
-            if (!td.hasClass("editando")) {
-//                var column_num = parseInt(td.index()) + 1;
-//                var row_num = parseInt(td.parent().index()) + 1;
-                var html = td.html();
-                var newHtml = '<input id="input_editando"  type="text" value="' + html + '" style="width:' + (td.width() - 2) + 'px">';
-                td.width(td.width());
-                td.html(newHtml);
-                td.addClass("editando");
-                cargaEventos();
-            }
-        });
 
         //REESCRIBIENDO EL PAGINADOR DEL WIZART (NO FUNCIONA EL DEL TEMPLATE)
         var faseActual = 0;
+
         $("#li_anterior_wizard , #li_siguiente_wizard").click(function () {
 
             event.preventDefault();
@@ -505,81 +353,204 @@ require(__CONFIGURATION__ . '/header.inc.php');
                 faseActual = faseNueva;
 
                 if (faseNueva == 1) {
-                    creaEstructuraPrueba();
+                    capturaParametrosInciales();
+                    generaCabecera();
+                    generaContenido();
                 }
             }
         });
+
     });
 
-    function cargaEventos() {
+    function capturaParametrosInciales() {
 
-        $("#input_editando").focus();
-        $("#input_editando").blur(function () {
+        numeroPreguntas = $("#txt_numero_preguntas").val();
+        numeroAlternativas = $("#txt_numero_alternativas").val();
+        tipoEnumeracion = "decimal";
+        tieneNombreAlumno = $("#ckb_nombres").is(':checked');
+        tieneFecha = $("#ckb_fecha").is(':checked');
+        tieneSeccion = $("#ckb_seccion").is(':checked');
+        tieneGrado = $("#ckb_grado").is(':checked');
+        tieneLogo = $("#ckb_logo_ie").is(':checked');
 
-            var input = $(this);
-            var td = input.parent();
+        console.log($("#txt_numero_preguntas").val());
 
-            td.html(input.val());
-            td.removeClass("editando")
-        });
+//        alert(numeroPreguntas);
+
     }
 
-    function creaEstructuraPrueba() {
-//        CABECERA
-        var htmlTablaCebecera = '';
 
+    function generaCabecera() {
 
+        var htmlTablaCebecera = '<table id="table_cabecera" border=0 cellpadding=0 cellspacing=0 class="table-bordered" style="width: 100%">' +
+                '                                            <tr height=20 >' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                            </tr>' +
+                '                                            <tr height=60 >' +
+                '                                                <td colspan=2   width=68 > </td>' +
+                '                                                <td colspan=12  width=408 >TITULO</td>' +
+                '                                                <td colspan=2   width=68 > </td>' +
+                '                                            </tr>';
+        if (tieneNombreAlumno) {
+            htmlTablaCebecera = htmlTablaCebecera + '        <tr height=20 >' +
+                    '                                            <td colspan=4 >Nombre y Apelllidos</td>' +
+                    '                                            <td colspan=12 > </td>' +
+                    '                                        </tr>';
+        }
+        htmlTablaCebecera = htmlTablaCebecera +
+                '                                            <tr height=20 >';
+        if (tieneGrado) {
+            htmlTablaCebecera = htmlTablaCebecera + '            <td colspan=2 >Grado:</td>' +
+                    '                                            <td colspan=4  > </td>';
+        }
 
-        var htmlTablaCebecera = '<table id="table_cabecera" class="table-bordered" style="width: 100%" >' +
-                '                                            <tr>' +
-                '                                                <td colspan="7"><br><br>PRACTICA CALIFICADA DE LENGUAJE<br></td>' +
-                '                                            </tr>' +
-                '                                            <tr>' +
-                '                                                <td colspan="2">Nombres y Apellidos:</td>' +
-                '                                                <td colspan="4">                                                                         </td>' +
-                '                                                <td rowspan="2">notaaaaaaaaaaa</td>' +
-                '                                            </tr>' +
-                '                                            <tr>' +
-                '                                                <td>Grado:</td>' +
-                '                                                <td>                  </td>' +
-                '                                                <td>Sección:</td>' +
-                '                                                <td>          </td>' +
-                '                                                <td>Fecha:</td>' +
-                '                                                <td>            </td>' +
-                '                                            </tr>' +
-                '                                            <tr>' +
-                '                                                <td colspan="7">________________________________________________________________________________________________</td>' +
+        if (tieneSeccion) {
+            htmlTablaCebecera = htmlTablaCebecera + '            <td colspan=2 >seccion</td>' +
+                    '                                            <td colspan=3 > </td>';
+        }
+
+        if (tieneFecha) {
+            htmlTablaCebecera = htmlTablaCebecera + '            <td colspan=2 >fecha</td>' +
+                    '                                            <td colspan=3 > </td>';
+        }
+
+        htmlTablaCebecera = htmlTablaCebecera + '             </tr>' +
+                '                                             <tr height=20 >' +
+                '                                                <td width=34 ></td>                                                ' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
+                '                                                <td width=34 ></td>' +
                 '                                            </tr>' +
                 '                                        </table>';
 
+        $("#div_tabla_cabecera").html(htmlTablaCebecera);
 
     }
 
-</script>
+    function generaContenido() {
+
+        var htmlTablaContenido = '<table id="table_contenido" class="table-bordered" style="width: 100%">';
+
+        for (var i = 0; i < numeroPreguntas; i++) {
+            htmlTablaContenido = htmlTablaContenido + '     <tr>' +
+                    '                                           <td class="numero_pregunta">' + (i + 1) + '.-</td>' +
+                    '                                           <td colspan="10">Debido a qué sustancia las hojas de las plantas tienen color verde.</td>' +
+                    '                                       </tr>' +
+                    '                                       <tr>' +
+                    '                                           <td></td>';
+
+            for (var j = 0; j < numeroAlternativas; j++) {
+                htmlTablaContenido = htmlTablaContenido + '     <td>' + String.fromCharCode(97 + j) + ')</td>' +
+                        '                                       <td>Clorofila</td>';
+            }
+            htmlTablaContenido = htmlTablaContenido + '     </tr>';
+        }
+        htmlTablaContenido = htmlTablaContenido + '</table>';
+
+        $("#div_tabla_contenido").html(htmlTablaContenido);
+
+    }
 
 
-<script>
 
-    var numeroPregunta = 10;
-    var numeroAlternativas = 5;
-    var tipoEnumeracion = "decimal";
-    var tieneNombre = true;
-    var tieneFecha = true;
-    var tieneSeccion = true;
-    var tieneGrado = true;
-    var tieneLogo = true;
+//  EVENTOS : 
 
-    $(document).ready(function () {
-//        alert("probando");
+    $(document).on("blur", '#input_editando', function (event) {
+        var input = $(this);
+        var td = input.parent();
+        td.html(input.val());
+        td.removeClass("editando");
+    });
 
+//  PARA PODER EDITAR LOS CAMPOS 
+    $(document).on("click", '#table_cabecera td, #table_contenido td', function (event) {
 
+        var td = $(this);
 
+        if (!td.hasClass("editando")) {
+//                var column_num = parseInt(td.index()) + 1;
+//                var row_num = parseInt(td.parent().index()) + 1;
+            var html = td.html();
+            var newHtml = '<input id="input_editando"  type="text" value="' + html + '" style="width:' + (td.width() - 2) + 'px">';
+            td.width(td.width());
+            td.html(newHtml);
+            td.addClass("editando");
+            $("#input_editando").focus();
+            $("#input_editando").select();
+        }
+    });
+
+//  PARA QUITAR EL FOCO CUANDO HACEMOS ENTER DESPUES DE EDITAR
+    $(document).on('keypress', '#input_editando', function (e) {
+        if (e.which == 13) {
+            $(this).blur();
+        }
     });
 
 
+
+    $(document).on('mouseenter', '.numero_pregunta', function (e) {
+        console.log("entrando");
+        console.log($(this).position());
+    }).on('mouseleave', '.numero_pregunta', function (e) {
+        console.log("SALIENDO");
+    });
+
+//    $("[id^=block_project]").mouseenter(function ()
+//    {
+//        $(this).find("> div").toggle();
+//    }).mouseleave(function ()
+//    {
+//        $(this).find("> div").toggle();
+//    });
+
+
+    $(".numero_pregunta").hover(
+            function () {
+                alert("entrando");
+            }, function () {
+        alert("SALIENDO");
+    }
+    );
+
+
+
+    $("[id^=block_project]").mouseenter(function ()
+    {
+        $(this).find("> div").toggle();
+    }).mouseleave(function ()
+    {
+        $(this).find("> div").toggle();
+    });
+
 </script>
-
-
 
 
 <!-- end content -->
