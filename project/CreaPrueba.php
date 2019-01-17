@@ -4,20 +4,31 @@ require('includes/configuration/prepend.inc.php');
 
 class CreaPrueba extends QForm {
 
-
-
     protected function Form_Run() {
 
+//        $this->RenderAjax();
 //        $Datos1 = @unserialize($_SESSION['DatosUsuario']);
 //
 //        if ($Datos1) {
 //            $this->user = Usuario::LoadByEmail($Datos1->Email);
 //        } else {
 //            QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __SUBDIRECTORY__ . '/login');
+//            
 //        }
     }
 
     protected function Form_Create() {
+
+
+        if (isset($_POST["ajaxmsg"])) {
+            $ajax = $_POST["ajaxmsg"];
+
+            $evaluacion = new Evaluacion();
+            $evaluacion->Html = $ajax;
+            $evaluacion->Save();
+
+            $this->functionName();
+        }
 
 //        $this->strAction = __VIRTUAL_DIRECTORY__ . __SUBDIRECTORY__ . "/dashboarduser";
 //        
@@ -39,7 +50,11 @@ class CreaPrueba extends QForm {
 //        QApplication::ExecuteJavaScript("showSuccess('Data loaded correctly!');");
     }
 
+    public function functionName() {
 
+        echo 'holas';
+        $this->RenderAjax();
+    }
 
 }
 

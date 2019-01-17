@@ -37,6 +37,58 @@ require(__CONFIGURATION__ . '/header.inc.php');
     }
 </style>
 
+<style>
+
+    .animacion {
+        animation-name: parpadeo;
+        animation-duration: 1.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-name:parpadeo;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @-moz-keyframes parpadeo{  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes parpadeo {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1.0; }
+    }
+
+    @keyframes parpadeo {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1.0; }
+    }
+
+</style>
+
+
+<style>
+
+    .seleccion-alternativa{
+        background: -moz-linear-gradient(top, #ffffff, #8acdef);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#8acdef));
+    }
+
+    .alternativa-correcta{
+        background: -moz-linear-gradient(top, #ffffff, #15dcc6);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#15dcc6));
+    }
+
+
+
+</style>
+
+
 
 <?php $this->RenderBegin() ?>
 
@@ -151,8 +203,11 @@ require(__CONFIGURATION__ . '/header.inc.php');
                                 <div class="row">
 
                                     <div class="col-md-4">                                  
-                                        <button type="button" class="btn btn-success btn-block waves-effect w-md waves-light m-b-5">Success</button>
-                                        <!--<button type="button" class="btn btn-block btn--md btn-primary waves-effect waves-light">Block Button</button>-->
+                                        <button id="btn_guarda_estructura" class="btn btn-success btn-block waves-effect waves-light m-b-5"> <i class="fa fa-save m-r-5"></i> <span>Guardar</span> </button>
+                                    </div>
+
+                                    <div class="col-md-4">                                  
+                                        <button id="btn_correcion_automatica" class="btn btn-info btn-block waves-effect waves-light m-b-5"> <i class="fa fa-check m-r-5"></i><i class="fa fa-close m-r-5"></i> <span>Correción Automática</span> </button>
                                     </div>
 
                                 </div>
@@ -373,10 +428,6 @@ require(__CONFIGURATION__ . '/header.inc.php');
         tieneGrado = $("#ckb_grado").is(':checked');
         tieneLogo = $("#ckb_logo_ie").is(':checked');
 
-        console.log($("#txt_numero_preguntas").val());
-
-//        alert(numeroPreguntas);
-
     }
 
 
@@ -467,7 +518,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
                     '                                           <td></td>';
 
             for (var j = 0; j < numeroAlternativas; j++) {
-                htmlTablaContenido = htmlTablaContenido + '     <td>' + String.fromCharCode(97 + j) + ')</td>' +
+                htmlTablaContenido = htmlTablaContenido + '     <td class="alternativa-pregunta">' + String.fromCharCode(97 + j) + ')</td>' +
                         '                                       <td>Clorofila</td>';
             }
             htmlTablaContenido = htmlTablaContenido + '     </tr>';
@@ -494,9 +545,12 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
         var td = $(this);
 
-        if (!td.hasClass("editando")) {
-//                var column_num = parseInt(td.index()) + 1;
-//                var row_num = parseInt(td.parent().index()) + 1;
+        if (td.hasClass("animacion")) {
+            td.siblings("td.animacion").removeClass("alternativa-correcta");
+            td.addClass("alternativa-correcta");
+        } else if (td.hasClass("alternativa-correcta")) {
+
+        } else if (!td.hasClass("editando")) {
             var html = td.html();
             var newHtml = '<input id="input_editando"  type="text" value="' + html + '" style="width:' + (td.width() - 2) + 'px">';
             td.width(td.width());
@@ -514,8 +568,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
         }
     });
 
-
-
+// PARA MANEJAR LA ENTRADA Y SALIDA DEL MOUSE 
     $(document).on('mouseenter', '.numero_pregunta', function (e) {
         console.log("entrando");
         console.log($(this).position());
@@ -523,31 +576,61 @@ require(__CONFIGURATION__ . '/header.inc.php');
         console.log("SALIENDO");
     });
 
-//    $("[id^=block_project]").mouseenter(function ()
-//    {
-//        $(this).find("> div").toggle();
-//    }).mouseleave(function ()
-//    {
-//        $(this).find("> div").toggle();
-//    });
+    // CLICK EN BOTON AUTOCORRECION:
+    $(document).on('click', '#btn_correcion_automatica', function (e) {
+
+        var btn = $(this);
+
+        if (btn.hasClass("animacion")) {
+            btn.removeClass("animacion");
+            btn.children("span").html("Corrección Automática");
+
+            $("td.alternativa-pregunta").removeClass("animacion seleccion-alternativa");
+            $("#btn_guarda_estructura").click();
+
+        } else {
+            btn.children("span").html("Terminar");
+            btn.addClass("animacion");
+            $("td.alternativa-pregunta").addClass("animacion seleccion-alternativa");
+        }
+    });
+
+    $(document).on('click', '#btn_guarda_estructura', function (e) {
+
+        var btn = $(this);
+
+        btn.children("span").html("Guardando ...");
+        btn.addClass("animacion");
+        btn.attr("disabled", true);
 
 
-    $(".numero_pregunta").hover(
-            function () {
-                alert("entrando");
-            }, function () {
-        alert("SALIENDO");
-    }
-    );
 
+        $.ajax({
+            url: "crea-prueba/functionName",
+            type: "POST",
+//            dataType: 'json',
+            data: {ajaxmsg: "saludos desde ajax"},
+            success: function (data) {
+                console.log();
 
+                msg_exito("Exito", data);
+                btn.removeClass("animacion");
+                btn.children("span").html("Guardar");
+                btn.attr("disabled", false);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                msg_error("Error", errorThrown);
+                btn.removeClass("animacion");
+                btn.children("span").html("Guardar");
+                btn.attr("disabled", false);
+            }
+        });
 
-    $("[id^=block_project]").mouseenter(function ()
-    {
-        $(this).find("> div").toggle();
-    }).mouseleave(function ()
-    {
-        $(this).find("> div").toggle();
+//        setTimeout(function () {
+//            btn.removeClass("animacion");
+//            btn.children("span").html("Guardar");
+//            btn.attr("disabled", false);
+//        }, 3000);
     });
 
 </script>

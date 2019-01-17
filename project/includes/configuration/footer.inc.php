@@ -154,6 +154,10 @@
             $ = jQuery.noConflict(); 
         </script>
         
+                <!--Notification js--> 
+        <script src="<?= __APP_PLUGINS__ ?>/notifyjs/dist/notify.min.js"></script>
+        <script src="<?= __APP_PLUGINS__ ?>/notifications/notify-metro.js"></script>
+        
         <!-- Counter Up  -->
         <script src="<?= __APP_PLUGINS__ ?>/waypoints/lib/jquery.waypoints.min.js"></script>
         <script src="<?= __APP_PLUGINS__ ?>/counterup/jquery.counterup.min.js"></script>
@@ -172,6 +176,7 @@
         <!-- Custom main Js -->
         <script src="<?= __APP_JS__ ?>/jquery.core.js"></script>
         <script src="<?= __APP_JS__ ?>/jquery.app.js"></script>
+        <script src="<?= __APP_JS__ ?>/aplicacion.js"></script>
         
         <!-- Modal-Effect -->
         <script src="<?= __APP_PLUGINS__ ?>/custombox/dist/custombox.min.js"></script>

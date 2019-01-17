@@ -315,7 +315,7 @@ if (!defined('SERVER_INSTANCE')) {
         'adapter' => 'MySqli5',
         'server' => 'localhost',
         'port' => 3306,
-        'database' => 'tobwallet',
+        'database' => 'sigepru',
         'username' => 'root',
         'password' => '',
         'profiling' => false)));

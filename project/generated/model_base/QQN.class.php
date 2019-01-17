@@ -1,39 +1,21 @@
 <?php
 	class QQN {
 		/**
-		 * @return QQNodeAdministrator
+		 * @return QQNodeAlternativa
 		 */
-		static public function Administrator() {
-			return new QQNodeAdministrator('administrator', null, null);
+		static public function Alternativa() {
+			return new QQNodeAlternativa('alternativa', null, null);
 		}
 		/**
-		 * @return QQNodeBalance
+		 * @return QQNodeEvaluacion
 		 */
-		static public function Balance() {
-			return new QQNodeBalance('balance', null, null);
+		static public function Evaluacion() {
+			return new QQNodeEvaluacion('evaluacion', null, null);
 		}
 		/**
-		 * @return QQNodeOffer
+		 * @return QQNodePregunta
 		 */
-		static public function Offer() {
-			return new QQNodeOffer('offer', null, null);
-		}
-		/**
-		 * @return QQNodeOrganizationtype
-		 */
-		static public function Organizationtype() {
-			return new QQNodeOrganizationtype('organizationtype', null, null);
-		}
-		/**
-		 * @return QQNodeRestaurant
-		 */
-		static public function Restaurant() {
-			return new QQNodeRestaurant('restaurant', null, null);
-		}
-		/**
-		 * @return QQNodeUser
-		 */
-		static public function User() {
-			return new QQNodeUser('user', null, null);
+		static public function Pregunta() {
+			return new QQNodePregunta('pregunta', null, null);
 		}
 	}
