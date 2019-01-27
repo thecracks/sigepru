@@ -23,8 +23,8 @@ class CreaPrueba extends QForm {
         if (isset($_POST["ajaxmsg"])) {
             $ajax = $_POST["ajaxmsg"];
 
-            $evaluacion = new Evaluacion();
-            $evaluacion->Html = $ajax;
+            $evaluacion = new Examen();
+            $evaluacion->CabeceraHtml = $ajax;
             $evaluacion->Save();
 
             $this->functionName();
