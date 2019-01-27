@@ -8,4 +8,12 @@
 ?>
 
 <?= _r($this->txtPreguntaId); ?>
-<?= _r($this->lstEvaluacion); ?>
+<?= _r($this->txtPreguntaHtml); ?>
+<?= _r($this->lstExamen); ?>
+<?= _r($this->txtEnunciado); ?>
+<?= _r($this->txtOrden); ?>
+<?= _r($this->txtCreateby); ?>
+<?= _r($this->calCreated); ?>
+<?= _r($this->txtUpdateby); ?>
+<?= _r($this->calUpdated); ?>
+<?= _r($this->txtActive); ?>

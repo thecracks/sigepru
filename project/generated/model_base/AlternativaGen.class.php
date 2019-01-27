@@ -16,10 +16,15 @@
 	 * @package My QCubed Application
 	 * @subpackage GeneratedDataObjects
 	 * @property string $AlternativaId the value of the alternativa_id column (PK)
-	 * @property string $Tipo the value of the tipo column 
-	 * @property string $EsCorrecta the value of the es_correcta column 
-	 * @property string $RespuestaCorrecto the value of the respuesta_correcto column 
+	 * @property string $Descripcion the value of the descripcion column 
 	 * @property string $PreguntaId the value of the pregunta_id column (Not Null)
+	 * @property string $EsCorrecta the value of the es_correcta column 
+	 * @property integer $Orden the value of the orden column 
+	 * @property string $Createby the value of the createby column 
+	 * @property QDateTime $Created the value of the created column 
+	 * @property string $Updateby the value of the updateby column 
+	 * @property QDateTime $Updated the value of the updated column 
+	 * @property string $Active the value of the active column 
 	 * @property Pregunta $Pregunta the value of the Pregunta object referenced by strPreguntaId (Not Null)
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
@@ -56,14 +61,25 @@
 		protected $__strAlternativaId;
 
 		/**
-		 * Protected member variable that maps to the database column alternativa.tipo
-		 * @var string strTipo
+		 * Protected member variable that maps to the database column alternativa.descripcion
+		 * @var string strDescripcion
 		 */
-		private $strTipo;
-		const TipoMaxLength = 45;
+		private $strDescripcion;
+		const DescripcionMaxLength = 100;
 
-		const TipoDefault = null;
-		const TIPO_FIELD = 'tipo';
+		const DescripcionDefault = null;
+		const DESCRIPCION_FIELD = 'descripcion';
+
+
+		/**
+		 * Protected member variable that maps to the database column alternativa.pregunta_id
+		 * @var string strPreguntaId
+		 */
+		private $strPreguntaId;
+		const PreguntaIdMaxLength = 32;
+
+		const PreguntaIdDefault = null;
+		const PREGUNTA_ID_FIELD = 'pregunta_id';
 
 
 		/**
@@ -78,25 +94,66 @@
 
 
 		/**
-		 * Protected member variable that maps to the database column alternativa.respuesta_correcto
-		 * @var string strRespuestaCorrecto
+		 * Protected member variable that maps to the database column alternativa.orden
+		 * @var integer intOrden
 		 */
-		private $strRespuestaCorrecto;
-		const RespuestaCorrectoMaxLength = 100;
+		private $intOrden;
 
-		const RespuestaCorrectoDefault = null;
-		const RESPUESTA_CORRECTO_FIELD = 'respuesta_correcto';
+		const OrdenDefault = null;
+		const ORDEN_FIELD = 'orden';
 
 
 		/**
-		 * Protected member variable that maps to the database column alternativa.pregunta_id
-		 * @var string strPreguntaId
+		 * Protected member variable that maps to the database column alternativa.createby
+		 * @var string strCreateby
 		 */
-		private $strPreguntaId;
-		const PreguntaIdMaxLength = 32;
+		private $strCreateby;
+		const CreatebyMaxLength = 32;
 
-		const PreguntaIdDefault = null;
-		const PREGUNTA_ID_FIELD = 'pregunta_id';
+		const CreatebyDefault = null;
+		const CREATEBY_FIELD = 'createby';
+
+
+		/**
+		 * Protected member variable that maps to the database column alternativa.created
+		 * @var QDateTime dttCreated
+		 */
+		private $dttCreated;
+
+		const CreatedDefault = QDateTime::Now;
+		const CREATED_FIELD = 'created';
+
+
+		/**
+		 * Protected member variable that maps to the database column alternativa.updateby
+		 * @var string strUpdateby
+		 */
+		private $strUpdateby;
+		const UpdatebyMaxLength = 32;
+
+		const UpdatebyDefault = null;
+		const UPDATEBY_FIELD = 'updateby';
+
+
+		/**
+		 * Protected member variable that maps to the database column alternativa.updated
+		 * @var QDateTime dttUpdated
+		 */
+		private $dttUpdated;
+
+		const UpdatedDefault = QDateTime::Now;
+		const UPDATED_FIELD = 'updated';
+
+
+		/**
+		 * Protected member variable that maps to the database column alternativa.active
+		 * @var string strActive
+		 */
+		private $strActive;
+		const ActiveMaxLength = 1;
+
+		const ActiveDefault = 'Y';
+		const ACTIVE_FIELD = 'active';
 
 
 		/**
@@ -160,14 +217,24 @@
 		{
 			$this->strAlternativaId = Alternativa::AlternativaIdDefault;
 			$this->__blnValid[self::ALTERNATIVA_ID_FIELD] = true;
-			$this->strTipo = Alternativa::TipoDefault;
-			$this->__blnValid[self::TIPO_FIELD] = true;
-			$this->strEsCorrecta = Alternativa::EsCorrectaDefault;
-			$this->__blnValid[self::ES_CORRECTA_FIELD] = true;
-			$this->strRespuestaCorrecto = Alternativa::RespuestaCorrectoDefault;
-			$this->__blnValid[self::RESPUESTA_CORRECTO_FIELD] = true;
+			$this->strDescripcion = Alternativa::DescripcionDefault;
+			$this->__blnValid[self::DESCRIPCION_FIELD] = true;
 			$this->strPreguntaId = Alternativa::PreguntaIdDefault;
 			$this->__blnValid[self::PREGUNTA_ID_FIELD] = true;
+			$this->strEsCorrecta = Alternativa::EsCorrectaDefault;
+			$this->__blnValid[self::ES_CORRECTA_FIELD] = true;
+			$this->intOrden = Alternativa::OrdenDefault;
+			$this->__blnValid[self::ORDEN_FIELD] = true;
+			$this->strCreateby = Alternativa::CreatebyDefault;
+			$this->__blnValid[self::CREATEBY_FIELD] = true;
+			$this->dttCreated = (Alternativa::CreatedDefault === null)?null:new QDateTime(Alternativa::CreatedDefault);
+			$this->__blnValid[self::CREATED_FIELD] = true;
+			$this->strUpdateby = Alternativa::UpdatebyDefault;
+			$this->__blnValid[self::UPDATEBY_FIELD] = true;
+			$this->dttUpdated = (Alternativa::UpdatedDefault === null)?null:new QDateTime(Alternativa::UpdatedDefault);
+			$this->__blnValid[self::UPDATED_FIELD] = true;
+			$this->strActive = Alternativa::ActiveDefault;
+			$this->__blnValid[self::ACTIVE_FIELD] = true;
 		}
 
 		
@@ -377,12 +444,22 @@
 				else {
 					$blnNoCache = true;
 				}
-				$strAlias = $strAliasPrefix . 'tipo';
+				$strAlias = $strAliasPrefix . 'descripcion';
 				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
 				if (isset ($strColumnKeys[$strAliasName])) {
 					$mixVal = $strColumns[$strAliasName];
-					$objToReturn->strTipo = $mixVal;
-					$objToReturn->__blnValid[self::TIPO_FIELD] = true;
+					$objToReturn->strDescripcion = $mixVal;
+					$objToReturn->__blnValid[self::DESCRIPCION_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'pregunta_id';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strPreguntaId = $mixVal;
+					$objToReturn->__blnValid[self::PREGUNTA_ID_FIELD] = true;
 				}
 				else {
 					$blnNoCache = true;
@@ -397,22 +474,71 @@
 				else {
 					$blnNoCache = true;
 				}
-				$strAlias = $strAliasPrefix . 'respuesta_correcto';
+				$strAlias = $strAliasPrefix . 'orden';
 				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
 				if (isset ($strColumnKeys[$strAliasName])) {
 					$mixVal = $strColumns[$strAliasName];
-					$objToReturn->strRespuestaCorrecto = $mixVal;
-					$objToReturn->__blnValid[self::RESPUESTA_CORRECTO_FIELD] = true;
+					if ($mixVal !== null) {
+						$mixVal = (integer)$mixVal;
+					}
+					$objToReturn->intOrden = $mixVal;
+					$objToReturn->__blnValid[self::ORDEN_FIELD] = true;
 				}
 				else {
 					$blnNoCache = true;
 				}
-				$strAlias = $strAliasPrefix . 'pregunta_id';
+				$strAlias = $strAliasPrefix . 'createby';
 				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
 				if (isset ($strColumnKeys[$strAliasName])) {
 					$mixVal = $strColumns[$strAliasName];
-					$objToReturn->strPreguntaId = $mixVal;
-					$objToReturn->__blnValid[self::PREGUNTA_ID_FIELD] = true;
+					$objToReturn->strCreateby = $mixVal;
+					$objToReturn->__blnValid[self::CREATEBY_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'created';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					if ($mixVal !== null) {
+						$mixVal = new QDateTime($mixVal);
+					}
+					$objToReturn->dttCreated = $mixVal;
+					$objToReturn->__blnValid[self::CREATED_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'updateby';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strUpdateby = $mixVal;
+					$objToReturn->__blnValid[self::UPDATEBY_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'updated';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					if ($mixVal !== null) {
+						$mixVal = new QDateTime($mixVal);
+					}
+					$objToReturn->dttUpdated = $mixVal;
+					$objToReturn->__blnValid[self::UPDATED_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'active';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strActive = $mixVal;
+					$objToReturn->__blnValid[self::ACTIVE_FIELD] = true;
 				}
 				else {
 					$blnNoCache = true;
@@ -650,16 +776,26 @@
 		$objDatabase->NonQuery('
 			INSERT INTO `alternativa` (
 							`alternativa_id`,
-							`tipo`,
+							`descripcion`,
+							`pregunta_id`,
 							`es_correcta`,
-							`respuesta_correcto`,
-							`pregunta_id`
+							`orden`,
+							`createby`,
+							`created`,
+							`updateby`,
+							`updated`,
+							`active`
 						) VALUES (
-							get_uuid(),
-							' . $objDatabase->SqlVariable($this->strTipo) . ',
+							' . $objDatabase->SqlVariable($this->strAlternativaId) . ',
+							' . $objDatabase->SqlVariable($this->strDescripcion) . ',
+							' . $objDatabase->SqlVariable($this->strPreguntaId) . ',
 							' . $objDatabase->SqlVariable($this->strEsCorrecta) . ',
-							' . $objDatabase->SqlVariable($this->strRespuestaCorrecto) . ',
-							' . $objDatabase->SqlVariable($this->strPreguntaId) . '
+							' . $objDatabase->SqlVariable($this->intOrden) . ',
+							' . $objDatabase->SqlVariable($this->strCreateby) . ',
+							' . $objDatabase->SqlVariable($this->dttCreated) . ',
+							' . $objDatabase->SqlVariable($this->strUpdateby) . ',
+							' . $objDatabase->SqlVariable($this->dttUpdated) . ',
+							' . $objDatabase->SqlVariable($this->strActive) . '
 						)
 		');
 
@@ -708,9 +844,14 @@
 			$strValue = $objDatabase->SqlVariable($this->strAlternativaId);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
-		if (isset($this->__blnDirty[self::TIPO_FIELD])) {
-			$strCol = '`tipo`';
-			$strValue = $objDatabase->SqlVariable($this->strTipo);
+		if (isset($this->__blnDirty[self::DESCRIPCION_FIELD])) {
+			$strCol = '`descripcion`';
+			$strValue = $objDatabase->SqlVariable($this->strDescripcion);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::PREGUNTA_ID_FIELD])) {
+			$strCol = '`pregunta_id`';
+			$strValue = $objDatabase->SqlVariable($this->strPreguntaId);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
 		if (isset($this->__blnDirty[self::ES_CORRECTA_FIELD])) {
@@ -718,14 +859,34 @@
 			$strValue = $objDatabase->SqlVariable($this->strEsCorrecta);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
-		if (isset($this->__blnDirty[self::RESPUESTA_CORRECTO_FIELD])) {
-			$strCol = '`respuesta_correcto`';
-			$strValue = $objDatabase->SqlVariable($this->strRespuestaCorrecto);
+		if (isset($this->__blnDirty[self::ORDEN_FIELD])) {
+			$strCol = '`orden`';
+			$strValue = $objDatabase->SqlVariable($this->intOrden);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
-		if (isset($this->__blnDirty[self::PREGUNTA_ID_FIELD])) {
-			$strCol = '`pregunta_id`';
-			$strValue = $objDatabase->SqlVariable($this->strPreguntaId);
+		if (isset($this->__blnDirty[self::CREATEBY_FIELD])) {
+			$strCol = '`createby`';
+			$strValue = $objDatabase->SqlVariable($this->strCreateby);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::CREATED_FIELD])) {
+			$strCol = '`created`';
+			$strValue = $objDatabase->SqlVariable($this->dttCreated);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::UPDATEBY_FIELD])) {
+			$strCol = '`updateby`';
+			$strValue = $objDatabase->SqlVariable($this->strUpdateby);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::UPDATED_FIELD])) {
+			$strCol = '`updated`';
+			$strValue = $objDatabase->SqlVariable($this->dttUpdated);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::ACTIVE_FIELD])) {
+			$strCol = '`active`';
+			$strValue = $objDatabase->SqlVariable($this->strActive);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
 		if ($values) {
@@ -814,22 +975,42 @@
 		// Update $this's local variables to match
 		$this->strAlternativaId = $objReloaded->strAlternativaId;
 		$this->__blnValid[self::ALTERNATIVA_ID_FIELD] = true;
-		if (isset($objReloaded->__blnValid[self::TIPO_FIELD])) {
-			$this->strTipo = $objReloaded->strTipo;
-			$this->__blnValid[self::TIPO_FIELD] = true;
-		}
-		if (isset($objReloaded->__blnValid[self::ES_CORRECTA_FIELD])) {
-			$this->strEsCorrecta = $objReloaded->strEsCorrecta;
-			$this->__blnValid[self::ES_CORRECTA_FIELD] = true;
-		}
-		if (isset($objReloaded->__blnValid[self::RESPUESTA_CORRECTO_FIELD])) {
-			$this->strRespuestaCorrecto = $objReloaded->strRespuestaCorrecto;
-			$this->__blnValid[self::RESPUESTA_CORRECTO_FIELD] = true;
+		if (isset($objReloaded->__blnValid[self::DESCRIPCION_FIELD])) {
+			$this->strDescripcion = $objReloaded->strDescripcion;
+			$this->__blnValid[self::DESCRIPCION_FIELD] = true;
 		}
 		if (isset($objReloaded->__blnValid[self::PREGUNTA_ID_FIELD])) {
 			$this->strPreguntaId = $objReloaded->strPreguntaId;
 			$this->objPregunta = $objReloaded->objPregunta;
 			$this->__blnValid[self::PREGUNTA_ID_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::ES_CORRECTA_FIELD])) {
+			$this->strEsCorrecta = $objReloaded->strEsCorrecta;
+			$this->__blnValid[self::ES_CORRECTA_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::ORDEN_FIELD])) {
+			$this->intOrden = $objReloaded->intOrden;
+			$this->__blnValid[self::ORDEN_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::CREATEBY_FIELD])) {
+			$this->strCreateby = $objReloaded->strCreateby;
+			$this->__blnValid[self::CREATEBY_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::CREATED_FIELD])) {
+			$this->dttCreated = $objReloaded->dttCreated;
+			$this->__blnValid[self::CREATED_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::UPDATEBY_FIELD])) {
+			$this->strUpdateby = $objReloaded->strUpdateby;
+			$this->__blnValid[self::UPDATEBY_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::UPDATED_FIELD])) {
+			$this->dttUpdated = $objReloaded->dttUpdated;
+			$this->__blnValid[self::UPDATED_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::ACTIVE_FIELD])) {
+			$this->strActive = $objReloaded->strActive;
+			$this->__blnValid[self::ACTIVE_FIELD] = true;
 		}
 	}
 		////////////////////
@@ -901,107 +1082,35 @@
 
 
    /**
-	* Gets the value of strTipo 
+	* Gets the value of strDescripcion 
 	* @throws QCallerException
 	* @return string
 	*/
-	public function getTipo() {
-		if ($this->__blnRestored && empty($this->__blnValid[self::TIPO_FIELD])) {
-			throw new QCallerException("Tipo was not selected in the most recent query and is not valid.");
+	public function getDescripcion() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::DESCRIPCION_FIELD])) {
+			throw new QCallerException("Descripcion was not selected in the most recent query and is not valid.");
 		}
-		return $this->strTipo;
+		return $this->strDescripcion;
 	}
 
 
 
 
    /**
-	* Sets the value of strTipo 
+	* Sets the value of strDescripcion 
 	* Returns $this to allow chaining of setters.
-	* @param string|null $strTipo
+	* @param string|null $strDescripcion
     * @throws QCallerException
 	* @return Alternativa
 	*/
-	public function setTipo($strTipo) {
-		$strTipo = QType::Cast($strTipo, QType::String);
+	public function setDescripcion($strDescripcion) {
+		$strDescripcion = QType::Cast($strDescripcion, QType::String);
 
-		if ($this->strTipo !== $strTipo) {
-			$this->strTipo = $strTipo;
-			$this->__blnDirty[self::TIPO_FIELD] = true;
+		if ($this->strDescripcion !== $strDescripcion) {
+			$this->strDescripcion = $strDescripcion;
+			$this->__blnDirty[self::DESCRIPCION_FIELD] = true;
 		}
-		$this->__blnValid[self::TIPO_FIELD] = true;
-		return $this; // allows chaining
-	}
-
-
-
-
-   /**
-	* Gets the value of strEsCorrecta 
-	* @throws QCallerException
-	* @return string
-	*/
-	public function getEsCorrecta() {
-		if ($this->__blnRestored && empty($this->__blnValid[self::ES_CORRECTA_FIELD])) {
-			throw new QCallerException("EsCorrecta was not selected in the most recent query and is not valid.");
-		}
-		return $this->strEsCorrecta;
-	}
-
-
-
-
-   /**
-	* Sets the value of strEsCorrecta 
-	* Returns $this to allow chaining of setters.
-	* @param string|null $strEsCorrecta
-    * @throws QCallerException
-	* @return Alternativa
-	*/
-	public function setEsCorrecta($strEsCorrecta) {
-		$strEsCorrecta = QType::Cast($strEsCorrecta, QType::String);
-
-		if ($this->strEsCorrecta !== $strEsCorrecta) {
-			$this->strEsCorrecta = $strEsCorrecta;
-			$this->__blnDirty[self::ES_CORRECTA_FIELD] = true;
-		}
-		$this->__blnValid[self::ES_CORRECTA_FIELD] = true;
-		return $this; // allows chaining
-	}
-
-
-
-
-   /**
-	* Gets the value of strRespuestaCorrecto 
-	* @throws QCallerException
-	* @return string
-	*/
-	public function getRespuestaCorrecto() {
-		if ($this->__blnRestored && empty($this->__blnValid[self::RESPUESTA_CORRECTO_FIELD])) {
-			throw new QCallerException("RespuestaCorrecto was not selected in the most recent query and is not valid.");
-		}
-		return $this->strRespuestaCorrecto;
-	}
-
-
-
-
-   /**
-	* Sets the value of strRespuestaCorrecto 
-	* Returns $this to allow chaining of setters.
-	* @param string|null $strRespuestaCorrecto
-    * @throws QCallerException
-	* @return Alternativa
-	*/
-	public function setRespuestaCorrecto($strRespuestaCorrecto) {
-		$strRespuestaCorrecto = QType::Cast($strRespuestaCorrecto, QType::String);
-
-		if ($this->strRespuestaCorrecto !== $strRespuestaCorrecto) {
-			$this->strRespuestaCorrecto = $strRespuestaCorrecto;
-			$this->__blnDirty[self::RESPUESTA_CORRECTO_FIELD] = true;
-		}
-		$this->__blnValid[self::RESPUESTA_CORRECTO_FIELD] = true;
+		$this->__blnValid[self::DESCRIPCION_FIELD] = true;
 		return $this; // allows chaining
 	}
 
@@ -1088,6 +1197,258 @@
         }
         return $this;
     }
+
+
+
+   /**
+	* Gets the value of strEsCorrecta 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getEsCorrecta() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::ES_CORRECTA_FIELD])) {
+			throw new QCallerException("EsCorrecta was not selected in the most recent query and is not valid.");
+		}
+		return $this->strEsCorrecta;
+	}
+
+
+
+
+   /**
+	* Sets the value of strEsCorrecta 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strEsCorrecta
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setEsCorrecta($strEsCorrecta) {
+		$strEsCorrecta = QType::Cast($strEsCorrecta, QType::String);
+
+		if ($this->strEsCorrecta !== $strEsCorrecta) {
+			$this->strEsCorrecta = $strEsCorrecta;
+			$this->__blnDirty[self::ES_CORRECTA_FIELD] = true;
+		}
+		$this->__blnValid[self::ES_CORRECTA_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of intOrden 
+	* @throws QCallerException
+	* @return integer
+	*/
+	public function getOrden() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::ORDEN_FIELD])) {
+			throw new QCallerException("Orden was not selected in the most recent query and is not valid.");
+		}
+		return $this->intOrden;
+	}
+
+
+
+
+   /**
+	* Sets the value of intOrden 
+	* Returns $this to allow chaining of setters.
+	* @param integer|null $intOrden
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setOrden($intOrden) {
+		$intOrden = QType::Cast($intOrden, QType::Integer);
+
+		if ($this->intOrden !== $intOrden) {
+			$this->intOrden = $intOrden;
+			$this->__blnDirty[self::ORDEN_FIELD] = true;
+		}
+		$this->__blnValid[self::ORDEN_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strCreateby 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getCreateby() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::CREATEBY_FIELD])) {
+			throw new QCallerException("Createby was not selected in the most recent query and is not valid.");
+		}
+		return $this->strCreateby;
+	}
+
+
+
+
+   /**
+	* Sets the value of strCreateby 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strCreateby
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setCreateby($strCreateby) {
+		$strCreateby = QType::Cast($strCreateby, QType::String);
+
+		if ($this->strCreateby !== $strCreateby) {
+			$this->strCreateby = $strCreateby;
+			$this->__blnDirty[self::CREATEBY_FIELD] = true;
+		}
+		$this->__blnValid[self::CREATEBY_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of dttCreated 
+	* @throws QCallerException
+	* @return QDateTime
+	*/
+	public function getCreated() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::CREATED_FIELD])) {
+			throw new QCallerException("Created was not selected in the most recent query and is not valid.");
+		}
+		return $this->dttCreated;
+	}
+
+
+
+
+   /**
+	* Sets the value of dttCreated 
+	* Returns $this to allow chaining of setters.
+	* @param QDateTime|null $dttCreated
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setCreated($dttCreated) {
+		$dttCreated = QType::Cast($dttCreated, QType::DateTime);
+
+		if ($this->dttCreated !== $dttCreated) {
+			$this->dttCreated = $dttCreated;
+			$this->__blnDirty[self::CREATED_FIELD] = true;
+		}
+		$this->__blnValid[self::CREATED_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strUpdateby 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getUpdateby() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::UPDATEBY_FIELD])) {
+			throw new QCallerException("Updateby was not selected in the most recent query and is not valid.");
+		}
+		return $this->strUpdateby;
+	}
+
+
+
+
+   /**
+	* Sets the value of strUpdateby 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strUpdateby
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setUpdateby($strUpdateby) {
+		$strUpdateby = QType::Cast($strUpdateby, QType::String);
+
+		if ($this->strUpdateby !== $strUpdateby) {
+			$this->strUpdateby = $strUpdateby;
+			$this->__blnDirty[self::UPDATEBY_FIELD] = true;
+		}
+		$this->__blnValid[self::UPDATEBY_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of dttUpdated 
+	* @throws QCallerException
+	* @return QDateTime
+	*/
+	public function getUpdated() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::UPDATED_FIELD])) {
+			throw new QCallerException("Updated was not selected in the most recent query and is not valid.");
+		}
+		return $this->dttUpdated;
+	}
+
+
+
+
+   /**
+	* Sets the value of dttUpdated 
+	* Returns $this to allow chaining of setters.
+	* @param QDateTime|null $dttUpdated
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setUpdated($dttUpdated) {
+		$dttUpdated = QType::Cast($dttUpdated, QType::DateTime);
+
+		if ($this->dttUpdated !== $dttUpdated) {
+			$this->dttUpdated = $dttUpdated;
+			$this->__blnDirty[self::UPDATED_FIELD] = true;
+		}
+		$this->__blnValid[self::UPDATED_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strActive 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getActive() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::ACTIVE_FIELD])) {
+			throw new QCallerException("Active was not selected in the most recent query and is not valid.");
+		}
+		return $this->strActive;
+	}
+
+
+
+
+   /**
+	* Sets the value of strActive 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strActive
+    * @throws QCallerException
+	* @return Alternativa
+	*/
+	public function setActive($strActive) {
+		$strActive = QType::Cast($strActive, QType::String);
+
+		if ($this->strActive !== $strActive) {
+			$this->strActive = $strActive;
+			$this->__blnDirty[self::ACTIVE_FIELD] = true;
+		}
+		$this->__blnValid[self::ACTIVE_FIELD] = true;
+		return $this; // allows chaining
+	}
+
 
 
 
@@ -1299,10 +1660,15 @@
 		public static function GetSoapComplexTypeXml() {
 			$strToReturn = '<complexType name="Alternativa"><sequence>';
 			$strToReturn .= '<element name="AlternativaId" type="xsd:string"/>';
-			$strToReturn .= '<element name="Tipo" type="xsd:string"/>';
-			$strToReturn .= '<element name="EsCorrecta" type="xsd:string"/>';
-			$strToReturn .= '<element name="RespuestaCorrecto" type="xsd:string"/>';
+			$strToReturn .= '<element name="Descripcion" type="xsd:string"/>';
 			$strToReturn .= '<element name="Pregunta" type="xsd1:Pregunta"/>';
+			$strToReturn .= '<element name="EsCorrecta" type="xsd:string"/>';
+			$strToReturn .= '<element name="Orden" type="xsd:int"/>';
+			$strToReturn .= '<element name="Createby" type="xsd:string"/>';
+			$strToReturn .= '<element name="Created" type="xsd:dateTime"/>';
+			$strToReturn .= '<element name="Updateby" type="xsd:string"/>';
+			$strToReturn .= '<element name="Updated" type="xsd:dateTime"/>';
+			$strToReturn .= '<element name="Active" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1328,15 +1694,25 @@
 			$objToReturn = new Alternativa();
 			if (property_exists($objSoapObject, 'AlternativaId'))
 				$objToReturn->strAlternativaId = $objSoapObject->AlternativaId;
-			if (property_exists($objSoapObject, 'Tipo'))
-				$objToReturn->strTipo = $objSoapObject->Tipo;
-			if (property_exists($objSoapObject, 'EsCorrecta'))
-				$objToReturn->strEsCorrecta = $objSoapObject->EsCorrecta;
-			if (property_exists($objSoapObject, 'RespuestaCorrecto'))
-				$objToReturn->strRespuestaCorrecto = $objSoapObject->RespuestaCorrecto;
+			if (property_exists($objSoapObject, 'Descripcion'))
+				$objToReturn->strDescripcion = $objSoapObject->Descripcion;
 			if ((property_exists($objSoapObject, 'Pregunta')) &&
 				($objSoapObject->Pregunta))
 				$objToReturn->Pregunta = Pregunta::GetObjectFromSoapObject($objSoapObject->Pregunta);
+			if (property_exists($objSoapObject, 'EsCorrecta'))
+				$objToReturn->strEsCorrecta = $objSoapObject->EsCorrecta;
+			if (property_exists($objSoapObject, 'Orden'))
+				$objToReturn->intOrden = $objSoapObject->Orden;
+			if (property_exists($objSoapObject, 'Createby'))
+				$objToReturn->strCreateby = $objSoapObject->Createby;
+			if (property_exists($objSoapObject, 'Created'))
+				$objToReturn->dttCreated = new QDateTime($objSoapObject->Created);
+			if (property_exists($objSoapObject, 'Updateby'))
+				$objToReturn->strUpdateby = $objSoapObject->Updateby;
+			if (property_exists($objSoapObject, 'Updated'))
+				$objToReturn->dttUpdated = new QDateTime($objSoapObject->Updated);
+			if (property_exists($objSoapObject, 'Active'))
+				$objToReturn->strActive = $objSoapObject->Active;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -1359,6 +1735,10 @@
 				$objObject->objPregunta = Pregunta::GetSoapObjectFromObject($objObject->objPregunta, false);
 			else if (!$blnBindRelatedObjects)
 				$objObject->strPreguntaId = null;
+			if ($objObject->dttCreated)
+				$objObject->dttCreated = $objObject->dttCreated->qFormat(QDateTime::FormatSoap);
+			if ($objObject->dttUpdated)
+				$objObject->dttUpdated = $objObject->dttUpdated->qFormat(QDateTime::FormatSoap);
 			return $objObject;
 		}
 
@@ -1374,10 +1754,15 @@
 			// Member Variables
 			///////////////////
 			$iArray['AlternativaId'] = $this->strAlternativaId;
-			$iArray['Tipo'] = $this->strTipo;
-			$iArray['EsCorrecta'] = $this->strEsCorrecta;
-			$iArray['RespuestaCorrecto'] = $this->strRespuestaCorrecto;
+			$iArray['Descripcion'] = $this->strDescripcion;
 			$iArray['PreguntaId'] = $this->strPreguntaId;
+			$iArray['EsCorrecta'] = $this->strEsCorrecta;
+			$iArray['Orden'] = $this->intOrden;
+			$iArray['Createby'] = $this->strCreateby;
+			$iArray['Created'] = $this->dttCreated;
+			$iArray['Updateby'] = $this->strUpdateby;
+			$iArray['Updated'] = $this->dttUpdated;
+			$iArray['Active'] = $this->strActive;
 			return new ArrayIterator($iArray);
 		}
 
@@ -1418,19 +1803,34 @@
 			if (isset($this->__blnValid[self::ALTERNATIVA_ID_FIELD])) {
 				$a['alternativa_id'] = $this->strAlternativaId;
 			}
-			if (isset($this->__blnValid[self::TIPO_FIELD])) {
-				$a['tipo'] = $this->strTipo;
-			}
-			if (isset($this->__blnValid[self::ES_CORRECTA_FIELD])) {
-				$a['es_correcta'] = $this->strEsCorrecta;
-			}
-			if (isset($this->__blnValid[self::RESPUESTA_CORRECTO_FIELD])) {
-				$a['respuesta_correcto'] = $this->strRespuestaCorrecto;
+			if (isset($this->__blnValid[self::DESCRIPCION_FIELD])) {
+				$a['descripcion'] = $this->strDescripcion;
 			}
 			if (isset($this->objPregunta)) {
 				$a['pregunta'] = $this->objPregunta;
 			} elseif (isset($this->__blnValid[self::PREGUNTA_ID_FIELD])) {
 				$a['pregunta_id'] = $this->strPreguntaId;
+			}
+			if (isset($this->__blnValid[self::ES_CORRECTA_FIELD])) {
+				$a['es_correcta'] = $this->strEsCorrecta;
+			}
+			if (isset($this->__blnValid[self::ORDEN_FIELD])) {
+				$a['orden'] = $this->intOrden;
+			}
+			if (isset($this->__blnValid[self::CREATEBY_FIELD])) {
+				$a['createby'] = $this->strCreateby;
+			}
+			if (isset($this->__blnValid[self::CREATED_FIELD])) {
+				$a['created'] = $this->dttCreated;
+			}
+			if (isset($this->__blnValid[self::UPDATEBY_FIELD])) {
+				$a['updateby'] = $this->strUpdateby;
+			}
+			if (isset($this->__blnValid[self::UPDATED_FIELD])) {
+				$a['updated'] = $this->dttUpdated;
+			}
+			if (isset($this->__blnValid[self::ACTIVE_FIELD])) {
+				$a['active'] = $this->strActive;
 			}
 			return $a;
 		}
@@ -1452,11 +1852,16 @@
      * @uses QQTableNode
      *
      * @property-read QQColumnNode $AlternativaId
-     * @property-read QQColumnNode $Tipo
-     * @property-read QQColumnNode $EsCorrecta
-     * @property-read QQColumnNode $RespuestaCorrecto
+     * @property-read QQColumnNode $Descripcion
      * @property-read QQColumnNode $PreguntaId
      * @property-read QQNodePregunta $Pregunta
+     * @property-read QQColumnNode $EsCorrecta
+     * @property-read QQColumnNode $Orden
+     * @property-read QQColumnNode $Createby
+     * @property-read QQColumnNode $Created
+     * @property-read QQColumnNode $Updateby
+     * @property-read QQColumnNode $Updated
+     * @property-read QQColumnNode $Active
      *
      *
 
@@ -1470,10 +1875,15 @@
 		public function Fields() {
 			return [
 				"alternativa_id",
-				"tipo",
-				"es_correcta",
-				"respuesta_correcto",
+				"descripcion",
 				"pregunta_id",
+				"es_correcta",
+				"orden",
+				"createby",
+				"created",
+				"updateby",
+				"updated",
+				"active",
 			];
 		}
 
@@ -1492,16 +1902,26 @@
 			switch ($strName) {
 				case 'AlternativaId':
 					return new QQColumnNode('alternativa_id', 'AlternativaId', 'VarChar', $this);
-				case 'Tipo':
-					return new QQColumnNode('tipo', 'Tipo', 'VarChar', $this);
-				case 'EsCorrecta':
-					return new QQColumnNode('es_correcta', 'EsCorrecta', 'VarChar', $this);
-				case 'RespuestaCorrecto':
-					return new QQColumnNode('respuesta_correcto', 'RespuestaCorrecto', 'VarChar', $this);
+				case 'Descripcion':
+					return new QQColumnNode('descripcion', 'Descripcion', 'VarChar', $this);
 				case 'PreguntaId':
 					return new QQColumnNode('pregunta_id', 'PreguntaId', 'VarChar', $this);
 				case 'Pregunta':
 					return new QQNodePregunta('pregunta_id', 'Pregunta', 'VarChar', $this);
+				case 'EsCorrecta':
+					return new QQColumnNode('es_correcta', 'EsCorrecta', 'VarChar', $this);
+				case 'Orden':
+					return new QQColumnNode('orden', 'Orden', 'Integer', $this);
+				case 'Createby':
+					return new QQColumnNode('createby', 'Createby', 'VarChar', $this);
+				case 'Created':
+					return new QQColumnNode('created', 'Created', 'DateTime', $this);
+				case 'Updateby':
+					return new QQColumnNode('updateby', 'Updateby', 'VarChar', $this);
+				case 'Updated':
+					return new QQColumnNode('updated', 'Updated', 'DateTime', $this);
+				case 'Active':
+					return new QQColumnNode('active', 'Active', 'VarChar', $this);
 
 				case '_PrimaryKeyNode':
 					return new QQColumnNode('alternativa_id', 'AlternativaId', 'VarChar', $this);
@@ -1518,11 +1938,16 @@
 
     /**
      * @property-read QQColumnNode $AlternativaId
-     * @property-read QQColumnNode $Tipo
-     * @property-read QQColumnNode $EsCorrecta
-     * @property-read QQColumnNode $RespuestaCorrecto
+     * @property-read QQColumnNode $Descripcion
      * @property-read QQColumnNode $PreguntaId
      * @property-read QQNodePregunta $Pregunta
+     * @property-read QQColumnNode $EsCorrecta
+     * @property-read QQColumnNode $Orden
+     * @property-read QQColumnNode $Createby
+     * @property-read QQColumnNode $Created
+     * @property-read QQColumnNode $Updateby
+     * @property-read QQColumnNode $Updated
+     * @property-read QQColumnNode $Active
      *
      *
 
@@ -1536,10 +1961,15 @@
 		public function Fields() {
 			return [
 				"alternativa_id",
-				"tipo",
-				"es_correcta",
-				"respuesta_correcto",
+				"descripcion",
 				"pregunta_id",
+				"es_correcta",
+				"orden",
+				"createby",
+				"created",
+				"updateby",
+				"updated",
+				"active",
 			];
 		}
 
@@ -1553,16 +1983,26 @@
 			switch ($strName) {
 				case 'AlternativaId':
 					return new QQColumnNode('alternativa_id', 'AlternativaId', 'VarChar', $this);
-				case 'Tipo':
-					return new QQColumnNode('tipo', 'Tipo', 'VarChar', $this);
-				case 'EsCorrecta':
-					return new QQColumnNode('es_correcta', 'EsCorrecta', 'VarChar', $this);
-				case 'RespuestaCorrecto':
-					return new QQColumnNode('respuesta_correcto', 'RespuestaCorrecto', 'VarChar', $this);
+				case 'Descripcion':
+					return new QQColumnNode('descripcion', 'Descripcion', 'VarChar', $this);
 				case 'PreguntaId':
 					return new QQColumnNode('pregunta_id', 'PreguntaId', 'VarChar', $this);
 				case 'Pregunta':
 					return new QQNodePregunta('pregunta_id', 'Pregunta', 'VarChar', $this);
+				case 'EsCorrecta':
+					return new QQColumnNode('es_correcta', 'EsCorrecta', 'VarChar', $this);
+				case 'Orden':
+					return new QQColumnNode('orden', 'Orden', 'Integer', $this);
+				case 'Createby':
+					return new QQColumnNode('createby', 'Createby', 'VarChar', $this);
+				case 'Created':
+					return new QQColumnNode('created', 'Created', 'DateTime', $this);
+				case 'Updateby':
+					return new QQColumnNode('updateby', 'Updateby', 'VarChar', $this);
+				case 'Updated':
+					return new QQColumnNode('updated', 'Updated', 'DateTime', $this);
+				case 'Active':
+					return new QQColumnNode('active', 'Active', 'VarChar', $this);
 
 				case '_PrimaryKeyNode':
 					return new QQColumnNode('alternativa_id', 'AlternativaId', 'VarChar', $this);

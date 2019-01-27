@@ -23,16 +23,31 @@ class AlternativaEditPanelGen extends QPanel {
 	protected $txtAlternativaId;
 
 	/** @var QTextBox */
-	protected $txtTipo;
+	protected $txtDescripcion;
+
+	/** @var QListBox */
+	protected $lstPregunta;
 
 	/** @var QTextBox */
 	protected $txtEsCorrecta;
 
-	/** @var QTextBox */
-	protected $txtRespuestaCorrecto;
+	/** @var QIntegerTextBox */
+	protected $txtOrden;
 
-	/** @var QListBox */
-	protected $lstPregunta;
+	/** @var QTextBox */
+	protected $txtCreateby;
+
+	/** @var QDateTimePicker */
+	protected $calCreated;
+
+	/** @var QTextBox */
+	protected $txtUpdateby;
+
+	/** @var QDateTimePicker */
+	protected $calUpdated;
+
+	/** @var QTextBox */
+	protected $txtActive;
 
 
 	/**
@@ -62,10 +77,15 @@ class AlternativaEditPanelGen extends QPanel {
 	 **/
 	protected function CreateObjects() {
 		$this->txtAlternativaId = $this->mctAlternativa->txtAlternativaId_Create();
-		$this->txtTipo = $this->mctAlternativa->txtTipo_Create();
-		$this->txtEsCorrecta = $this->mctAlternativa->txtEsCorrecta_Create();
-		$this->txtRespuestaCorrecto = $this->mctAlternativa->txtRespuestaCorrecto_Create();
+		$this->txtDescripcion = $this->mctAlternativa->txtDescripcion_Create();
 		$this->lstPregunta = $this->mctAlternativa->lstPregunta_Create();
+		$this->txtEsCorrecta = $this->mctAlternativa->txtEsCorrecta_Create();
+		$this->txtOrden = $this->mctAlternativa->txtOrden_Create();
+		$this->txtCreateby = $this->mctAlternativa->txtCreateby_Create();
+		$this->calCreated = $this->mctAlternativa->calCreated_Create();
+		$this->txtUpdateby = $this->mctAlternativa->txtUpdateby_Create();
+		$this->calUpdated = $this->mctAlternativa->calUpdated_Create();
+		$this->txtActive = $this->mctAlternativa->txtActive_Create();
 	}
 
 	/**

@@ -35,7 +35,23 @@ class PreguntaListGen extends QDataGrid {
 	/** @var QHtmlTableNodeColumn */
 	public $colPreguntaId;
 	/** @var QHtmlTableNodeColumn */
-	public $colEvaluacion;
+	public $colPreguntaHtml;
+	/** @var QHtmlTableNodeColumn */
+	public $colExamen;
+	/** @var QHtmlTableNodeColumn */
+	public $colEnunciado;
+	/** @var QHtmlTableNodeColumn */
+	public $colOrden;
+	/** @var QHtmlTableNodeColumn */
+	public $colCreateby;
+	/** @var QHtmlTableNodeColumn */
+	public $colCreated;
+	/** @var QHtmlTableNodeColumn */
+	public $colUpdateby;
+	/** @var QHtmlTableNodeColumn */
+	public $colUpdated;
+	/** @var QHtmlTableNodeColumn */
+	public $colActive;
 
 
 	/**
@@ -65,7 +81,15 @@ class PreguntaListGen extends QDataGrid {
 	 */
 	public function CreateColumns() {
 		$this->colPreguntaId = $this->CreateNodeColumn("Pregunta Id", QQN::Pregunta()->PreguntaId);
-		$this->colEvaluacion = $this->CreateNodeColumn("Evaluacion", QQN::Pregunta()->Evaluacion);
+		$this->colPreguntaHtml = $this->CreateNodeColumn("Pregunta Html", QQN::Pregunta()->PreguntaHtml);
+		$this->colExamen = $this->CreateNodeColumn("Examen", QQN::Pregunta()->Examen);
+		$this->colEnunciado = $this->CreateNodeColumn("Enunciado", QQN::Pregunta()->Enunciado);
+		$this->colOrden = $this->CreateNodeColumn("Orden", QQN::Pregunta()->Orden);
+		$this->colCreateby = $this->CreateNodeColumn("Createby", QQN::Pregunta()->Createby);
+		$this->colCreated = $this->CreateNodeColumn("Created", QQN::Pregunta()->Created);
+		$this->colUpdateby = $this->CreateNodeColumn("Updateby", QQN::Pregunta()->Updateby);
+		$this->colUpdated = $this->CreateNodeColumn("Updated", QQN::Pregunta()->Updated);
+		$this->colActive = $this->CreateNodeColumn("Active", QQN::Pregunta()->Active);
 	}
 
    /**

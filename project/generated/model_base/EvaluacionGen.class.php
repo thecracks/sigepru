@@ -17,10 +17,6 @@
 	 * @subpackage GeneratedDataObjects
 	 * @property string $EvaluacionId the value of the evaluacion_id column (PK)
 	 * @property string $Html the value of the html column 
-	 * @property-read Pregunta $_Pregunta the value of the protected _objPregunta (Read-Only) if set due to an expansion on the pregunta.evaluacion_id reverse relationship
-	 * @property-read Pregunta $Pregunta the value of the protected _objPregunta (Read-Only) if set due to an expansion on the pregunta.evaluacion_id reverse relationship
-	 * @property-read Pregunta[] $_PreguntaArray the value of the protected _objPreguntaArray (Read-Only) if set due to an ExpandAsArray on the pregunta.evaluacion_id reverse relationship
-	 * @property-read Pregunta[] $PreguntaArray the value of the protected _objPreguntaArray (Read-Only) if set due to an ExpandAsArray on the pregunta.evaluacion_id reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class EvaluacionGen extends QBaseClass implements IteratorAggregate, JsonSerializable {
@@ -64,22 +60,6 @@
 		const HtmlDefault = null;
 		const HTML_FIELD = 'html';
 
-
-		/**
-		 * Protected member variable that stores a reference to a single Pregunta object
-		 * (of type Pregunta), if this Evaluacion object was restored with
-		 * an expansion on the pregunta association table.
-		 * @var Pregunta _objPregunta;
-		 */
-		protected $_objPregunta;
-
-		/**
-		 * Protected member variable that stores a reference to an array of Pregunta objects
-		 * (of type Pregunta[]), if this Evaluacion object was restored with
-		 * an ExpandAsArray on the pregunta association table.
-		 * @var Pregunta[] _objPreguntaArray;
-		 */
-		protected $_objPreguntaArray = null;
 
 		/**
 		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -311,18 +291,6 @@
 			}
 			
 			
-			// See if we're doing an array expansion on the previous item
-			if ($objExpandAsArrayNode && 
-					is_array($objPreviousItemArray) && 
-					count($objPreviousItemArray)) {
-
-				$expansionStatus = static::ExpandArray ($objDbRow, $strAliasPrefix, $objExpandAsArrayNode, $objPreviousItemArray, $strColumnAliasArray);
-				if ($expansionStatus) {
-					return false; // db row was used but no new object was created
-				} elseif ($expansionStatus === null) {
-					$blnCheckDuplicate = true;
-				}
-			}
 
 
 			$objToReturn = static::GetFromCache ($key);
@@ -392,24 +360,6 @@
 
 
 				
-
-			// Check for Pregunta Virtual Binding
-			$strAlias = $strAliasPrefix . 'pregunta__pregunta_id';
-			$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-			$objExpansionNode = (empty($objExpansionAliasArray['pregunta']) ? null : $objExpansionAliasArray['pregunta']);
-			$blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-			if ($blnExpanded && null === $objToReturn->_objPreguntaArray)
-				$objToReturn->_objPreguntaArray = array();
-			if (isset ($strColumns[$strAliasName])) {
-				if ($blnExpanded) {
-					$objToReturn->_objPreguntaArray[] = Pregunta::InstantiateDbRow($objDbRow, $strAliasPrefix . 'pregunta__', $objExpansionNode, null, $strColumnAliasArray, false, 'evaluacion_id', $objToReturn);
-				} elseif (is_null($objToReturn->_objPregunta)) {
-					$objToReturn->_objPregunta = Pregunta::InstantiateDbRow($objDbRow, $strAliasPrefix . 'pregunta__', $objExpansionNode, null, $strColumnAliasArray, false, 'evaluacion_id', $objToReturn);
-				}
-			}
-			elseif ($strParentExpansionKey === 'pregunta' && $objExpansionParent) {
-				$objToReturn->_objPregunta = $objExpansionParent;
-			}
 
 			return $objToReturn;
 		}
@@ -563,7 +513,7 @@
 							`evaluacion_id`,
 							`html`
 						) VALUES (
-							get_uuid(),
+							' . $objDatabase->SqlVariable($this->strEvaluacionId) . ',
 							' . $objDatabase->SqlVariable($this->strHtml) . '
 						)
 		');
@@ -832,10 +782,6 @@
 
 
 
-   		// Reverse references
-		$objCopy->_objPregunta = null;
-		$objCopy->_objPreguntaArray = null;
-
 		return $objCopy;
 	}
 
@@ -898,24 +844,6 @@
 				// Virtual Object References (Many to Many and Reverse References)
 				// (If restored via a "Many-to" expansion)
 				////////////////////////////
-
-				case 'Pregunta':
-				case '_Pregunta':
-					/**
-					 * Gets the value of the protected _objPregunta (Read-Only)
-					 * if set due to an expansion on the pregunta.evaluacion_id reverse relationship
-					 * @return Pregunta
-					 */
-					return $this->_objPregunta;
-
-				case 'PreguntaArray':
-				case '_PreguntaArray':
-					/**
-					 * Gets the value of the protected _objPreguntaArray (Read-Only)
-					 * if set due to an ExpandAsArray on the pregunta.evaluacion_id reverse relationship
-					 * @return Pregunta[]
-					 */
-					return $this->_objPreguntaArray;
 
 
 				case '__Restored':
@@ -994,155 +922,6 @@
 		// ASSOCIATED OBJECTS' METHODS
 		///////////////////////////////
 
-
-
-		// Related Objects' Methods for Pregunta
-		//-------------------------------------------------------------------
-
-		/**
-		 * Gets all associated Preguntas as an array of Pregunta objects
-		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return Pregunta[]
-		*/
-		public function GetPreguntaArray($objOptionalClauses = null) {
-			if ((is_null($this->strEvaluacionId)))
-				return array();
-
-			try {
-				return Pregunta::LoadArrayByEvaluacionId($this->strEvaluacionId, $objOptionalClauses);
-			} catch (QCallerException $objExc) {
-				$objExc->IncrementOffset();
-				throw $objExc;
-			}
-		}
-
-		/**
-		 * Counts all associated Preguntas
-		 * @return int
-		*/
-		public function CountPreguntas() {
-			if ((is_null($this->strEvaluacionId)))
-				return 0;
-
-			return Pregunta::CountByEvaluacionId($this->strEvaluacionId);
-		}
-
-		/**
-		 * Associates a Pregunta
-		 * @param Pregunta $objPregunta
-		 * @return void
-		*/
-		public function AssociatePregunta(Pregunta $objPregunta) {
-			if ((is_null($this->strEvaluacionId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociatePregunta on this unsaved Evaluacion.');
-			if ((is_null($objPregunta->PreguntaId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociatePregunta on this Evaluacion with an unsaved Pregunta.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Evaluacion::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`pregunta`
-				SET
-					`evaluacion_id` = ' . $objDatabase->SqlVariable($this->strEvaluacionId) . '
-				WHERE
-					`pregunta_id` = ' . $objDatabase->SqlVariable($objPregunta->PreguntaId) . '
-			');
-		}
-
-		/**
-		 * Unassociates a Pregunta
-		 * @param Pregunta $objPregunta
-		 * @return void
-		*/
-		public function UnassociatePregunta(Pregunta $objPregunta) {
-			if ((is_null($this->strEvaluacionId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociatePregunta on this unsaved Evaluacion.');
-			if ((is_null($objPregunta->PreguntaId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociatePregunta on this Evaluacion with an unsaved Pregunta.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Evaluacion::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`pregunta`
-				SET
-					`evaluacion_id` = null
-				WHERE
-					`pregunta_id` = ' . $objDatabase->SqlVariable($objPregunta->PreguntaId) . ' AND
-					`evaluacion_id` = ' . $objDatabase->SqlVariable($this->strEvaluacionId) . '
-			');
-		}
-
-		/**
-		 * Unassociates all Preguntas
-		 * @return void
-		*/
-		public function UnassociateAllPreguntas() {
-			if ((is_null($this->strEvaluacionId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociatePregunta on this unsaved Evaluacion.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Evaluacion::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`pregunta`
-				SET
-					`evaluacion_id` = null
-				WHERE
-					`evaluacion_id` = ' . $objDatabase->SqlVariable($this->strEvaluacionId) . '
-			');
-		}
-
-		/**
-		 * Deletes an associated Pregunta
-		 * @param Pregunta $objPregunta
-		 * @return void
-		*/
-		public function DeleteAssociatedPregunta(Pregunta $objPregunta) {
-			if ((is_null($this->strEvaluacionId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociatePregunta on this unsaved Evaluacion.');
-			if ((is_null($objPregunta->PreguntaId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociatePregunta on this Evaluacion with an unsaved Pregunta.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Evaluacion::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				DELETE FROM
-					`pregunta`
-				WHERE
-					`pregunta_id` = ' . $objDatabase->SqlVariable($objPregunta->PreguntaId) . ' AND
-					`evaluacion_id` = ' . $objDatabase->SqlVariable($this->strEvaluacionId) . '
-			');
-		}
-
-		/**
-		 * Deletes all associated Preguntas
-		 * @return void
-		*/
-		public function DeleteAllPreguntas() {
-			if ((is_null($this->strEvaluacionId)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociatePregunta on this unsaved Evaluacion.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Evaluacion::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				DELETE FROM
-					`pregunta`
-				WHERE
-					`evaluacion_id` = ' . $objDatabase->SqlVariable($this->strEvaluacionId) . '
-			');
-		}
 
 
 		
@@ -1296,11 +1075,6 @@
 			if (isset($this->__blnValid[self::HTML_FIELD])) {
 				$a['html'] = $this->strHtml;
 			}
-			if (isset($this->_objPregunta)) {
-				$a['pregunta'] = $this->_objPregunta;
-			} elseif (isset($this->_objPreguntaArray)) {
-				$a['pregunta'] = $this->_objPreguntaArray;
-			}
 			return $a;
 		}
 
@@ -1324,7 +1098,6 @@
      * @property-read QQColumnNode $Html
      *
      *
-     * @property-read QQReverseReferenceNodePregunta $Pregunta
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1357,8 +1130,6 @@
 					return new QQColumnNode('evaluacion_id', 'EvaluacionId', 'VarChar', $this);
 				case 'Html':
 					return new QQColumnNode('html', 'Html', 'Blob', $this);
-				case 'Pregunta':
-					return new QQReverseReferenceNodePregunta($this, 'pregunta', QType::ReverseReference, 'evaluacion_id', 'Pregunta');
 
 				case '_PrimaryKeyNode':
 					return new QQColumnNode('evaluacion_id', 'EvaluacionId', 'VarChar', $this);
@@ -1378,7 +1149,6 @@
      * @property-read QQColumnNode $Html
      *
      *
-     * @property-read QQReverseReferenceNodePregunta $Pregunta
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1406,8 +1176,6 @@
 					return new QQColumnNode('evaluacion_id', 'EvaluacionId', 'VarChar', $this);
 				case 'Html':
 					return new QQColumnNode('html', 'Html', 'Blob', $this);
-				case 'Pregunta':
-					return new QQReverseReferenceNodePregunta($this, 'pregunta', QType::ReverseReference, 'evaluacion_id', 'Pregunta');
 
 				case '_PrimaryKeyNode':
 					return new QQColumnNode('evaluacion_id', 'EvaluacionId', 'VarChar', $this);

@@ -35,13 +35,23 @@ class AlternativaListGen extends QDataGrid {
 	/** @var QHtmlTableNodeColumn */
 	public $colAlternativaId;
 	/** @var QHtmlTableNodeColumn */
-	public $colTipo;
+	public $colDescripcion;
+	/** @var QHtmlTableNodeColumn */
+	public $colPregunta;
 	/** @var QHtmlTableNodeColumn */
 	public $colEsCorrecta;
 	/** @var QHtmlTableNodeColumn */
-	public $colRespuestaCorrecto;
+	public $colOrden;
 	/** @var QHtmlTableNodeColumn */
-	public $colPregunta;
+	public $colCreateby;
+	/** @var QHtmlTableNodeColumn */
+	public $colCreated;
+	/** @var QHtmlTableNodeColumn */
+	public $colUpdateby;
+	/** @var QHtmlTableNodeColumn */
+	public $colUpdated;
+	/** @var QHtmlTableNodeColumn */
+	public $colActive;
 
 
 	/**
@@ -71,10 +81,15 @@ class AlternativaListGen extends QDataGrid {
 	 */
 	public function CreateColumns() {
 		$this->colAlternativaId = $this->CreateNodeColumn("Alternativa Id", QQN::Alternativa()->AlternativaId);
-		$this->colTipo = $this->CreateNodeColumn("Tipo", QQN::Alternativa()->Tipo);
-		$this->colEsCorrecta = $this->CreateNodeColumn("Es Correcta", QQN::Alternativa()->EsCorrecta);
-		$this->colRespuestaCorrecto = $this->CreateNodeColumn("Respuesta Correcto", QQN::Alternativa()->RespuestaCorrecto);
+		$this->colDescripcion = $this->CreateNodeColumn("Descripcion", QQN::Alternativa()->Descripcion);
 		$this->colPregunta = $this->CreateNodeColumn("Pregunta", QQN::Alternativa()->Pregunta);
+		$this->colEsCorrecta = $this->CreateNodeColumn("Es Correcta", QQN::Alternativa()->EsCorrecta);
+		$this->colOrden = $this->CreateNodeColumn("Orden", QQN::Alternativa()->Orden);
+		$this->colCreateby = $this->CreateNodeColumn("Createby", QQN::Alternativa()->Createby);
+		$this->colCreated = $this->CreateNodeColumn("Created", QQN::Alternativa()->Created);
+		$this->colUpdateby = $this->CreateNodeColumn("Updateby", QQN::Alternativa()->Updateby);
+		$this->colUpdated = $this->CreateNodeColumn("Updated", QQN::Alternativa()->Updated);
+		$this->colActive = $this->CreateNodeColumn("Active", QQN::Alternativa()->Active);
 	}
 
    /**

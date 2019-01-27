@@ -12,7 +12,7 @@ Options All -Indexes
 RewriteCond %{SCRIPT_FILENAME} -d [OR]
 RewriteCond %{SCRIPT_FILENAME} -f
 #RewriteRule "(^|/)\." - [F]
-RewriteRule "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$" - [F]
+#RewriteRule "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$" - [F]
 #limita el acceso para archivos en su totalidad en local y general puerto 80
 
 #ReWriteCond %{REQUEST_URI} template/ [OR]

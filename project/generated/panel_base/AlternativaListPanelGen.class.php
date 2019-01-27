@@ -119,10 +119,13 @@ abstract class AlternativaListPanelGen extends QPanel {
 		} else {
 			return QQ::OrCondition(
 				QQ::Like(QQN::Alternativa()->AlternativaId, "%" . $strSearchValue . "%"),
-            QQ::Like(QQN::Alternativa()->Tipo, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Alternativa()->Descripcion, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Alternativa()->PreguntaId, "%" . $strSearchValue . "%"),
             QQ::Like(QQN::Alternativa()->EsCorrecta, "%" . $strSearchValue . "%"),
-            QQ::Like(QQN::Alternativa()->RespuestaCorrecto, "%" . $strSearchValue . "%"),
-            QQ::Like(QQN::Alternativa()->PreguntaId, "%" . $strSearchValue . "%")
+            QQ::Equal(QQN::Alternativa()->Orden, $strSearchValue),
+            QQ::Like(QQN::Alternativa()->Createby, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Alternativa()->Updateby, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Alternativa()->Active, "%" . $strSearchValue . "%")
 			);
 		}
 

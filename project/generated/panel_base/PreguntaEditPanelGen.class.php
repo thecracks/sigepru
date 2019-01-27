@@ -22,8 +22,32 @@ class PreguntaEditPanelGen extends QPanel {
 	/** @var QTextBox */
 	protected $txtPreguntaId;
 
+	/** @var QTextBox */
+	protected $txtPreguntaHtml;
+
 	/** @var QListBox */
-	protected $lstEvaluacion;
+	protected $lstExamen;
+
+	/** @var QTextBox */
+	protected $txtEnunciado;
+
+	/** @var QIntegerTextBox */
+	protected $txtOrden;
+
+	/** @var QTextBox */
+	protected $txtCreateby;
+
+	/** @var QDateTimePicker */
+	protected $calCreated;
+
+	/** @var QTextBox */
+	protected $txtUpdateby;
+
+	/** @var QDateTimePicker */
+	protected $calUpdated;
+
+	/** @var QTextBox */
+	protected $txtActive;
 
 
 	/**
@@ -53,7 +77,15 @@ class PreguntaEditPanelGen extends QPanel {
 	 **/
 	protected function CreateObjects() {
 		$this->txtPreguntaId = $this->mctPregunta->txtPreguntaId_Create();
-		$this->lstEvaluacion = $this->mctPregunta->lstEvaluacion_Create();
+		$this->txtPreguntaHtml = $this->mctPregunta->txtPreguntaHtml_Create();
+		$this->lstExamen = $this->mctPregunta->lstExamen_Create();
+		$this->txtEnunciado = $this->mctPregunta->txtEnunciado_Create();
+		$this->txtOrden = $this->mctPregunta->txtOrden_Create();
+		$this->txtCreateby = $this->mctPregunta->txtCreateby_Create();
+		$this->calCreated = $this->mctPregunta->calCreated_Create();
+		$this->txtUpdateby = $this->mctPregunta->txtUpdateby_Create();
+		$this->calUpdated = $this->mctPregunta->calUpdated_Create();
+		$this->txtActive = $this->mctPregunta->txtActive_Create();
 	}
 
 	/**

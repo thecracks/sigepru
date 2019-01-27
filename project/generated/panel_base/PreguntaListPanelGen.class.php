@@ -119,7 +119,13 @@ abstract class PreguntaListPanelGen extends QPanel {
 		} else {
 			return QQ::OrCondition(
 				QQ::Like(QQN::Pregunta()->PreguntaId, "%" . $strSearchValue . "%"),
-            QQ::Like(QQN::Pregunta()->EvaluacionId, "%" . $strSearchValue . "%")
+            QQ::Like(QQN::Pregunta()->PreguntaHtml, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Pregunta()->ExamenId, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Pregunta()->Enunciado, "%" . $strSearchValue . "%"),
+            QQ::Equal(QQN::Pregunta()->Orden, $strSearchValue),
+            QQ::Like(QQN::Pregunta()->Createby, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Pregunta()->Updateby, "%" . $strSearchValue . "%"),
+            QQ::Like(QQN::Pregunta()->Active, "%" . $strSearchValue . "%")
 			);
 		}
 

@@ -1,5 +1,4 @@
 <?php
-//require('includes/configuration/prepend.inc.php');
 $strPageTitle = QApplication::Translate('Crea Prueba');
 require(__CONFIGURATION__ . '/header.inc.php');
 ?>
@@ -83,9 +82,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
         background: -moz-linear-gradient(top, #ffffff, #15dcc6);
         background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#15dcc6));
     }
-
-
-
+    
 </style>
 
 
@@ -603,16 +600,12 @@ require(__CONFIGURATION__ . '/header.inc.php');
         btn.addClass("animacion");
         btn.attr("disabled", true);
 
-
-
         $.ajax({
             url: "crea-prueba/functionName",
             type: "POST",
 //            dataType: 'json',
             data: {ajaxmsg: "saludos desde ajax"},
             success: function (data) {
-                console.log();
-
                 msg_exito("Exito", data);
                 btn.removeClass("animacion");
                 btn.children("span").html("Guardar");

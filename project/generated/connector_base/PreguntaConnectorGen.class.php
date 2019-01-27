@@ -18,8 +18,24 @@
 	 * @property-read Pregunta $Pregunta the actual Pregunta data class being edited
 	 * @property QTextBox $PreguntaIdControl
 	 * @property-read QLabel $PreguntaIdLabel
-	 * @property QListBox $EvaluacionIdControl
-	 * @property-read QLabel $EvaluacionIdLabel
+	 * @property QTextBox $PreguntaHtmlControl
+	 * @property-read QLabel $PreguntaHtmlLabel
+	 * @property QListBox $ExamenIdControl
+	 * @property-read QLabel $ExamenIdLabel
+	 * @property QTextBox $EnunciadoControl
+	 * @property-read QLabel $EnunciadoLabel
+	 * @property QIntegerTextBox $OrdenControl
+	 * @property-read QLabel $OrdenLabel
+	 * @property QTextBox $CreatebyControl
+	 * @property-read QLabel $CreatebyLabel
+	 * @property QDateTimePicker $CreatedControl
+	 * @property-read QLabel $CreatedLabel
+	 * @property QTextBox $UpdatebyControl
+	 * @property-read QLabel $UpdatebyLabel
+	 * @property QDateTimePicker $UpdatedControl
+	 * @property-read QLabel $UpdatedLabel
+	 * @property QTextBox $ActiveControl
+	 * @property-read QLabel $ActiveLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -62,33 +78,147 @@
 		protected $lblPreguntaId;
 
 		/**
-		 * @var QListBox lstEvaluacion
+		 * @var QTextBox txtPreguntaHtml
+
 		 * @access protected
 		 */
-		protected $lstEvaluacion;
+		protected $txtPreguntaHtml;
 
 		/**
-		 * @var string strEvaluacionNullLabel
+		 * @var QLabel lblPreguntaHtml
 		 * @access protected
 		 */
-		protected $strEvaluacionNullLabel;
+		protected $lblPreguntaHtml;
 
 		/**
-		* @var objEvaluacionCondition
+		 * @var QListBox lstExamen
+		 * @access protected
+		 */
+		protected $lstExamen;
+
+		/**
+		 * @var string strExamenNullLabel
+		 * @access protected
+		 */
+		protected $strExamenNullLabel;
+
+		/**
+		* @var objExamenCondition
 		* @access protected
 		*/
-		protected $objEvaluacionCondition;
+		protected $objExamenCondition;
 
 		/**
-		* @var objEvaluacionClauses
+		* @var objExamenClauses
 		* @access protected
 		*/
-		protected $objEvaluacionClauses;
+		protected $objExamenClauses;
 		/**
-		 * @var QLabel lblEvaluacion
+		 * @var QLabel lblExamen
 		 * @access protected
 		 */
-		protected $lblEvaluacion;
+		protected $lblExamen;
+
+		/**
+		 * @var QTextBox txtEnunciado
+
+		 * @access protected
+		 */
+		protected $txtEnunciado;
+
+		/**
+		 * @var QLabel lblEnunciado
+		 * @access protected
+		 */
+		protected $lblEnunciado;
+
+		/**
+		 * @var QIntegerTextBox txtOrden
+
+		 * @access protected
+		 */
+		protected $txtOrden;
+
+		/**
+		 * @var QLabel lblOrden
+		 * @access protected
+		 */
+		protected $lblOrden;
+
+		/**
+		 * @var QTextBox txtCreateby
+
+		 * @access protected
+		 */
+		protected $txtCreateby;
+
+		/**
+		 * @var QLabel lblCreateby
+		 * @access protected
+		 */
+		protected $lblCreateby;
+
+		/**
+		 * @var QDateTimePicker calCreated
+
+		 * @access protected
+		 */
+		protected $calCreated;
+
+		/**
+		 * @var QLabel lblCreated
+		 * @access protected
+		 */
+		protected $lblCreated;
+
+		/**
+		* @var strCreatedDateTimeFormat
+		* @access protected
+		*/
+		protected $strCreatedDateTimeFormat;
+		/**
+		 * @var QTextBox txtUpdateby
+
+		 * @access protected
+		 */
+		protected $txtUpdateby;
+
+		/**
+		 * @var QLabel lblUpdateby
+		 * @access protected
+		 */
+		protected $lblUpdateby;
+
+		/**
+		 * @var QDateTimePicker calUpdated
+
+		 * @access protected
+		 */
+		protected $calUpdated;
+
+		/**
+		 * @var QLabel lblUpdated
+		 * @access protected
+		 */
+		protected $lblUpdated;
+
+		/**
+		* @var strUpdatedDateTimeFormat
+		* @access protected
+		*/
+		protected $strUpdatedDateTimeFormat;
+		/**
+		 * @var QTextBox txtActive
+
+		 * @access protected
+		 */
+		protected $txtActive;
+
+		/**
+		 * @var QLabel lblActive
+		 * @access protected
+		 */
+		protected $lblActive;
 
 
 
@@ -219,48 +349,80 @@
 
 
 		/**
-		 * Create and setup QListBox lstEvaluacion
+		 * Create and setup a QTextBox txtPreguntaHtml
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtPreguntaHtml_Create($strControlId = null) {
+			$this->txtPreguntaHtml = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPreguntaHtml->Name = QApplication::Translate('Pregunta Html');
+			$this->txtPreguntaHtml->TextMode = QTextMode::MultiLine;
+			$this->txtPreguntaHtml->PreferredRenderMethod = 'RenderWithName';
+			$this->txtPreguntaHtml->LinkedNode = QQN::Pregunta()->PreguntaHtml;
+			$this->txtPreguntaHtml->Text = $this->objPregunta->PreguntaHtml;
+			return $this->txtPreguntaHtml;
+		}
+
+		/**
+		 * Create and setup QLabel lblPreguntaHtml
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblPreguntaHtml_Create($strControlId = null) {
+			$this->lblPreguntaHtml = new QLabel($this->objParentObject, $strControlId);
+			$this->lblPreguntaHtml->Name = QApplication::Translate('Pregunta Html');
+			$this->lblPreguntaHtml->PreferredRenderMethod = 'RenderWithName';
+			$this->lblPreguntaHtml->LinkedNode = QQN::Pregunta()->PreguntaHtml;
+			$this->lblPreguntaHtml->Text = $this->objPregunta->PreguntaHtml;
+			return $this->lblPreguntaHtml;
+		}
+
+
+
+		/**
+		 * Create and setup QListBox lstExamen
 		 * @param string $strControlId optional ControlId to use
 		 * @param QQCondition $objConditions override the default condition of QQ::All() to the query, itself
 		 * @param QQClause[] $objClauses additional QQClause object or array of QQClause objects for the query
 		 * @return QListBox
 		 */
 
-		public function lstEvaluacion_Create($strControlId = null, QQCondition $objCondition = null, $objClauses = null) {
-			$this->objEvaluacionCondition = $objCondition;
-			$this->objEvaluacionClauses = $objClauses;
-			$this->lstEvaluacion = new QListBox($this->objParentObject, $strControlId);
-			$this->lstEvaluacion->Name = QApplication::Translate('Evaluacion');
-			$this->lstEvaluacion->Required = true;
-			$this->lstEvaluacion->PreferredRenderMethod = 'RenderWithName';
-			$this->lstEvaluacion->LinkedNode = QQN::Pregunta()->Evaluacion;
-            if (!$this->strEvaluacionNullLabel) {
-            	if (!$this->lstEvaluacion->Required) {
-            		$this->strEvaluacionNullLabel = '- None -';
+		public function lstExamen_Create($strControlId = null, QQCondition $objCondition = null, $objClauses = null) {
+			$this->objExamenCondition = $objCondition;
+			$this->objExamenClauses = $objClauses;
+			$this->lstExamen = new QListBox($this->objParentObject, $strControlId);
+			$this->lstExamen->Name = QApplication::Translate('Examen');
+			$this->lstExamen->Required = true;
+			$this->lstExamen->PreferredRenderMethod = 'RenderWithName';
+			$this->lstExamen->LinkedNode = QQN::Pregunta()->Examen;
+            if (!$this->strExamenNullLabel) {
+            	if (!$this->lstExamen->Required) {
+            		$this->strExamenNullLabel = '- None -';
             	}
             	elseif (!$this->blnEditMode) {
-            		$this->strEvaluacionNullLabel = '- Select One -';
+            		$this->strExamenNullLabel = '- Select One -';
             	}
             }
-            $this->lstEvaluacion->AddItem(QApplication::Translate($this->strEvaluacionNullLabel), null);
-            $this->lstEvaluacion->AddItems($this->lstEvaluacion_GetItems());
-            $this->lstEvaluacion->SelectedValue = $this->objPregunta->EvaluacionId;
-			return $this->lstEvaluacion;
+            $this->lstExamen->AddItem(QApplication::Translate($this->strExamenNullLabel), null);
+            $this->lstExamen->AddItems($this->lstExamen_GetItems());
+            $this->lstExamen->SelectedValue = $this->objPregunta->ExamenId;
+			return $this->lstExamen;
 		}
 
 		/**
-		 *	Create item list for use by lstEvaluacion
+		 *	Create item list for use by lstExamen
 		 */
-		 public function lstEvaluacion_GetItems() {
+		 public function lstExamen_GetItems() {
 			$a = array();
-			$objCondition = $this->objEvaluacionCondition;
+			$objCondition = $this->objExamenCondition;
 			if (is_null($objCondition)) $objCondition = QQ::All();
-			$objEvaluacionCursor = Evaluacion::QueryCursor($objCondition, $this->objEvaluacionClauses);
+			$objExamenCursor = Examen::QueryCursor($objCondition, $this->objExamenClauses);
 
 			// Iterate through the Cursor
-			while ($objEvaluacion = Evaluacion::InstantiateCursor($objEvaluacionCursor)) {
-				$objListItem = new QListItem($objEvaluacion->__toString(), $objEvaluacion->EvaluacionId);
-				if (($this->objPregunta->Evaluacion) && ($this->objPregunta->Evaluacion->EvaluacionId == $objEvaluacion->EvaluacionId))
+			while ($objExamen = Examen::InstantiateCursor($objExamenCursor)) {
+				$objListItem = new QListItem($objExamen->__toString(), $objExamen->ExamenId);
+				if (($this->objPregunta->Examen) && ($this->objPregunta->Examen->ExamenId == $objExamen->ExamenId))
 					$objListItem->Selected = true;
 				$a[] = $objListItem;
 			}
@@ -268,18 +430,245 @@
 		 }
 
 		/**
-		 * Create and setup QLabel lblEvaluacion
+		 * Create and setup QLabel lblExamen
 		 *
 		 * @param string $strControlId optional ControlId to use
 		 * @return QLabel
 		 */
-		public function lblEvaluacion_Create($strControlId = null) {
-			$this->lblEvaluacion = new QLabel($this->objParentObject, $strControlId);
-			$this->lblEvaluacion->Name = QApplication::Translate('Evaluacion');
-			$this->lblEvaluacion->PreferredRenderMethod = 'RenderWithName';
-			$this->lblEvaluacion->LinkedNode = QQN::Pregunta()->Evaluacion;
-			$this->lblEvaluacion->Text = $this->objPregunta->Evaluacion ? $this->objPregunta->Evaluacion->__toString() : null;
-			return $this->lblEvaluacion;
+		public function lblExamen_Create($strControlId = null) {
+			$this->lblExamen = new QLabel($this->objParentObject, $strControlId);
+			$this->lblExamen->Name = QApplication::Translate('Examen');
+			$this->lblExamen->PreferredRenderMethod = 'RenderWithName';
+			$this->lblExamen->LinkedNode = QQN::Pregunta()->Examen;
+			$this->lblExamen->Text = $this->objPregunta->Examen ? $this->objPregunta->Examen->__toString() : null;
+			return $this->lblExamen;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtEnunciado
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtEnunciado_Create($strControlId = null) {
+			$this->txtEnunciado = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtEnunciado->Name = QApplication::Translate('Enunciado');
+			$this->txtEnunciado->TextMode = QTextMode::MultiLine;
+			$this->txtEnunciado->PreferredRenderMethod = 'RenderWithName';
+			$this->txtEnunciado->LinkedNode = QQN::Pregunta()->Enunciado;
+			$this->txtEnunciado->Text = $this->objPregunta->Enunciado;
+			return $this->txtEnunciado;
+		}
+
+		/**
+		 * Create and setup QLabel lblEnunciado
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblEnunciado_Create($strControlId = null) {
+			$this->lblEnunciado = new QLabel($this->objParentObject, $strControlId);
+			$this->lblEnunciado->Name = QApplication::Translate('Enunciado');
+			$this->lblEnunciado->PreferredRenderMethod = 'RenderWithName';
+			$this->lblEnunciado->LinkedNode = QQN::Pregunta()->Enunciado;
+			$this->lblEnunciado->Text = $this->objPregunta->Enunciado;
+			return $this->lblEnunciado;
+		}
+
+
+
+		/**
+		 * Create and setup a QIntegerTextBox txtOrden
+		 * @param string $strControlId optional ControlId to use
+		 * @return QIntegerTextBox
+		 */
+		public function txtOrden_Create($strControlId = null) {
+			$this->txtOrden = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtOrden->Name = QApplication::Translate('Orden');
+			$this->txtOrden->PreferredRenderMethod = 'RenderWithName';
+			$this->txtOrden->LinkedNode = QQN::Pregunta()->Orden;
+			$this->txtOrden->Text = $this->objPregunta->Orden;
+			return $this->txtOrden;
+		}
+
+		/**
+		 * Create and setup QLabel lblOrden
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblOrden_Create($strControlId = null) {
+			$this->lblOrden = new QLabel($this->objParentObject, $strControlId);
+			$this->lblOrden->Name = QApplication::Translate('Orden');
+			$this->lblOrden->PreferredRenderMethod = 'RenderWithName';
+			$this->lblOrden->LinkedNode = QQN::Pregunta()->Orden;
+			$this->lblOrden->Text = $this->objPregunta->Orden;
+			return $this->lblOrden;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtCreateby
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtCreateby_Create($strControlId = null) {
+			$this->txtCreateby = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtCreateby->Name = QApplication::Translate('Createby');
+			$this->txtCreateby->MaxLength = Pregunta::CreatebyMaxLength;
+			$this->txtCreateby->PreferredRenderMethod = 'RenderWithName';
+			$this->txtCreateby->LinkedNode = QQN::Pregunta()->Createby;
+			$this->txtCreateby->Text = $this->objPregunta->Createby;
+			return $this->txtCreateby;
+		}
+
+		/**
+		 * Create and setup QLabel lblCreateby
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblCreateby_Create($strControlId = null) {
+			$this->lblCreateby = new QLabel($this->objParentObject, $strControlId);
+			$this->lblCreateby->Name = QApplication::Translate('Createby');
+			$this->lblCreateby->PreferredRenderMethod = 'RenderWithName';
+			$this->lblCreateby->LinkedNode = QQN::Pregunta()->Createby;
+			$this->lblCreateby->Text = $this->objPregunta->Createby;
+			return $this->lblCreateby;
+		}
+
+
+
+		/**
+		 * Create and setup a QDateTimePicker calCreated
+		 * @param string $strControlId optional ControlId to use
+		 * @return QDateTimePicker
+		 */
+		public function calCreated_Create($strControlId = null) {
+			$this->calCreated = new QDateTimePicker($this->objParentObject, $strControlId);
+			$this->calCreated->Name = QApplication::Translate('Created');
+			$this->calCreated->DateTime = $this->objPregunta->Created;
+			$this->calCreated->DateTimePickerType = QDateTimePickerType::DateTime;
+			$this->calCreated->PreferredRenderMethod = 'RenderWithName';
+			$this->calCreated->LinkedNode = QQN::Pregunta()->Created;
+			return $this->calCreated;
+		}
+
+		/**
+		 * Create and setup QLabel lblCreated
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @param string $strDateTimeFormat
+		 * @return QLabel
+		 */
+		public function lblCreated_Create($strControlId = null, $strDateTimeFormat = null) {
+			$this->lblCreated = new QLabel($this->objParentObject, $strControlId);
+			$this->lblCreated->Name = QApplication::Translate('Created');
+			$this->strCreatedDateTimeFormat = $strDateTimeFormat;
+			$this->lblCreated->PreferredRenderMethod = 'RenderWithName';
+			$this->lblCreated->LinkedNode = QQN::Pregunta()->Created;
+			$this->lblCreated->Text = $this->objPregunta->Created ? $this->objPregunta->Created->qFormat($this->strCreatedDateTimeFormat) : null;
+			return $this->lblCreated;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtUpdateby
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtUpdateby_Create($strControlId = null) {
+			$this->txtUpdateby = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtUpdateby->Name = QApplication::Translate('Updateby');
+			$this->txtUpdateby->MaxLength = Pregunta::UpdatebyMaxLength;
+			$this->txtUpdateby->PreferredRenderMethod = 'RenderWithName';
+			$this->txtUpdateby->LinkedNode = QQN::Pregunta()->Updateby;
+			$this->txtUpdateby->Text = $this->objPregunta->Updateby;
+			return $this->txtUpdateby;
+		}
+
+		/**
+		 * Create and setup QLabel lblUpdateby
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblUpdateby_Create($strControlId = null) {
+			$this->lblUpdateby = new QLabel($this->objParentObject, $strControlId);
+			$this->lblUpdateby->Name = QApplication::Translate('Updateby');
+			$this->lblUpdateby->PreferredRenderMethod = 'RenderWithName';
+			$this->lblUpdateby->LinkedNode = QQN::Pregunta()->Updateby;
+			$this->lblUpdateby->Text = $this->objPregunta->Updateby;
+			return $this->lblUpdateby;
+		}
+
+
+
+		/**
+		 * Create and setup a QDateTimePicker calUpdated
+		 * @param string $strControlId optional ControlId to use
+		 * @return QDateTimePicker
+		 */
+		public function calUpdated_Create($strControlId = null) {
+			$this->calUpdated = new QDateTimePicker($this->objParentObject, $strControlId);
+			$this->calUpdated->Name = QApplication::Translate('Updated');
+			$this->calUpdated->DateTime = $this->objPregunta->Updated;
+			$this->calUpdated->DateTimePickerType = QDateTimePickerType::DateTime;
+			$this->calUpdated->PreferredRenderMethod = 'RenderWithName';
+			$this->calUpdated->LinkedNode = QQN::Pregunta()->Updated;
+			return $this->calUpdated;
+		}
+
+		/**
+		 * Create and setup QLabel lblUpdated
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @param string $strDateTimeFormat
+		 * @return QLabel
+		 */
+		public function lblUpdated_Create($strControlId = null, $strDateTimeFormat = null) {
+			$this->lblUpdated = new QLabel($this->objParentObject, $strControlId);
+			$this->lblUpdated->Name = QApplication::Translate('Updated');
+			$this->strUpdatedDateTimeFormat = $strDateTimeFormat;
+			$this->lblUpdated->PreferredRenderMethod = 'RenderWithName';
+			$this->lblUpdated->LinkedNode = QQN::Pregunta()->Updated;
+			$this->lblUpdated->Text = $this->objPregunta->Updated ? $this->objPregunta->Updated->qFormat($this->strUpdatedDateTimeFormat) : null;
+			return $this->lblUpdated;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtActive
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtActive_Create($strControlId = null) {
+			$this->txtActive = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtActive->Name = QApplication::Translate('Active');
+			$this->txtActive->MaxLength = Pregunta::ActiveMaxLength;
+			$this->txtActive->PreferredRenderMethod = 'RenderWithName';
+			$this->txtActive->LinkedNode = QQN::Pregunta()->Active;
+			$this->txtActive->Text = $this->objPregunta->Active;
+			return $this->txtActive;
+		}
+
+		/**
+		 * Create and setup QLabel lblActive
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblActive_Create($strControlId = null) {
+			$this->lblActive = new QLabel($this->objParentObject, $strControlId);
+			$this->lblActive->Name = QApplication::Translate('Active');
+			$this->lblActive->PreferredRenderMethod = 'RenderWithName';
+			$this->lblActive->LinkedNode = QQN::Pregunta()->Active;
+			$this->lblActive->Text = $this->objPregunta->Active;
+			return $this->lblActive;
 		}
 
 
@@ -302,14 +691,46 @@
 			if ($this->lblPreguntaId) $this->lblPreguntaId->Text = $this->objPregunta->PreguntaId;
 
 
-            if ($this->lstEvaluacion) {
-                $this->lstEvaluacion->RemoveAllItems();
-                $this->lstEvaluacion->AddItem(QApplication::Translate($this->strEvaluacionNullLabel), null);
-                $this->lstEvaluacion->AddItems($this->lstEvaluacion_GetItems());
-                $this->lstEvaluacion->SelectedValue = $this->objPregunta->EvaluacionId;
+			if ($this->txtPreguntaHtml) $this->txtPreguntaHtml->Text = $this->objPregunta->PreguntaHtml;
+			if ($this->lblPreguntaHtml) $this->lblPreguntaHtml->Text = $this->objPregunta->PreguntaHtml;
+
+
+            if ($this->lstExamen) {
+                $this->lstExamen->RemoveAllItems();
+                $this->lstExamen->AddItem(QApplication::Translate($this->strExamenNullLabel), null);
+                $this->lstExamen->AddItems($this->lstExamen_GetItems());
+                $this->lstExamen->SelectedValue = $this->objPregunta->ExamenId;
             
             }
-			if ($this->lblEvaluacion) $this->lblEvaluacion->Text = $this->objPregunta->Evaluacion ? $this->objPregunta->Evaluacion->__toString() : null;
+			if ($this->lblExamen) $this->lblExamen->Text = $this->objPregunta->Examen ? $this->objPregunta->Examen->__toString() : null;
+
+
+			if ($this->txtEnunciado) $this->txtEnunciado->Text = $this->objPregunta->Enunciado;
+			if ($this->lblEnunciado) $this->lblEnunciado->Text = $this->objPregunta->Enunciado;
+
+
+			if ($this->txtOrden) $this->txtOrden->Text = $this->objPregunta->Orden;
+			if ($this->lblOrden) $this->lblOrden->Text = $this->objPregunta->Orden;
+
+
+			if ($this->txtCreateby) $this->txtCreateby->Text = $this->objPregunta->Createby;
+			if ($this->lblCreateby) $this->lblCreateby->Text = $this->objPregunta->Createby;
+
+
+			if ($this->calCreated) $this->calCreated->DateTime = $this->objPregunta->Created;
+			if ($this->lblCreated) $this->lblCreated->Text = $this->objPregunta->Created ? $this->objPregunta->Created->qFormat($this->strCreatedDateTimeFormat) : null;
+
+
+			if ($this->txtUpdateby) $this->txtUpdateby->Text = $this->objPregunta->Updateby;
+			if ($this->lblUpdateby) $this->lblUpdateby->Text = $this->objPregunta->Updateby;
+
+
+			if ($this->calUpdated) $this->calUpdated->DateTime = $this->objPregunta->Updated;
+			if ($this->lblUpdated) $this->lblUpdated->Text = $this->objPregunta->Updated ? $this->objPregunta->Updated->qFormat($this->strUpdatedDateTimeFormat) : null;
+
+
+			if ($this->txtActive) $this->txtActive->Text = $this->objPregunta->Active;
+			if ($this->lblActive) $this->lblActive->Text = $this->objPregunta->Active;
 
 
 		}
@@ -363,7 +784,23 @@
 				// Update any fields for controls that have been created
 				if ($this->txtPreguntaId) $this->objPregunta->PreguntaId = $this->txtPreguntaId->Text;
 
-				if ($this->lstEvaluacion) $this->objPregunta->EvaluacionId = $this->lstEvaluacion->SelectedValue;
+				if ($this->txtPreguntaHtml) $this->objPregunta->PreguntaHtml = $this->txtPreguntaHtml->Text;
+
+				if ($this->lstExamen) $this->objPregunta->ExamenId = $this->lstExamen->SelectedValue;
+
+				if ($this->txtEnunciado) $this->objPregunta->Enunciado = $this->txtEnunciado->Text;
+
+				if ($this->txtOrden) $this->objPregunta->Orden = $this->txtOrden->Text;
+
+				if ($this->txtCreateby) $this->objPregunta->Createby = $this->txtCreateby->Text;
+
+				if ($this->calCreated) $this->objPregunta->Created = $this->calCreated->DateTime;
+
+				if ($this->txtUpdateby) $this->objPregunta->Updateby = $this->txtUpdateby->Text;
+
+				if ($this->calUpdated) $this->objPregunta->Updated = $this->calUpdated->DateTime;
+
+				if ($this->txtActive) $this->objPregunta->Active = $this->txtActive->Text;
 
 
 				// Update any UniqueReverseReferences for controls that have been created for it
@@ -427,14 +864,62 @@
 				case 'PreguntaIdLabel':
 					if (!$this->lblPreguntaId) return $this->lblPreguntaId_Create();
 					return $this->lblPreguntaId;
-				case 'EvaluacionIdControl':
-					if (!$this->lstEvaluacion) return $this->lstEvaluacion_Create();
-					return $this->lstEvaluacion;
-				case 'EvaluacionIdLabel':
-					if (!$this->lblEvaluacion) return $this->lblEvaluacion_Create();
-					return $this->lblEvaluacion;
-				case 'EvaluacionNullLabel':
-					return $this->strEvaluacionNullLabel;
+				case 'PreguntaHtmlControl':
+					if (!$this->txtPreguntaHtml) return $this->txtPreguntaHtml_Create();
+					return $this->txtPreguntaHtml;
+				case 'PreguntaHtmlLabel':
+					if (!$this->lblPreguntaHtml) return $this->lblPreguntaHtml_Create();
+					return $this->lblPreguntaHtml;
+				case 'ExamenIdControl':
+					if (!$this->lstExamen) return $this->lstExamen_Create();
+					return $this->lstExamen;
+				case 'ExamenIdLabel':
+					if (!$this->lblExamen) return $this->lblExamen_Create();
+					return $this->lblExamen;
+				case 'ExamenNullLabel':
+					return $this->strExamenNullLabel;
+				case 'EnunciadoControl':
+					if (!$this->txtEnunciado) return $this->txtEnunciado_Create();
+					return $this->txtEnunciado;
+				case 'EnunciadoLabel':
+					if (!$this->lblEnunciado) return $this->lblEnunciado_Create();
+					return $this->lblEnunciado;
+				case 'OrdenControl':
+					if (!$this->txtOrden) return $this->txtOrden_Create();
+					return $this->txtOrden;
+				case 'OrdenLabel':
+					if (!$this->lblOrden) return $this->lblOrden_Create();
+					return $this->lblOrden;
+				case 'CreatebyControl':
+					if (!$this->txtCreateby) return $this->txtCreateby_Create();
+					return $this->txtCreateby;
+				case 'CreatebyLabel':
+					if (!$this->lblCreateby) return $this->lblCreateby_Create();
+					return $this->lblCreateby;
+				case 'CreatedControl':
+					if (!$this->calCreated) return $this->calCreated_Create();
+					return $this->calCreated;
+				case 'CreatedLabel':
+					if (!$this->lblCreated) return $this->lblCreated_Create();
+					return $this->lblCreated;
+				case 'UpdatebyControl':
+					if (!$this->txtUpdateby) return $this->txtUpdateby_Create();
+					return $this->txtUpdateby;
+				case 'UpdatebyLabel':
+					if (!$this->lblUpdateby) return $this->lblUpdateby_Create();
+					return $this->lblUpdateby;
+				case 'UpdatedControl':
+					if (!$this->calUpdated) return $this->calUpdated_Create();
+					return $this->calUpdated;
+				case 'UpdatedLabel':
+					if (!$this->lblUpdated) return $this->lblUpdated_Create();
+					return $this->lblUpdated;
+				case 'ActiveControl':
+					if (!$this->txtActive) return $this->txtActive_Create();
+					return $this->txtActive;
+				case 'ActiveLabel':
+					if (!$this->lblActive) return $this->lblActive_Create();
+					return $this->lblActive;
 				default:
 					try {
 						return parent::__get($strName);
@@ -465,12 +950,44 @@
 						return ($this->txtPreguntaId = QType::Cast($mixValue, 'QTextBox'));
 					case 'PreguntaIdLabel':
 						return ($this->lblPreguntaId = QType::Cast($mixValue, 'QLabel'));
-					case 'EvaluacionIdControl':
-						return ($this->lstEvaluacion = QType::Cast($mixValue, 'QListBox'));
-					case 'EvaluacionIdLabel':
-						return ($this->lblEvaluacion = QType::Cast($mixValue, 'QLabel'));
-					case 'EvaluacionNullLabel':
-						return $this->strEvaluacionNullLabel = $mixValue;
+					case 'PreguntaHtmlControl':
+						return ($this->txtPreguntaHtml = QType::Cast($mixValue, 'QTextBox'));
+					case 'PreguntaHtmlLabel':
+						return ($this->lblPreguntaHtml = QType::Cast($mixValue, 'QLabel'));
+					case 'ExamenIdControl':
+						return ($this->lstExamen = QType::Cast($mixValue, 'QListBox'));
+					case 'ExamenIdLabel':
+						return ($this->lblExamen = QType::Cast($mixValue, 'QLabel'));
+					case 'ExamenNullLabel':
+						return $this->strExamenNullLabel = $mixValue;
+					case 'EnunciadoControl':
+						return ($this->txtEnunciado = QType::Cast($mixValue, 'QTextBox'));
+					case 'EnunciadoLabel':
+						return ($this->lblEnunciado = QType::Cast($mixValue, 'QLabel'));
+					case 'OrdenControl':
+						return ($this->txtOrden = QType::Cast($mixValue, 'QIntegerTextBox'));
+					case 'OrdenLabel':
+						return ($this->lblOrden = QType::Cast($mixValue, 'QLabel'));
+					case 'CreatebyControl':
+						return ($this->txtCreateby = QType::Cast($mixValue, 'QTextBox'));
+					case 'CreatebyLabel':
+						return ($this->lblCreateby = QType::Cast($mixValue, 'QLabel'));
+					case 'CreatedControl':
+						return ($this->calCreated = QType::Cast($mixValue, 'QDateTimePicker'));
+					case 'CreatedLabel':
+						return ($this->lblCreated = QType::Cast($mixValue, 'QLabel'));
+					case 'UpdatebyControl':
+						return ($this->txtUpdateby = QType::Cast($mixValue, 'QTextBox'));
+					case 'UpdatebyLabel':
+						return ($this->lblUpdateby = QType::Cast($mixValue, 'QLabel'));
+					case 'UpdatedControl':
+						return ($this->calUpdated = QType::Cast($mixValue, 'QDateTimePicker'));
+					case 'UpdatedLabel':
+						return ($this->lblUpdated = QType::Cast($mixValue, 'QLabel'));
+					case 'ActiveControl':
+						return ($this->txtActive = QType::Cast($mixValue, 'QTextBox'));
+					case 'ActiveLabel':
+						return ($this->lblActive = QType::Cast($mixValue, 'QLabel'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

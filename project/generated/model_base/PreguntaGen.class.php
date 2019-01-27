@@ -16,8 +16,16 @@
 	 * @package My QCubed Application
 	 * @subpackage GeneratedDataObjects
 	 * @property string $PreguntaId the value of the pregunta_id column (PK)
-	 * @property string $EvaluacionId the value of the evaluacion_id column (Not Null)
-	 * @property Evaluacion $Evaluacion the value of the Evaluacion object referenced by strEvaluacionId (Not Null)
+	 * @property string $PreguntaHtml the value of the pregunta_html column 
+	 * @property string $ExamenId the value of the examen_id column (Not Null)
+	 * @property string $Enunciado the value of the enunciado column 
+	 * @property integer $Orden the value of the orden column 
+	 * @property string $Createby the value of the createby column 
+	 * @property QDateTime $Created the value of the created column 
+	 * @property string $Updateby the value of the updateby column 
+	 * @property QDateTime $Updated the value of the updated column 
+	 * @property string $Active the value of the active column 
+	 * @property Examen $Examen the value of the Examen object referenced by strExamenId (Not Null)
 	 * @property-read Alternativa $_Alternativa the value of the protected _objAlternativa (Read-Only) if set due to an expansion on the alternativa.pregunta_id reverse relationship
 	 * @property-read Alternativa $Alternativa the value of the protected _objAlternativa (Read-Only) if set due to an expansion on the alternativa.pregunta_id reverse relationship
 	 * @property-read Alternativa[] $_AlternativaArray the value of the protected _objAlternativaArray (Read-Only) if set due to an ExpandAsArray on the alternativa.pregunta_id reverse relationship
@@ -57,14 +65,97 @@
 		protected $__strPreguntaId;
 
 		/**
-		 * Protected member variable that maps to the database column pregunta.evaluacion_id
-		 * @var string strEvaluacionId
+		 * Protected member variable that maps to the database column pregunta.pregunta_html
+		 * @var string strPreguntaHtml
 		 */
-		private $strEvaluacionId;
-		const EvaluacionIdMaxLength = 32;
+		private $strPreguntaHtml;
 
-		const EvaluacionIdDefault = null;
-		const EVALUACION_ID_FIELD = 'evaluacion_id';
+		const PreguntaHtmlDefault = null;
+		const PREGUNTA_HTML_FIELD = 'pregunta_html';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.examen_id
+		 * @var string strExamenId
+		 */
+		private $strExamenId;
+		const ExamenIdMaxLength = 32;
+
+		const ExamenIdDefault = null;
+		const EXAMEN_ID_FIELD = 'examen_id';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.enunciado
+		 * @var string strEnunciado
+		 */
+		private $strEnunciado;
+
+		const EnunciadoDefault = null;
+		const ENUNCIADO_FIELD = 'enunciado';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.orden
+		 * @var integer intOrden
+		 */
+		private $intOrden;
+
+		const OrdenDefault = null;
+		const ORDEN_FIELD = 'orden';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.createby
+		 * @var string strCreateby
+		 */
+		private $strCreateby;
+		const CreatebyMaxLength = 32;
+
+		const CreatebyDefault = null;
+		const CREATEBY_FIELD = 'createby';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.created
+		 * @var QDateTime dttCreated
+		 */
+		private $dttCreated;
+
+		const CreatedDefault = QDateTime::Now;
+		const CREATED_FIELD = 'created';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.updateby
+		 * @var string strUpdateby
+		 */
+		private $strUpdateby;
+		const UpdatebyMaxLength = 32;
+
+		const UpdatebyDefault = null;
+		const UPDATEBY_FIELD = 'updateby';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.updated
+		 * @var QDateTime dttUpdated
+		 */
+		private $dttUpdated;
+
+		const UpdatedDefault = QDateTime::Now;
+		const UPDATED_FIELD = 'updated';
+
+
+		/**
+		 * Protected member variable that maps to the database column pregunta.active
+		 * @var string strActive
+		 */
+		private $strActive;
+		const ActiveMaxLength = 1;
+
+		const ActiveDefault = 'Y';
+		const ACTIVE_FIELD = 'active';
 
 
 		/**
@@ -118,13 +209,13 @@
 
 		/**
 		 * Protected member variable that contains the object pointed by the reference
-		 * in the database column pregunta.evaluacion_id.
+		 * in the database column pregunta.examen_id.
 		 *
-		 * NOTE: Always use the Evaluacion property getter to correctly retrieve this Evaluacion object.
+		 * NOTE: Always use the Examen property getter to correctly retrieve this Examen object.
 		 * (Because this class implements late binding, this variable reference MAY be null.)
-		 * @var Evaluacion objEvaluacion
+		 * @var Examen objExamen
 		 */
-		protected $objEvaluacion;
+		protected $objExamen;
 
 
 		
@@ -144,8 +235,24 @@
 		{
 			$this->strPreguntaId = Pregunta::PreguntaIdDefault;
 			$this->__blnValid[self::PREGUNTA_ID_FIELD] = true;
-			$this->strEvaluacionId = Pregunta::EvaluacionIdDefault;
-			$this->__blnValid[self::EVALUACION_ID_FIELD] = true;
+			$this->strPreguntaHtml = Pregunta::PreguntaHtmlDefault;
+			$this->__blnValid[self::PREGUNTA_HTML_FIELD] = true;
+			$this->strExamenId = Pregunta::ExamenIdDefault;
+			$this->__blnValid[self::EXAMEN_ID_FIELD] = true;
+			$this->strEnunciado = Pregunta::EnunciadoDefault;
+			$this->__blnValid[self::ENUNCIADO_FIELD] = true;
+			$this->intOrden = Pregunta::OrdenDefault;
+			$this->__blnValid[self::ORDEN_FIELD] = true;
+			$this->strCreateby = Pregunta::CreatebyDefault;
+			$this->__blnValid[self::CREATEBY_FIELD] = true;
+			$this->dttCreated = (Pregunta::CreatedDefault === null)?null:new QDateTime(Pregunta::CreatedDefault);
+			$this->__blnValid[self::CREATED_FIELD] = true;
+			$this->strUpdateby = Pregunta::UpdatebyDefault;
+			$this->__blnValid[self::UPDATEBY_FIELD] = true;
+			$this->dttUpdated = (Pregunta::UpdatedDefault === null)?null:new QDateTime(Pregunta::UpdatedDefault);
+			$this->__blnValid[self::UPDATED_FIELD] = true;
+			$this->strActive = Pregunta::ActiveDefault;
+			$this->__blnValid[self::ACTIVE_FIELD] = true;
 		}
 
 		
@@ -355,12 +462,101 @@
 				else {
 					$blnNoCache = true;
 				}
-				$strAlias = $strAliasPrefix . 'evaluacion_id';
+				$strAlias = $strAliasPrefix . 'pregunta_html';
 				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
 				if (isset ($strColumnKeys[$strAliasName])) {
 					$mixVal = $strColumns[$strAliasName];
-					$objToReturn->strEvaluacionId = $mixVal;
-					$objToReturn->__blnValid[self::EVALUACION_ID_FIELD] = true;
+					$objToReturn->strPreguntaHtml = $mixVal;
+					$objToReturn->__blnValid[self::PREGUNTA_HTML_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'examen_id';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strExamenId = $mixVal;
+					$objToReturn->__blnValid[self::EXAMEN_ID_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'enunciado';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strEnunciado = $mixVal;
+					$objToReturn->__blnValid[self::ENUNCIADO_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'orden';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					if ($mixVal !== null) {
+						$mixVal = (integer)$mixVal;
+					}
+					$objToReturn->intOrden = $mixVal;
+					$objToReturn->__blnValid[self::ORDEN_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'createby';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strCreateby = $mixVal;
+					$objToReturn->__blnValid[self::CREATEBY_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'created';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					if ($mixVal !== null) {
+						$mixVal = new QDateTime($mixVal);
+					}
+					$objToReturn->dttCreated = $mixVal;
+					$objToReturn->__blnValid[self::CREATED_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'updateby';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strUpdateby = $mixVal;
+					$objToReturn->__blnValid[self::UPDATEBY_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'updated';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					if ($mixVal !== null) {
+						$mixVal = new QDateTime($mixVal);
+					}
+					$objToReturn->dttUpdated = $mixVal;
+					$objToReturn->__blnValid[self::UPDATED_FIELD] = true;
+				}
+				else {
+					$blnNoCache = true;
+				}
+				$strAlias = $strAliasPrefix . 'active';
+				$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+				if (isset ($strColumnKeys[$strAliasName])) {
+					$mixVal = $strColumns[$strAliasName];
+					$objToReturn->strActive = $mixVal;
+					$objToReturn->__blnValid[self::ACTIVE_FIELD] = true;
 				}
 				else {
 					$blnNoCache = true;
@@ -402,15 +598,15 @@
 			if (!$strAliasPrefix)
 				$strAliasPrefix = 'pregunta__';
 
-			// Check for Evaluacion Early Binding
-			$strAlias = $strAliasPrefix . 'evaluacion_id__evaluacion_id';
+			// Check for Examen Early Binding
+			$strAlias = $strAliasPrefix . 'examen_id__examen_id';
 			$strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (isset ($strColumns[$strAliasName])) {
-				$objExpansionNode = (empty($objExpansionAliasArray['evaluacion_id']) ? null : $objExpansionAliasArray['evaluacion_id']);
-				$objToReturn->objEvaluacion = Evaluacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'evaluacion_id__', $objExpansionNode, null, $strColumnAliasArray, false, 'pregunta', $objToReturn);
+				$objExpansionNode = (empty($objExpansionAliasArray['examen_id']) ? null : $objExpansionAliasArray['examen_id']);
+				$objToReturn->objExamen = Examen::InstantiateDbRow($objDbRow, $strAliasPrefix . 'examen_id__', $objExpansionNode, null, $strColumnAliasArray, false, 'pregunta', $objToReturn);
 			}
-		    elseif ($strParentExpansionKey === 'evaluacion_id' && $objExpansionParent) {
-				$objToReturn->objEvaluacion = $objExpansionParent;
+		    elseif ($strParentExpansionKey === 'examen_id' && $objExpansionParent) {
+				$objToReturn->objExamen = $objExpansionParent;
 		    }
 
 	
@@ -527,16 +723,16 @@
 
 		/**
 		 * Load an array of Pregunta objects,
-		 * by EvaluacionId Index(es)
-		 * @param string $strEvaluacionId
+		 * by ExamenId Index(es)
+		 * @param string $strExamenId
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
 		 * @return Pregunta[]
 		*/
-		public static function LoadArrayByEvaluacionId($strEvaluacionId, $objOptionalClauses = null) {
-			// Call Pregunta::QueryArray to perform the LoadArrayByEvaluacionId query
+		public static function LoadArrayByExamenId($strExamenId, $objOptionalClauses = null) {
+			// Call Pregunta::QueryArray to perform the LoadArrayByExamenId query
 			try {
 				return Pregunta::QueryArray(
-					QQ::Equal(QQN::Pregunta()->EvaluacionId, $strEvaluacionId),
+					QQ::Equal(QQN::Pregunta()->ExamenId, $strExamenId),
 					$objOptionalClauses);
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
@@ -546,14 +742,14 @@
 
 		/**
 		 * Count Preguntas
-		 * by EvaluacionId Index(es)
-		 * @param string $strEvaluacionId
+		 * by ExamenId Index(es)
+		 * @param string $strExamenId
 		 * @return int
 		*/
-		public static function CountByEvaluacionId($strEvaluacionId) {
-			// Call Pregunta::QueryCount to perform the CountByEvaluacionId query
+		public static function CountByExamenId($strExamenId) {
+			// Call Pregunta::QueryCount to perform the CountByExamenId query
 			return Pregunta::QueryCount(
-				QQ::Equal(QQN::Pregunta()->EvaluacionId, $strEvaluacionId)
+				QQ::Equal(QQN::Pregunta()->ExamenId, $strExamenId)
 			);
 		}
 
@@ -616,10 +812,26 @@
 		$objDatabase->NonQuery('
 			INSERT INTO `pregunta` (
 							`pregunta_id`,
-							`evaluacion_id`
+							`pregunta_html`,
+							`examen_id`,
+							`enunciado`,
+							`orden`,
+							`createby`,
+							`created`,
+							`updateby`,
+							`updated`,
+							`active`
 						) VALUES (
-							get_uuid(),
-							' . $objDatabase->SqlVariable($this->strEvaluacionId) . '
+							' . $objDatabase->SqlVariable($this->strPreguntaId) . ',
+							' . $objDatabase->SqlVariable($this->strPreguntaHtml) . ',
+							' . $objDatabase->SqlVariable($this->strExamenId) . ',
+							' . $objDatabase->SqlVariable($this->strEnunciado) . ',
+							' . $objDatabase->SqlVariable($this->intOrden) . ',
+							' . $objDatabase->SqlVariable($this->strCreateby) . ',
+							' . $objDatabase->SqlVariable($this->dttCreated) . ',
+							' . $objDatabase->SqlVariable($this->strUpdateby) . ',
+							' . $objDatabase->SqlVariable($this->dttUpdated) . ',
+							' . $objDatabase->SqlVariable($this->strActive) . '
 						)
 		');
 
@@ -668,9 +880,49 @@
 			$strValue = $objDatabase->SqlVariable($this->strPreguntaId);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
-		if (isset($this->__blnDirty[self::EVALUACION_ID_FIELD])) {
-			$strCol = '`evaluacion_id`';
-			$strValue = $objDatabase->SqlVariable($this->strEvaluacionId);
+		if (isset($this->__blnDirty[self::PREGUNTA_HTML_FIELD])) {
+			$strCol = '`pregunta_html`';
+			$strValue = $objDatabase->SqlVariable($this->strPreguntaHtml);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::EXAMEN_ID_FIELD])) {
+			$strCol = '`examen_id`';
+			$strValue = $objDatabase->SqlVariable($this->strExamenId);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::ENUNCIADO_FIELD])) {
+			$strCol = '`enunciado`';
+			$strValue = $objDatabase->SqlVariable($this->strEnunciado);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::ORDEN_FIELD])) {
+			$strCol = '`orden`';
+			$strValue = $objDatabase->SqlVariable($this->intOrden);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::CREATEBY_FIELD])) {
+			$strCol = '`createby`';
+			$strValue = $objDatabase->SqlVariable($this->strCreateby);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::CREATED_FIELD])) {
+			$strCol = '`created`';
+			$strValue = $objDatabase->SqlVariable($this->dttCreated);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::UPDATEBY_FIELD])) {
+			$strCol = '`updateby`';
+			$strValue = $objDatabase->SqlVariable($this->strUpdateby);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::UPDATED_FIELD])) {
+			$strCol = '`updated`';
+			$strValue = $objDatabase->SqlVariable($this->dttUpdated);
+			$values[] = $strCol . ' = ' . $strValue;
+		}
+		if (isset($this->__blnDirty[self::ACTIVE_FIELD])) {
+			$strCol = '`active`';
+			$strValue = $objDatabase->SqlVariable($this->strActive);
 			$values[] = $strCol . ' = ' . $strValue;
 		}
 		if ($values) {
@@ -759,10 +1011,42 @@
 		// Update $this's local variables to match
 		$this->strPreguntaId = $objReloaded->strPreguntaId;
 		$this->__blnValid[self::PREGUNTA_ID_FIELD] = true;
-		if (isset($objReloaded->__blnValid[self::EVALUACION_ID_FIELD])) {
-			$this->strEvaluacionId = $objReloaded->strEvaluacionId;
-			$this->objEvaluacion = $objReloaded->objEvaluacion;
-			$this->__blnValid[self::EVALUACION_ID_FIELD] = true;
+		if (isset($objReloaded->__blnValid[self::PREGUNTA_HTML_FIELD])) {
+			$this->strPreguntaHtml = $objReloaded->strPreguntaHtml;
+			$this->__blnValid[self::PREGUNTA_HTML_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::EXAMEN_ID_FIELD])) {
+			$this->strExamenId = $objReloaded->strExamenId;
+			$this->objExamen = $objReloaded->objExamen;
+			$this->__blnValid[self::EXAMEN_ID_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::ENUNCIADO_FIELD])) {
+			$this->strEnunciado = $objReloaded->strEnunciado;
+			$this->__blnValid[self::ENUNCIADO_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::ORDEN_FIELD])) {
+			$this->intOrden = $objReloaded->intOrden;
+			$this->__blnValid[self::ORDEN_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::CREATEBY_FIELD])) {
+			$this->strCreateby = $objReloaded->strCreateby;
+			$this->__blnValid[self::CREATEBY_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::CREATED_FIELD])) {
+			$this->dttCreated = $objReloaded->dttCreated;
+			$this->__blnValid[self::CREATED_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::UPDATEBY_FIELD])) {
+			$this->strUpdateby = $objReloaded->strUpdateby;
+			$this->__blnValid[self::UPDATEBY_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::UPDATED_FIELD])) {
+			$this->dttUpdated = $objReloaded->dttUpdated;
+			$this->__blnValid[self::UPDATED_FIELD] = true;
+		}
+		if (isset($objReloaded->__blnValid[self::ACTIVE_FIELD])) {
+			$this->strActive = $objReloaded->strActive;
+			$this->__blnValid[self::ACTIVE_FIELD] = true;
 		}
 	}
 		////////////////////
@@ -834,85 +1118,373 @@
 
 
    /**
-	* Gets the value of strEvaluacionId (Not Null)
+	* Gets the value of strPreguntaHtml 
 	* @throws QCallerException
 	* @return string
 	*/
-	public function getEvaluacionId() {
-		if ($this->__blnRestored && empty($this->__blnValid[self::EVALUACION_ID_FIELD])) {
-			throw new QCallerException("EvaluacionId was not selected in the most recent query and is not valid.");
+	public function getPreguntaHtml() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::PREGUNTA_HTML_FIELD])) {
+			throw new QCallerException("PreguntaHtml was not selected in the most recent query and is not valid.");
 		}
-		return $this->strEvaluacionId;
+		return $this->strPreguntaHtml;
+	}
+
+
+
+
+   /**
+	* Sets the value of strPreguntaHtml 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strPreguntaHtml
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setPreguntaHtml($strPreguntaHtml) {
+		$strPreguntaHtml = QType::Cast($strPreguntaHtml, QType::String);
+
+		if ($this->strPreguntaHtml !== $strPreguntaHtml) {
+			$this->strPreguntaHtml = $strPreguntaHtml;
+			$this->__blnDirty[self::PREGUNTA_HTML_FIELD] = true;
+		}
+		$this->__blnValid[self::PREGUNTA_HTML_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strExamenId (Not Null)
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getExamenId() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::EXAMEN_ID_FIELD])) {
+			throw new QCallerException("ExamenId was not selected in the most recent query and is not valid.");
+		}
+		return $this->strExamenId;
 	}
 
 
     /**
-     * Gets the value of the Evaluacion object referenced by strEvaluacionId (Not Null)
+     * Gets the value of the Examen object referenced by strExamenId (Not Null)
      * If the object is not loaded, will load the object (caching it) before returning it.
      * @throws QCallerException
-     * @return Evaluacion
+     * @return Examen
      */
-     public function getEvaluacion() {
- 		if ($this->__blnRestored && empty($this->__blnValid[self::EVALUACION_ID_FIELD])) {
-			throw new QCallerException("EvaluacionId was not selected in the most recent query and is not valid.");
+     public function getExamen() {
+ 		if ($this->__blnRestored && empty($this->__blnValid[self::EXAMEN_ID_FIELD])) {
+			throw new QCallerException("ExamenId was not selected in the most recent query and is not valid.");
 		}
-        if ((!$this->objEvaluacion) && (!is_null($this->strEvaluacionId))) {
-            $this->objEvaluacion = Evaluacion::Load($this->strEvaluacionId);
+        if ((!$this->objExamen) && (!is_null($this->strExamenId))) {
+            $this->objExamen = Examen::Load($this->strExamenId);
         }
-        return $this->objEvaluacion;
+        return $this->objExamen;
      }
 
 
 
    /**
-	* Sets the value of strEvaluacionId (Not Null)
+	* Sets the value of strExamenId (Not Null)
 	* Returns $this to allow chaining of setters.
-	* @param string $strEvaluacionId
+	* @param string $strExamenId
     * @throws QCallerException
 	* @return Pregunta
 	*/
-	public function setEvaluacionId($strEvaluacionId) {
-        if ($strEvaluacionId === null) {
+	public function setExamenId($strExamenId) {
+        if ($strExamenId === null) {
              // invalidate
-             $strEvaluacionId = null;
-             $this->__blnValid[self::EVALUACION_ID_FIELD] = false;
+             $strExamenId = null;
+             $this->__blnValid[self::EXAMEN_ID_FIELD] = false;
             return $this; // allows chaining
         }
-		$strEvaluacionId = QType::Cast($strEvaluacionId, QType::String);
+		$strExamenId = QType::Cast($strExamenId, QType::String);
 
-		if ($this->strEvaluacionId !== $strEvaluacionId) {
-			$this->objEvaluacion = null; // remove the associated object
-			$this->strEvaluacionId = $strEvaluacionId;
-			$this->__blnDirty[self::EVALUACION_ID_FIELD] = true;
+		if ($this->strExamenId !== $strExamenId) {
+			$this->objExamen = null; // remove the associated object
+			$this->strExamenId = $strExamenId;
+			$this->__blnDirty[self::EXAMEN_ID_FIELD] = true;
 		}
-		$this->__blnValid[self::EVALUACION_ID_FIELD] = true;
+		$this->__blnValid[self::EXAMEN_ID_FIELD] = true;
 		return $this; // allows chaining
 	}
 
 
     /**
-     * Sets the value of the Evaluacion object referenced by strEvaluacionId (Not Null)
-     * @param null|Evaluacion $objEvaluacion
+     * Sets the value of the Examen object referenced by strExamenId (Not Null)
+     * @param null|Examen $objExamen
      * @throws QCallerException
      * @return Pregunta
      */
-    public function setEvaluacion($objEvaluacion) {
-        if (is_null($objEvaluacion)) {
-            $this->setEvaluacionId(null);
+    public function setExamen($objExamen) {
+        if (is_null($objExamen)) {
+            $this->setExamenId(null);
         } else {
-            $objEvaluacion = QType::Cast($objEvaluacion, 'Evaluacion');
+            $objExamen = QType::Cast($objExamen, 'Examen');
 
-            // Make sure its a SAVED Evaluacion object
-            if (is_null($objEvaluacion->EvaluacionId)) {
-                throw new QCallerException('Unable to set an unsaved Evaluacion for this Pregunta');
+            // Make sure its a SAVED Examen object
+            if (is_null($objExamen->ExamenId)) {
+                throw new QCallerException('Unable to set an unsaved Examen for this Pregunta');
             }
 
             // Update Local Member Variables
-            $this->setEvaluacionId($objEvaluacion->getEvaluacionId());
-            $this->objEvaluacion = $objEvaluacion;
+            $this->setExamenId($objExamen->getExamenId());
+            $this->objExamen = $objExamen;
         }
         return $this;
     }
+
+
+
+   /**
+	* Gets the value of strEnunciado 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getEnunciado() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::ENUNCIADO_FIELD])) {
+			throw new QCallerException("Enunciado was not selected in the most recent query and is not valid.");
+		}
+		return $this->strEnunciado;
+	}
+
+
+
+
+   /**
+	* Sets the value of strEnunciado 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strEnunciado
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setEnunciado($strEnunciado) {
+		$strEnunciado = QType::Cast($strEnunciado, QType::String);
+
+		if ($this->strEnunciado !== $strEnunciado) {
+			$this->strEnunciado = $strEnunciado;
+			$this->__blnDirty[self::ENUNCIADO_FIELD] = true;
+		}
+		$this->__blnValid[self::ENUNCIADO_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of intOrden 
+	* @throws QCallerException
+	* @return integer
+	*/
+	public function getOrden() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::ORDEN_FIELD])) {
+			throw new QCallerException("Orden was not selected in the most recent query and is not valid.");
+		}
+		return $this->intOrden;
+	}
+
+
+
+
+   /**
+	* Sets the value of intOrden 
+	* Returns $this to allow chaining of setters.
+	* @param integer|null $intOrden
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setOrden($intOrden) {
+		$intOrden = QType::Cast($intOrden, QType::Integer);
+
+		if ($this->intOrden !== $intOrden) {
+			$this->intOrden = $intOrden;
+			$this->__blnDirty[self::ORDEN_FIELD] = true;
+		}
+		$this->__blnValid[self::ORDEN_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strCreateby 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getCreateby() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::CREATEBY_FIELD])) {
+			throw new QCallerException("Createby was not selected in the most recent query and is not valid.");
+		}
+		return $this->strCreateby;
+	}
+
+
+
+
+   /**
+	* Sets the value of strCreateby 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strCreateby
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setCreateby($strCreateby) {
+		$strCreateby = QType::Cast($strCreateby, QType::String);
+
+		if ($this->strCreateby !== $strCreateby) {
+			$this->strCreateby = $strCreateby;
+			$this->__blnDirty[self::CREATEBY_FIELD] = true;
+		}
+		$this->__blnValid[self::CREATEBY_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of dttCreated 
+	* @throws QCallerException
+	* @return QDateTime
+	*/
+	public function getCreated() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::CREATED_FIELD])) {
+			throw new QCallerException("Created was not selected in the most recent query and is not valid.");
+		}
+		return $this->dttCreated;
+	}
+
+
+
+
+   /**
+	* Sets the value of dttCreated 
+	* Returns $this to allow chaining of setters.
+	* @param QDateTime|null $dttCreated
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setCreated($dttCreated) {
+		$dttCreated = QType::Cast($dttCreated, QType::DateTime);
+
+		if ($this->dttCreated !== $dttCreated) {
+			$this->dttCreated = $dttCreated;
+			$this->__blnDirty[self::CREATED_FIELD] = true;
+		}
+		$this->__blnValid[self::CREATED_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strUpdateby 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getUpdateby() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::UPDATEBY_FIELD])) {
+			throw new QCallerException("Updateby was not selected in the most recent query and is not valid.");
+		}
+		return $this->strUpdateby;
+	}
+
+
+
+
+   /**
+	* Sets the value of strUpdateby 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strUpdateby
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setUpdateby($strUpdateby) {
+		$strUpdateby = QType::Cast($strUpdateby, QType::String);
+
+		if ($this->strUpdateby !== $strUpdateby) {
+			$this->strUpdateby = $strUpdateby;
+			$this->__blnDirty[self::UPDATEBY_FIELD] = true;
+		}
+		$this->__blnValid[self::UPDATEBY_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of dttUpdated 
+	* @throws QCallerException
+	* @return QDateTime
+	*/
+	public function getUpdated() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::UPDATED_FIELD])) {
+			throw new QCallerException("Updated was not selected in the most recent query and is not valid.");
+		}
+		return $this->dttUpdated;
+	}
+
+
+
+
+   /**
+	* Sets the value of dttUpdated 
+	* Returns $this to allow chaining of setters.
+	* @param QDateTime|null $dttUpdated
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setUpdated($dttUpdated) {
+		$dttUpdated = QType::Cast($dttUpdated, QType::DateTime);
+
+		if ($this->dttUpdated !== $dttUpdated) {
+			$this->dttUpdated = $dttUpdated;
+			$this->__blnDirty[self::UPDATED_FIELD] = true;
+		}
+		$this->__blnValid[self::UPDATED_FIELD] = true;
+		return $this; // allows chaining
+	}
+
+
+
+
+   /**
+	* Gets the value of strActive 
+	* @throws QCallerException
+	* @return string
+	*/
+	public function getActive() {
+		if ($this->__blnRestored && empty($this->__blnValid[self::ACTIVE_FIELD])) {
+			throw new QCallerException("Active was not selected in the most recent query and is not valid.");
+		}
+		return $this->strActive;
+	}
+
+
+
+
+   /**
+	* Sets the value of strActive 
+	* Returns $this to allow chaining of setters.
+	* @param string|null $strActive
+    * @throws QCallerException
+	* @return Pregunta
+	*/
+	public function setActive($strActive) {
+		$strActive = QType::Cast($strActive, QType::String);
+
+		if ($this->strActive !== $strActive) {
+			$this->strActive = $strActive;
+			$this->__blnDirty[self::ACTIVE_FIELD] = true;
+		}
+		$this->__blnValid[self::ACTIVE_FIELD] = true;
+		return $this; // allows chaining
+	}
+
 
 
 
@@ -1295,7 +1867,15 @@
 		public static function GetSoapComplexTypeXml() {
 			$strToReturn = '<complexType name="Pregunta"><sequence>';
 			$strToReturn .= '<element name="PreguntaId" type="xsd:string"/>';
-			$strToReturn .= '<element name="Evaluacion" type="xsd1:Evaluacion"/>';
+			$strToReturn .= '<element name="PreguntaHtml" type="xsd:string"/>';
+			$strToReturn .= '<element name="Examen" type="xsd1:Examen"/>';
+			$strToReturn .= '<element name="Enunciado" type="xsd:string"/>';
+			$strToReturn .= '<element name="Orden" type="xsd:int"/>';
+			$strToReturn .= '<element name="Createby" type="xsd:string"/>';
+			$strToReturn .= '<element name="Created" type="xsd:dateTime"/>';
+			$strToReturn .= '<element name="Updateby" type="xsd:string"/>';
+			$strToReturn .= '<element name="Updated" type="xsd:dateTime"/>';
+			$strToReturn .= '<element name="Active" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1304,7 +1884,7 @@
 		public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
 			if (!array_key_exists('Pregunta', $strComplexTypeArray)) {
 				$strComplexTypeArray['Pregunta'] = Pregunta::GetSoapComplexTypeXml();
-				Evaluacion::AlterSoapComplexTypeArray($strComplexTypeArray);
+				Examen::AlterSoapComplexTypeArray($strComplexTypeArray);
 			}
 		}
 
@@ -1321,9 +1901,25 @@
 			$objToReturn = new Pregunta();
 			if (property_exists($objSoapObject, 'PreguntaId'))
 				$objToReturn->strPreguntaId = $objSoapObject->PreguntaId;
-			if ((property_exists($objSoapObject, 'Evaluacion')) &&
-				($objSoapObject->Evaluacion))
-				$objToReturn->Evaluacion = Evaluacion::GetObjectFromSoapObject($objSoapObject->Evaluacion);
+			if (property_exists($objSoapObject, 'PreguntaHtml'))
+				$objToReturn->strPreguntaHtml = $objSoapObject->PreguntaHtml;
+			if ((property_exists($objSoapObject, 'Examen')) &&
+				($objSoapObject->Examen))
+				$objToReturn->Examen = Examen::GetObjectFromSoapObject($objSoapObject->Examen);
+			if (property_exists($objSoapObject, 'Enunciado'))
+				$objToReturn->strEnunciado = $objSoapObject->Enunciado;
+			if (property_exists($objSoapObject, 'Orden'))
+				$objToReturn->intOrden = $objSoapObject->Orden;
+			if (property_exists($objSoapObject, 'Createby'))
+				$objToReturn->strCreateby = $objSoapObject->Createby;
+			if (property_exists($objSoapObject, 'Created'))
+				$objToReturn->dttCreated = new QDateTime($objSoapObject->Created);
+			if (property_exists($objSoapObject, 'Updateby'))
+				$objToReturn->strUpdateby = $objSoapObject->Updateby;
+			if (property_exists($objSoapObject, 'Updated'))
+				$objToReturn->dttUpdated = new QDateTime($objSoapObject->Updated);
+			if (property_exists($objSoapObject, 'Active'))
+				$objToReturn->strActive = $objSoapObject->Active;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -1342,10 +1938,14 @@
 		}
 
 		public static function GetSoapObjectFromObject($objObject, $blnBindRelatedObjects) {
-			if ($objObject->objEvaluacion)
-				$objObject->objEvaluacion = Evaluacion::GetSoapObjectFromObject($objObject->objEvaluacion, false);
+			if ($objObject->objExamen)
+				$objObject->objExamen = Examen::GetSoapObjectFromObject($objObject->objExamen, false);
 			else if (!$blnBindRelatedObjects)
-				$objObject->strEvaluacionId = null;
+				$objObject->strExamenId = null;
+			if ($objObject->dttCreated)
+				$objObject->dttCreated = $objObject->dttCreated->qFormat(QDateTime::FormatSoap);
+			if ($objObject->dttUpdated)
+				$objObject->dttUpdated = $objObject->dttUpdated->qFormat(QDateTime::FormatSoap);
 			return $objObject;
 		}
 
@@ -1361,7 +1961,15 @@
 			// Member Variables
 			///////////////////
 			$iArray['PreguntaId'] = $this->strPreguntaId;
-			$iArray['EvaluacionId'] = $this->strEvaluacionId;
+			$iArray['PreguntaHtml'] = $this->strPreguntaHtml;
+			$iArray['ExamenId'] = $this->strExamenId;
+			$iArray['Enunciado'] = $this->strEnunciado;
+			$iArray['Orden'] = $this->intOrden;
+			$iArray['Createby'] = $this->strCreateby;
+			$iArray['Created'] = $this->dttCreated;
+			$iArray['Updateby'] = $this->strUpdateby;
+			$iArray['Updated'] = $this->dttUpdated;
+			$iArray['Active'] = $this->strActive;
 			return new ArrayIterator($iArray);
 		}
 
@@ -1402,10 +2010,34 @@
 			if (isset($this->__blnValid[self::PREGUNTA_ID_FIELD])) {
 				$a['pregunta_id'] = $this->strPreguntaId;
 			}
-			if (isset($this->objEvaluacion)) {
-				$a['evaluacion'] = $this->objEvaluacion;
-			} elseif (isset($this->__blnValid[self::EVALUACION_ID_FIELD])) {
-				$a['evaluacion_id'] = $this->strEvaluacionId;
+			if (isset($this->__blnValid[self::PREGUNTA_HTML_FIELD])) {
+				$a['pregunta_html'] = $this->strPreguntaHtml;
+			}
+			if (isset($this->objExamen)) {
+				$a['examen'] = $this->objExamen;
+			} elseif (isset($this->__blnValid[self::EXAMEN_ID_FIELD])) {
+				$a['examen_id'] = $this->strExamenId;
+			}
+			if (isset($this->__blnValid[self::ENUNCIADO_FIELD])) {
+				$a['enunciado'] = $this->strEnunciado;
+			}
+			if (isset($this->__blnValid[self::ORDEN_FIELD])) {
+				$a['orden'] = $this->intOrden;
+			}
+			if (isset($this->__blnValid[self::CREATEBY_FIELD])) {
+				$a['createby'] = $this->strCreateby;
+			}
+			if (isset($this->__blnValid[self::CREATED_FIELD])) {
+				$a['created'] = $this->dttCreated;
+			}
+			if (isset($this->__blnValid[self::UPDATEBY_FIELD])) {
+				$a['updateby'] = $this->strUpdateby;
+			}
+			if (isset($this->__blnValid[self::UPDATED_FIELD])) {
+				$a['updated'] = $this->dttUpdated;
+			}
+			if (isset($this->__blnValid[self::ACTIVE_FIELD])) {
+				$a['active'] = $this->strActive;
 			}
 			if (isset($this->_objAlternativa)) {
 				$a['alternativa'] = $this->_objAlternativa;
@@ -1432,8 +2064,16 @@
      * @uses QQTableNode
      *
      * @property-read QQColumnNode $PreguntaId
-     * @property-read QQColumnNode $EvaluacionId
-     * @property-read QQNodeEvaluacion $Evaluacion
+     * @property-read QQColumnNode $PreguntaHtml
+     * @property-read QQColumnNode $ExamenId
+     * @property-read QQNodeExamen $Examen
+     * @property-read QQColumnNode $Enunciado
+     * @property-read QQColumnNode $Orden
+     * @property-read QQColumnNode $Createby
+     * @property-read QQColumnNode $Created
+     * @property-read QQColumnNode $Updateby
+     * @property-read QQColumnNode $Updated
+     * @property-read QQColumnNode $Active
      *
      *
      * @property-read QQReverseReferenceNodeAlternativa $Alternativa
@@ -1448,7 +2088,15 @@
 		public function Fields() {
 			return [
 				"pregunta_id",
-				"evaluacion_id",
+				"pregunta_html",
+				"examen_id",
+				"enunciado",
+				"orden",
+				"createby",
+				"created",
+				"updateby",
+				"updated",
+				"active",
 			];
 		}
 
@@ -1467,10 +2115,26 @@
 			switch ($strName) {
 				case 'PreguntaId':
 					return new QQColumnNode('pregunta_id', 'PreguntaId', 'VarChar', $this);
-				case 'EvaluacionId':
-					return new QQColumnNode('evaluacion_id', 'EvaluacionId', 'VarChar', $this);
-				case 'Evaluacion':
-					return new QQNodeEvaluacion('evaluacion_id', 'Evaluacion', 'VarChar', $this);
+				case 'PreguntaHtml':
+					return new QQColumnNode('pregunta_html', 'PreguntaHtml', 'Blob', $this);
+				case 'ExamenId':
+					return new QQColumnNode('examen_id', 'ExamenId', 'VarChar', $this);
+				case 'Examen':
+					return new QQNodeExamen('examen_id', 'Examen', 'VarChar', $this);
+				case 'Enunciado':
+					return new QQColumnNode('enunciado', 'Enunciado', 'Blob', $this);
+				case 'Orden':
+					return new QQColumnNode('orden', 'Orden', 'Integer', $this);
+				case 'Createby':
+					return new QQColumnNode('createby', 'Createby', 'VarChar', $this);
+				case 'Created':
+					return new QQColumnNode('created', 'Created', 'DateTime', $this);
+				case 'Updateby':
+					return new QQColumnNode('updateby', 'Updateby', 'VarChar', $this);
+				case 'Updated':
+					return new QQColumnNode('updated', 'Updated', 'DateTime', $this);
+				case 'Active':
+					return new QQColumnNode('active', 'Active', 'VarChar', $this);
 				case 'Alternativa':
 					return new QQReverseReferenceNodeAlternativa($this, 'alternativa', QType::ReverseReference, 'pregunta_id', 'Alternativa');
 
@@ -1489,8 +2153,16 @@
 
     /**
      * @property-read QQColumnNode $PreguntaId
-     * @property-read QQColumnNode $EvaluacionId
-     * @property-read QQNodeEvaluacion $Evaluacion
+     * @property-read QQColumnNode $PreguntaHtml
+     * @property-read QQColumnNode $ExamenId
+     * @property-read QQNodeExamen $Examen
+     * @property-read QQColumnNode $Enunciado
+     * @property-read QQColumnNode $Orden
+     * @property-read QQColumnNode $Createby
+     * @property-read QQColumnNode $Created
+     * @property-read QQColumnNode $Updateby
+     * @property-read QQColumnNode $Updated
+     * @property-read QQColumnNode $Active
      *
      *
      * @property-read QQReverseReferenceNodeAlternativa $Alternativa
@@ -1505,7 +2177,15 @@
 		public function Fields() {
 			return [
 				"pregunta_id",
-				"evaluacion_id",
+				"pregunta_html",
+				"examen_id",
+				"enunciado",
+				"orden",
+				"createby",
+				"created",
+				"updateby",
+				"updated",
+				"active",
 			];
 		}
 
@@ -1519,10 +2199,26 @@
 			switch ($strName) {
 				case 'PreguntaId':
 					return new QQColumnNode('pregunta_id', 'PreguntaId', 'VarChar', $this);
-				case 'EvaluacionId':
-					return new QQColumnNode('evaluacion_id', 'EvaluacionId', 'VarChar', $this);
-				case 'Evaluacion':
-					return new QQNodeEvaluacion('evaluacion_id', 'Evaluacion', 'VarChar', $this);
+				case 'PreguntaHtml':
+					return new QQColumnNode('pregunta_html', 'PreguntaHtml', 'Blob', $this);
+				case 'ExamenId':
+					return new QQColumnNode('examen_id', 'ExamenId', 'VarChar', $this);
+				case 'Examen':
+					return new QQNodeExamen('examen_id', 'Examen', 'VarChar', $this);
+				case 'Enunciado':
+					return new QQColumnNode('enunciado', 'Enunciado', 'Blob', $this);
+				case 'Orden':
+					return new QQColumnNode('orden', 'Orden', 'Integer', $this);
+				case 'Createby':
+					return new QQColumnNode('createby', 'Createby', 'VarChar', $this);
+				case 'Created':
+					return new QQColumnNode('created', 'Created', 'DateTime', $this);
+				case 'Updateby':
+					return new QQColumnNode('updateby', 'Updateby', 'VarChar', $this);
+				case 'Updated':
+					return new QQColumnNode('updated', 'Updated', 'DateTime', $this);
+				case 'Active':
+					return new QQColumnNode('active', 'Active', 'VarChar', $this);
 				case 'Alternativa':
 					return new QQReverseReferenceNodeAlternativa($this, 'alternativa', QType::ReverseReference, 'pregunta_id', 'Alternativa');
 

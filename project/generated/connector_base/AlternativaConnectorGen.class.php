@@ -18,14 +18,24 @@
 	 * @property-read Alternativa $Alternativa the actual Alternativa data class being edited
 	 * @property QTextBox $AlternativaIdControl
 	 * @property-read QLabel $AlternativaIdLabel
-	 * @property QTextBox $TipoControl
-	 * @property-read QLabel $TipoLabel
-	 * @property QTextBox $EsCorrectaControl
-	 * @property-read QLabel $EsCorrectaLabel
-	 * @property QTextBox $RespuestaCorrectoControl
-	 * @property-read QLabel $RespuestaCorrectoLabel
+	 * @property QTextBox $DescripcionControl
+	 * @property-read QLabel $DescripcionLabel
 	 * @property QListBox $PreguntaIdControl
 	 * @property-read QLabel $PreguntaIdLabel
+	 * @property QTextBox $EsCorrectaControl
+	 * @property-read QLabel $EsCorrectaLabel
+	 * @property QIntegerTextBox $OrdenControl
+	 * @property-read QLabel $OrdenLabel
+	 * @property QTextBox $CreatebyControl
+	 * @property-read QLabel $CreatebyLabel
+	 * @property QDateTimePicker $CreatedControl
+	 * @property-read QLabel $CreatedLabel
+	 * @property QTextBox $UpdatebyControl
+	 * @property-read QLabel $UpdatebyLabel
+	 * @property QDateTimePicker $UpdatedControl
+	 * @property-read QLabel $UpdatedLabel
+	 * @property QTextBox $ActiveControl
+	 * @property-read QLabel $ActiveLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -68,43 +78,17 @@
 		protected $lblAlternativaId;
 
 		/**
-		 * @var QTextBox txtTipo
+		 * @var QTextBox txtDescripcion
 
 		 * @access protected
 		 */
-		protected $txtTipo;
+		protected $txtDescripcion;
 
 		/**
-		 * @var QLabel lblTipo
+		 * @var QLabel lblDescripcion
 		 * @access protected
 		 */
-		protected $lblTipo;
-
-		/**
-		 * @var QTextBox txtEsCorrecta
-
-		 * @access protected
-		 */
-		protected $txtEsCorrecta;
-
-		/**
-		 * @var QLabel lblEsCorrecta
-		 * @access protected
-		 */
-		protected $lblEsCorrecta;
-
-		/**
-		 * @var QTextBox txtRespuestaCorrecto
-
-		 * @access protected
-		 */
-		protected $txtRespuestaCorrecto;
-
-		/**
-		 * @var QLabel lblRespuestaCorrecto
-		 * @access protected
-		 */
-		protected $lblRespuestaCorrecto;
+		protected $lblDescripcion;
 
 		/**
 		 * @var QListBox lstPregunta
@@ -134,6 +118,107 @@
 		 * @access protected
 		 */
 		protected $lblPregunta;
+
+		/**
+		 * @var QTextBox txtEsCorrecta
+
+		 * @access protected
+		 */
+		protected $txtEsCorrecta;
+
+		/**
+		 * @var QLabel lblEsCorrecta
+		 * @access protected
+		 */
+		protected $lblEsCorrecta;
+
+		/**
+		 * @var QIntegerTextBox txtOrden
+
+		 * @access protected
+		 */
+		protected $txtOrden;
+
+		/**
+		 * @var QLabel lblOrden
+		 * @access protected
+		 */
+		protected $lblOrden;
+
+		/**
+		 * @var QTextBox txtCreateby
+
+		 * @access protected
+		 */
+		protected $txtCreateby;
+
+		/**
+		 * @var QLabel lblCreateby
+		 * @access protected
+		 */
+		protected $lblCreateby;
+
+		/**
+		 * @var QDateTimePicker calCreated
+
+		 * @access protected
+		 */
+		protected $calCreated;
+
+		/**
+		 * @var QLabel lblCreated
+		 * @access protected
+		 */
+		protected $lblCreated;
+
+		/**
+		* @var strCreatedDateTimeFormat
+		* @access protected
+		*/
+		protected $strCreatedDateTimeFormat;
+		/**
+		 * @var QTextBox txtUpdateby
+
+		 * @access protected
+		 */
+		protected $txtUpdateby;
+
+		/**
+		 * @var QLabel lblUpdateby
+		 * @access protected
+		 */
+		protected $lblUpdateby;
+
+		/**
+		 * @var QDateTimePicker calUpdated
+
+		 * @access protected
+		 */
+		protected $calUpdated;
+
+		/**
+		 * @var QLabel lblUpdated
+		 * @access protected
+		 */
+		protected $lblUpdated;
+
+		/**
+		* @var strUpdatedDateTimeFormat
+		* @access protected
+		*/
+		protected $strUpdatedDateTimeFormat;
+		/**
+		 * @var QTextBox txtActive
+
+		 * @access protected
+		 */
+		protected $txtActive;
+
+		/**
+		 * @var QLabel lblActive
+		 * @access protected
+		 */
+		protected $lblActive;
 
 
 
@@ -264,97 +349,33 @@
 
 
 		/**
-		 * Create and setup a QTextBox txtTipo
+		 * Create and setup a QTextBox txtDescripcion
 		 * @param string $strControlId optional ControlId to use
 		 * @return QTextBox
 		 */
-		public function txtTipo_Create($strControlId = null) {
-			$this->txtTipo = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtTipo->Name = QApplication::Translate('Tipo');
-			$this->txtTipo->MaxLength = Alternativa::TipoMaxLength;
-			$this->txtTipo->PreferredRenderMethod = 'RenderWithName';
-			$this->txtTipo->LinkedNode = QQN::Alternativa()->Tipo;
-			$this->txtTipo->Text = $this->objAlternativa->Tipo;
-			return $this->txtTipo;
+		public function txtDescripcion_Create($strControlId = null) {
+			$this->txtDescripcion = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtDescripcion->Name = QApplication::Translate('Descripcion');
+			$this->txtDescripcion->MaxLength = Alternativa::DescripcionMaxLength;
+			$this->txtDescripcion->PreferredRenderMethod = 'RenderWithName';
+			$this->txtDescripcion->LinkedNode = QQN::Alternativa()->Descripcion;
+			$this->txtDescripcion->Text = $this->objAlternativa->Descripcion;
+			return $this->txtDescripcion;
 		}
 
 		/**
-		 * Create and setup QLabel lblTipo
+		 * Create and setup QLabel lblDescripcion
 		 *
 		 * @param string $strControlId optional ControlId to use
 		 * @return QLabel
 		 */
-		public function lblTipo_Create($strControlId = null) {
-			$this->lblTipo = new QLabel($this->objParentObject, $strControlId);
-			$this->lblTipo->Name = QApplication::Translate('Tipo');
-			$this->lblTipo->PreferredRenderMethod = 'RenderWithName';
-			$this->lblTipo->LinkedNode = QQN::Alternativa()->Tipo;
-			$this->lblTipo->Text = $this->objAlternativa->Tipo;
-			return $this->lblTipo;
-		}
-
-
-
-		/**
-		 * Create and setup a QTextBox txtEsCorrecta
-		 * @param string $strControlId optional ControlId to use
-		 * @return QTextBox
-		 */
-		public function txtEsCorrecta_Create($strControlId = null) {
-			$this->txtEsCorrecta = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtEsCorrecta->Name = QApplication::Translate('Es Correcta');
-			$this->txtEsCorrecta->MaxLength = Alternativa::EsCorrectaMaxLength;
-			$this->txtEsCorrecta->PreferredRenderMethod = 'RenderWithName';
-			$this->txtEsCorrecta->LinkedNode = QQN::Alternativa()->EsCorrecta;
-			$this->txtEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
-			return $this->txtEsCorrecta;
-		}
-
-		/**
-		 * Create and setup QLabel lblEsCorrecta
-		 *
-		 * @param string $strControlId optional ControlId to use
-		 * @return QLabel
-		 */
-		public function lblEsCorrecta_Create($strControlId = null) {
-			$this->lblEsCorrecta = new QLabel($this->objParentObject, $strControlId);
-			$this->lblEsCorrecta->Name = QApplication::Translate('Es Correcta');
-			$this->lblEsCorrecta->PreferredRenderMethod = 'RenderWithName';
-			$this->lblEsCorrecta->LinkedNode = QQN::Alternativa()->EsCorrecta;
-			$this->lblEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
-			return $this->lblEsCorrecta;
-		}
-
-
-
-		/**
-		 * Create and setup a QTextBox txtRespuestaCorrecto
-		 * @param string $strControlId optional ControlId to use
-		 * @return QTextBox
-		 */
-		public function txtRespuestaCorrecto_Create($strControlId = null) {
-			$this->txtRespuestaCorrecto = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtRespuestaCorrecto->Name = QApplication::Translate('Respuesta Correcto');
-			$this->txtRespuestaCorrecto->MaxLength = Alternativa::RespuestaCorrectoMaxLength;
-			$this->txtRespuestaCorrecto->PreferredRenderMethod = 'RenderWithName';
-			$this->txtRespuestaCorrecto->LinkedNode = QQN::Alternativa()->RespuestaCorrecto;
-			$this->txtRespuestaCorrecto->Text = $this->objAlternativa->RespuestaCorrecto;
-			return $this->txtRespuestaCorrecto;
-		}
-
-		/**
-		 * Create and setup QLabel lblRespuestaCorrecto
-		 *
-		 * @param string $strControlId optional ControlId to use
-		 * @return QLabel
-		 */
-		public function lblRespuestaCorrecto_Create($strControlId = null) {
-			$this->lblRespuestaCorrecto = new QLabel($this->objParentObject, $strControlId);
-			$this->lblRespuestaCorrecto->Name = QApplication::Translate('Respuesta Correcto');
-			$this->lblRespuestaCorrecto->PreferredRenderMethod = 'RenderWithName';
-			$this->lblRespuestaCorrecto->LinkedNode = QQN::Alternativa()->RespuestaCorrecto;
-			$this->lblRespuestaCorrecto->Text = $this->objAlternativa->RespuestaCorrecto;
-			return $this->lblRespuestaCorrecto;
+		public function lblDescripcion_Create($strControlId = null) {
+			$this->lblDescripcion = new QLabel($this->objParentObject, $strControlId);
+			$this->lblDescripcion->Name = QApplication::Translate('Descripcion');
+			$this->lblDescripcion->PreferredRenderMethod = 'RenderWithName';
+			$this->lblDescripcion->LinkedNode = QQN::Alternativa()->Descripcion;
+			$this->lblDescripcion->Text = $this->objAlternativa->Descripcion;
+			return $this->lblDescripcion;
 		}
 
 
@@ -425,6 +446,233 @@
 
 
 
+		/**
+		 * Create and setup a QTextBox txtEsCorrecta
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtEsCorrecta_Create($strControlId = null) {
+			$this->txtEsCorrecta = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtEsCorrecta->Name = QApplication::Translate('Es Correcta');
+			$this->txtEsCorrecta->MaxLength = Alternativa::EsCorrectaMaxLength;
+			$this->txtEsCorrecta->PreferredRenderMethod = 'RenderWithName';
+			$this->txtEsCorrecta->LinkedNode = QQN::Alternativa()->EsCorrecta;
+			$this->txtEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
+			return $this->txtEsCorrecta;
+		}
+
+		/**
+		 * Create and setup QLabel lblEsCorrecta
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblEsCorrecta_Create($strControlId = null) {
+			$this->lblEsCorrecta = new QLabel($this->objParentObject, $strControlId);
+			$this->lblEsCorrecta->Name = QApplication::Translate('Es Correcta');
+			$this->lblEsCorrecta->PreferredRenderMethod = 'RenderWithName';
+			$this->lblEsCorrecta->LinkedNode = QQN::Alternativa()->EsCorrecta;
+			$this->lblEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
+			return $this->lblEsCorrecta;
+		}
+
+
+
+		/**
+		 * Create and setup a QIntegerTextBox txtOrden
+		 * @param string $strControlId optional ControlId to use
+		 * @return QIntegerTextBox
+		 */
+		public function txtOrden_Create($strControlId = null) {
+			$this->txtOrden = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtOrden->Name = QApplication::Translate('Orden');
+			$this->txtOrden->PreferredRenderMethod = 'RenderWithName';
+			$this->txtOrden->LinkedNode = QQN::Alternativa()->Orden;
+			$this->txtOrden->Text = $this->objAlternativa->Orden;
+			return $this->txtOrden;
+		}
+
+		/**
+		 * Create and setup QLabel lblOrden
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblOrden_Create($strControlId = null) {
+			$this->lblOrden = new QLabel($this->objParentObject, $strControlId);
+			$this->lblOrden->Name = QApplication::Translate('Orden');
+			$this->lblOrden->PreferredRenderMethod = 'RenderWithName';
+			$this->lblOrden->LinkedNode = QQN::Alternativa()->Orden;
+			$this->lblOrden->Text = $this->objAlternativa->Orden;
+			return $this->lblOrden;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtCreateby
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtCreateby_Create($strControlId = null) {
+			$this->txtCreateby = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtCreateby->Name = QApplication::Translate('Createby');
+			$this->txtCreateby->MaxLength = Alternativa::CreatebyMaxLength;
+			$this->txtCreateby->PreferredRenderMethod = 'RenderWithName';
+			$this->txtCreateby->LinkedNode = QQN::Alternativa()->Createby;
+			$this->txtCreateby->Text = $this->objAlternativa->Createby;
+			return $this->txtCreateby;
+		}
+
+		/**
+		 * Create and setup QLabel lblCreateby
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblCreateby_Create($strControlId = null) {
+			$this->lblCreateby = new QLabel($this->objParentObject, $strControlId);
+			$this->lblCreateby->Name = QApplication::Translate('Createby');
+			$this->lblCreateby->PreferredRenderMethod = 'RenderWithName';
+			$this->lblCreateby->LinkedNode = QQN::Alternativa()->Createby;
+			$this->lblCreateby->Text = $this->objAlternativa->Createby;
+			return $this->lblCreateby;
+		}
+
+
+
+		/**
+		 * Create and setup a QDateTimePicker calCreated
+		 * @param string $strControlId optional ControlId to use
+		 * @return QDateTimePicker
+		 */
+		public function calCreated_Create($strControlId = null) {
+			$this->calCreated = new QDateTimePicker($this->objParentObject, $strControlId);
+			$this->calCreated->Name = QApplication::Translate('Created');
+			$this->calCreated->DateTime = $this->objAlternativa->Created;
+			$this->calCreated->DateTimePickerType = QDateTimePickerType::DateTime;
+			$this->calCreated->PreferredRenderMethod = 'RenderWithName';
+			$this->calCreated->LinkedNode = QQN::Alternativa()->Created;
+			return $this->calCreated;
+		}
+
+		/**
+		 * Create and setup QLabel lblCreated
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @param string $strDateTimeFormat
+		 * @return QLabel
+		 */
+		public function lblCreated_Create($strControlId = null, $strDateTimeFormat = null) {
+			$this->lblCreated = new QLabel($this->objParentObject, $strControlId);
+			$this->lblCreated->Name = QApplication::Translate('Created');
+			$this->strCreatedDateTimeFormat = $strDateTimeFormat;
+			$this->lblCreated->PreferredRenderMethod = 'RenderWithName';
+			$this->lblCreated->LinkedNode = QQN::Alternativa()->Created;
+			$this->lblCreated->Text = $this->objAlternativa->Created ? $this->objAlternativa->Created->qFormat($this->strCreatedDateTimeFormat) : null;
+			return $this->lblCreated;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtUpdateby
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtUpdateby_Create($strControlId = null) {
+			$this->txtUpdateby = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtUpdateby->Name = QApplication::Translate('Updateby');
+			$this->txtUpdateby->MaxLength = Alternativa::UpdatebyMaxLength;
+			$this->txtUpdateby->PreferredRenderMethod = 'RenderWithName';
+			$this->txtUpdateby->LinkedNode = QQN::Alternativa()->Updateby;
+			$this->txtUpdateby->Text = $this->objAlternativa->Updateby;
+			return $this->txtUpdateby;
+		}
+
+		/**
+		 * Create and setup QLabel lblUpdateby
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblUpdateby_Create($strControlId = null) {
+			$this->lblUpdateby = new QLabel($this->objParentObject, $strControlId);
+			$this->lblUpdateby->Name = QApplication::Translate('Updateby');
+			$this->lblUpdateby->PreferredRenderMethod = 'RenderWithName';
+			$this->lblUpdateby->LinkedNode = QQN::Alternativa()->Updateby;
+			$this->lblUpdateby->Text = $this->objAlternativa->Updateby;
+			return $this->lblUpdateby;
+		}
+
+
+
+		/**
+		 * Create and setup a QDateTimePicker calUpdated
+		 * @param string $strControlId optional ControlId to use
+		 * @return QDateTimePicker
+		 */
+		public function calUpdated_Create($strControlId = null) {
+			$this->calUpdated = new QDateTimePicker($this->objParentObject, $strControlId);
+			$this->calUpdated->Name = QApplication::Translate('Updated');
+			$this->calUpdated->DateTime = $this->objAlternativa->Updated;
+			$this->calUpdated->DateTimePickerType = QDateTimePickerType::DateTime;
+			$this->calUpdated->PreferredRenderMethod = 'RenderWithName';
+			$this->calUpdated->LinkedNode = QQN::Alternativa()->Updated;
+			return $this->calUpdated;
+		}
+
+		/**
+		 * Create and setup QLabel lblUpdated
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @param string $strDateTimeFormat
+		 * @return QLabel
+		 */
+		public function lblUpdated_Create($strControlId = null, $strDateTimeFormat = null) {
+			$this->lblUpdated = new QLabel($this->objParentObject, $strControlId);
+			$this->lblUpdated->Name = QApplication::Translate('Updated');
+			$this->strUpdatedDateTimeFormat = $strDateTimeFormat;
+			$this->lblUpdated->PreferredRenderMethod = 'RenderWithName';
+			$this->lblUpdated->LinkedNode = QQN::Alternativa()->Updated;
+			$this->lblUpdated->Text = $this->objAlternativa->Updated ? $this->objAlternativa->Updated->qFormat($this->strUpdatedDateTimeFormat) : null;
+			return $this->lblUpdated;
+		}
+
+
+
+		/**
+		 * Create and setup a QTextBox txtActive
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtActive_Create($strControlId = null) {
+			$this->txtActive = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtActive->Name = QApplication::Translate('Active');
+			$this->txtActive->MaxLength = Alternativa::ActiveMaxLength;
+			$this->txtActive->PreferredRenderMethod = 'RenderWithName';
+			$this->txtActive->LinkedNode = QQN::Alternativa()->Active;
+			$this->txtActive->Text = $this->objAlternativa->Active;
+			return $this->txtActive;
+		}
+
+		/**
+		 * Create and setup QLabel lblActive
+		 *
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblActive_Create($strControlId = null) {
+			$this->lblActive = new QLabel($this->objParentObject, $strControlId);
+			$this->lblActive->Name = QApplication::Translate('Active');
+			$this->lblActive->PreferredRenderMethod = 'RenderWithName';
+			$this->lblActive->LinkedNode = QQN::Alternativa()->Active;
+			$this->lblActive->Text = $this->objAlternativa->Active;
+			return $this->lblActive;
+		}
+
+
+
 
 
 		/**
@@ -443,16 +691,8 @@
 			if ($this->lblAlternativaId) $this->lblAlternativaId->Text = $this->objAlternativa->AlternativaId;
 
 
-			if ($this->txtTipo) $this->txtTipo->Text = $this->objAlternativa->Tipo;
-			if ($this->lblTipo) $this->lblTipo->Text = $this->objAlternativa->Tipo;
-
-
-			if ($this->txtEsCorrecta) $this->txtEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
-			if ($this->lblEsCorrecta) $this->lblEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
-
-
-			if ($this->txtRespuestaCorrecto) $this->txtRespuestaCorrecto->Text = $this->objAlternativa->RespuestaCorrecto;
-			if ($this->lblRespuestaCorrecto) $this->lblRespuestaCorrecto->Text = $this->objAlternativa->RespuestaCorrecto;
+			if ($this->txtDescripcion) $this->txtDescripcion->Text = $this->objAlternativa->Descripcion;
+			if ($this->lblDescripcion) $this->lblDescripcion->Text = $this->objAlternativa->Descripcion;
 
 
             if ($this->lstPregunta) {
@@ -463,6 +703,34 @@
             
             }
 			if ($this->lblPregunta) $this->lblPregunta->Text = $this->objAlternativa->Pregunta ? $this->objAlternativa->Pregunta->__toString() : null;
+
+
+			if ($this->txtEsCorrecta) $this->txtEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
+			if ($this->lblEsCorrecta) $this->lblEsCorrecta->Text = $this->objAlternativa->EsCorrecta;
+
+
+			if ($this->txtOrden) $this->txtOrden->Text = $this->objAlternativa->Orden;
+			if ($this->lblOrden) $this->lblOrden->Text = $this->objAlternativa->Orden;
+
+
+			if ($this->txtCreateby) $this->txtCreateby->Text = $this->objAlternativa->Createby;
+			if ($this->lblCreateby) $this->lblCreateby->Text = $this->objAlternativa->Createby;
+
+
+			if ($this->calCreated) $this->calCreated->DateTime = $this->objAlternativa->Created;
+			if ($this->lblCreated) $this->lblCreated->Text = $this->objAlternativa->Created ? $this->objAlternativa->Created->qFormat($this->strCreatedDateTimeFormat) : null;
+
+
+			if ($this->txtUpdateby) $this->txtUpdateby->Text = $this->objAlternativa->Updateby;
+			if ($this->lblUpdateby) $this->lblUpdateby->Text = $this->objAlternativa->Updateby;
+
+
+			if ($this->calUpdated) $this->calUpdated->DateTime = $this->objAlternativa->Updated;
+			if ($this->lblUpdated) $this->lblUpdated->Text = $this->objAlternativa->Updated ? $this->objAlternativa->Updated->qFormat($this->strUpdatedDateTimeFormat) : null;
+
+
+			if ($this->txtActive) $this->txtActive->Text = $this->objAlternativa->Active;
+			if ($this->lblActive) $this->lblActive->Text = $this->objAlternativa->Active;
 
 
 		}
@@ -516,13 +784,23 @@
 				// Update any fields for controls that have been created
 				if ($this->txtAlternativaId) $this->objAlternativa->AlternativaId = $this->txtAlternativaId->Text;
 
-				if ($this->txtTipo) $this->objAlternativa->Tipo = $this->txtTipo->Text;
+				if ($this->txtDescripcion) $this->objAlternativa->Descripcion = $this->txtDescripcion->Text;
+
+				if ($this->lstPregunta) $this->objAlternativa->PreguntaId = $this->lstPregunta->SelectedValue;
 
 				if ($this->txtEsCorrecta) $this->objAlternativa->EsCorrecta = $this->txtEsCorrecta->Text;
 
-				if ($this->txtRespuestaCorrecto) $this->objAlternativa->RespuestaCorrecto = $this->txtRespuestaCorrecto->Text;
+				if ($this->txtOrden) $this->objAlternativa->Orden = $this->txtOrden->Text;
 
-				if ($this->lstPregunta) $this->objAlternativa->PreguntaId = $this->lstPregunta->SelectedValue;
+				if ($this->txtCreateby) $this->objAlternativa->Createby = $this->txtCreateby->Text;
+
+				if ($this->calCreated) $this->objAlternativa->Created = $this->calCreated->DateTime;
+
+				if ($this->txtUpdateby) $this->objAlternativa->Updateby = $this->txtUpdateby->Text;
+
+				if ($this->calUpdated) $this->objAlternativa->Updated = $this->calUpdated->DateTime;
+
+				if ($this->txtActive) $this->objAlternativa->Active = $this->txtActive->Text;
 
 
 				// Update any UniqueReverseReferences for controls that have been created for it
@@ -586,24 +864,12 @@
 				case 'AlternativaIdLabel':
 					if (!$this->lblAlternativaId) return $this->lblAlternativaId_Create();
 					return $this->lblAlternativaId;
-				case 'TipoControl':
-					if (!$this->txtTipo) return $this->txtTipo_Create();
-					return $this->txtTipo;
-				case 'TipoLabel':
-					if (!$this->lblTipo) return $this->lblTipo_Create();
-					return $this->lblTipo;
-				case 'EsCorrectaControl':
-					if (!$this->txtEsCorrecta) return $this->txtEsCorrecta_Create();
-					return $this->txtEsCorrecta;
-				case 'EsCorrectaLabel':
-					if (!$this->lblEsCorrecta) return $this->lblEsCorrecta_Create();
-					return $this->lblEsCorrecta;
-				case 'RespuestaCorrectoControl':
-					if (!$this->txtRespuestaCorrecto) return $this->txtRespuestaCorrecto_Create();
-					return $this->txtRespuestaCorrecto;
-				case 'RespuestaCorrectoLabel':
-					if (!$this->lblRespuestaCorrecto) return $this->lblRespuestaCorrecto_Create();
-					return $this->lblRespuestaCorrecto;
+				case 'DescripcionControl':
+					if (!$this->txtDescripcion) return $this->txtDescripcion_Create();
+					return $this->txtDescripcion;
+				case 'DescripcionLabel':
+					if (!$this->lblDescripcion) return $this->lblDescripcion_Create();
+					return $this->lblDescripcion;
 				case 'PreguntaIdControl':
 					if (!$this->lstPregunta) return $this->lstPregunta_Create();
 					return $this->lstPregunta;
@@ -612,6 +878,48 @@
 					return $this->lblPregunta;
 				case 'PreguntaNullLabel':
 					return $this->strPreguntaNullLabel;
+				case 'EsCorrectaControl':
+					if (!$this->txtEsCorrecta) return $this->txtEsCorrecta_Create();
+					return $this->txtEsCorrecta;
+				case 'EsCorrectaLabel':
+					if (!$this->lblEsCorrecta) return $this->lblEsCorrecta_Create();
+					return $this->lblEsCorrecta;
+				case 'OrdenControl':
+					if (!$this->txtOrden) return $this->txtOrden_Create();
+					return $this->txtOrden;
+				case 'OrdenLabel':
+					if (!$this->lblOrden) return $this->lblOrden_Create();
+					return $this->lblOrden;
+				case 'CreatebyControl':
+					if (!$this->txtCreateby) return $this->txtCreateby_Create();
+					return $this->txtCreateby;
+				case 'CreatebyLabel':
+					if (!$this->lblCreateby) return $this->lblCreateby_Create();
+					return $this->lblCreateby;
+				case 'CreatedControl':
+					if (!$this->calCreated) return $this->calCreated_Create();
+					return $this->calCreated;
+				case 'CreatedLabel':
+					if (!$this->lblCreated) return $this->lblCreated_Create();
+					return $this->lblCreated;
+				case 'UpdatebyControl':
+					if (!$this->txtUpdateby) return $this->txtUpdateby_Create();
+					return $this->txtUpdateby;
+				case 'UpdatebyLabel':
+					if (!$this->lblUpdateby) return $this->lblUpdateby_Create();
+					return $this->lblUpdateby;
+				case 'UpdatedControl':
+					if (!$this->calUpdated) return $this->calUpdated_Create();
+					return $this->calUpdated;
+				case 'UpdatedLabel':
+					if (!$this->lblUpdated) return $this->lblUpdated_Create();
+					return $this->lblUpdated;
+				case 'ActiveControl':
+					if (!$this->txtActive) return $this->txtActive_Create();
+					return $this->txtActive;
+				case 'ActiveLabel':
+					if (!$this->lblActive) return $this->lblActive_Create();
+					return $this->lblActive;
 				default:
 					try {
 						return parent::__get($strName);
@@ -642,24 +950,44 @@
 						return ($this->txtAlternativaId = QType::Cast($mixValue, 'QTextBox'));
 					case 'AlternativaIdLabel':
 						return ($this->lblAlternativaId = QType::Cast($mixValue, 'QLabel'));
-					case 'TipoControl':
-						return ($this->txtTipo = QType::Cast($mixValue, 'QTextBox'));
-					case 'TipoLabel':
-						return ($this->lblTipo = QType::Cast($mixValue, 'QLabel'));
-					case 'EsCorrectaControl':
-						return ($this->txtEsCorrecta = QType::Cast($mixValue, 'QTextBox'));
-					case 'EsCorrectaLabel':
-						return ($this->lblEsCorrecta = QType::Cast($mixValue, 'QLabel'));
-					case 'RespuestaCorrectoControl':
-						return ($this->txtRespuestaCorrecto = QType::Cast($mixValue, 'QTextBox'));
-					case 'RespuestaCorrectoLabel':
-						return ($this->lblRespuestaCorrecto = QType::Cast($mixValue, 'QLabel'));
+					case 'DescripcionControl':
+						return ($this->txtDescripcion = QType::Cast($mixValue, 'QTextBox'));
+					case 'DescripcionLabel':
+						return ($this->lblDescripcion = QType::Cast($mixValue, 'QLabel'));
 					case 'PreguntaIdControl':
 						return ($this->lstPregunta = QType::Cast($mixValue, 'QListBox'));
 					case 'PreguntaIdLabel':
 						return ($this->lblPregunta = QType::Cast($mixValue, 'QLabel'));
 					case 'PreguntaNullLabel':
 						return $this->strPreguntaNullLabel = $mixValue;
+					case 'EsCorrectaControl':
+						return ($this->txtEsCorrecta = QType::Cast($mixValue, 'QTextBox'));
+					case 'EsCorrectaLabel':
+						return ($this->lblEsCorrecta = QType::Cast($mixValue, 'QLabel'));
+					case 'OrdenControl':
+						return ($this->txtOrden = QType::Cast($mixValue, 'QIntegerTextBox'));
+					case 'OrdenLabel':
+						return ($this->lblOrden = QType::Cast($mixValue, 'QLabel'));
+					case 'CreatebyControl':
+						return ($this->txtCreateby = QType::Cast($mixValue, 'QTextBox'));
+					case 'CreatebyLabel':
+						return ($this->lblCreateby = QType::Cast($mixValue, 'QLabel'));
+					case 'CreatedControl':
+						return ($this->calCreated = QType::Cast($mixValue, 'QDateTimePicker'));
+					case 'CreatedLabel':
+						return ($this->lblCreated = QType::Cast($mixValue, 'QLabel'));
+					case 'UpdatebyControl':
+						return ($this->txtUpdateby = QType::Cast($mixValue, 'QTextBox'));
+					case 'UpdatebyLabel':
+						return ($this->lblUpdateby = QType::Cast($mixValue, 'QLabel'));
+					case 'UpdatedControl':
+						return ($this->calUpdated = QType::Cast($mixValue, 'QDateTimePicker'));
+					case 'UpdatedLabel':
+						return ($this->lblUpdated = QType::Cast($mixValue, 'QLabel'));
+					case 'ActiveControl':
+						return ($this->txtActive = QType::Cast($mixValue, 'QTextBox'));
+					case 'ActiveLabel':
+						return ($this->lblActive = QType::Cast($mixValue, 'QLabel'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}
