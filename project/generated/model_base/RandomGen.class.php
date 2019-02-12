@@ -39,7 +39,7 @@
 		private $strRandomId;
 		const RandomIdMaxLength = 32;
 
-		const RandomIdDefault = null;
+		const RandomIdDefault = 'get_uuid()';
 		const RANDOM_ID_FIELD = 'random_id';
 
 
@@ -675,9 +675,7 @@
 	*/
 	public function setRandomId($strRandomId) {
         if ($strRandomId === null) {
-             // invalidate
-             $strRandomId = null;
-             $this->__blnValid[self::RANDOM_ID_FIELD] = false;
+             $strRandomId = static::RandomIdDefault;
             return $this; // allows chaining
         }
 		$strRandomId = QType::Cast($strRandomId, QType::String);

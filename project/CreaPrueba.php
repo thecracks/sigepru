@@ -4,6 +4,11 @@ require('includes/configuration/prepend.inc.php');
 
 class CreaPrueba extends QForm {
 
+    protected $inputCabecera;
+    protected $inputCuerpo;
+    protected $btnGuardar;
+    protected $chkVendor;
+
     protected function Form_Run() {
 
 //        $this->RenderAjax();
@@ -19,41 +24,22 @@ class CreaPrueba extends QForm {
 
     protected function Form_Create() {
 
+        $this->inputCabecera = new QTextBox($this,"inputcabecera");
+        $this->inputCabecera->Display = FALSE;
 
-        if (isset($_POST["ajaxmsg"])) {
-            $ajax = $_POST["ajaxmsg"];
+        $this->inputCuerpo = new QTextBox($this,"inputcontenido");
+        $this->inputCuerpo->Display = FALSE;
 
-            $evaluacion = new Examen();
-            $evaluacion->CabeceraHtml = $ajax;
-            $evaluacion->Save();
-
-            $this->functionName();
-        }
-
-//        $this->strAction = __VIRTUAL_DIRECTORY__ . __SUBDIRECTORY__ . "/dashboarduser";
-//        
-//        $this->lstYear = new QListBox($this);
-//        $this->lstYear->Width = 150;
-//        $this->lstYear->CssClass = "form-control";
-//
-//        $this->lstYear->AddItem(new QListItem("2017", 2017));
-//        $this->lstYear->AddItem(new QListItem("2018", 2018));
-//        $this->lstYear->AddItem(new QListItem("2019", 2019));
-//        $this->lstYear->AddItem(new QListItem("2020", 2020));
-//        $this->lstYear->AddItem(new QListItem("2021", 2021));
-//        $this->lstYear->AddItem(new QListItem("2022", 2022));
-//        $this->lstYear->SelectedValue = 2017;        
-//        $this->selectYearIni = 2017;
-//        $this->selectYearFin = 2017;
-//        $this->lstYear->AddAction(new QChangeEvent(), new QServerAction("lstYear_Change"));
-//
-//        QApplication::ExecuteJavaScript("showSuccess('Data loaded correctly!');");
+        $this->btnGuardar = new QButton($this, 'btnguardaestructura');
+        $this->btnGuardar->Text = '<i class="fa fa-save m-r-5"></i> <span>Guardar</span>';
+        $this->btnGuardar->HtmlEntities = false;
+        $this->btnGuardar->CssClass = "btn btn-success btn-block waves-effect waves-light m-b-5";
+        $this->btnGuardar->AddAction(new QClickEvent(), new QAjaxAction('btnGuardar'));
+        
     }
 
-    public function functionName() {
-
-        echo 'holas';
-        $this->RenderAjax();
+    protected function btnGuardar($strFormId, $strControlId, $strParameter) {
+        
     }
 
 }

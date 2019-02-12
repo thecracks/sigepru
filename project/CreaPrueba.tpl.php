@@ -82,7 +82,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
         background: -moz-linear-gradient(top, #ffffff, #15dcc6);
         background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#15dcc6));
     }
-    
+
 </style>
 
 
@@ -200,7 +200,9 @@ require(__CONFIGURATION__ . '/header.inc.php');
                                 <div class="row">
 
                                     <div class="col-md-4">                                  
-                                        <button id="btn_guarda_estructura" class="btn btn-success btn-block waves-effect waves-light m-b-5"> <i class="fa fa-save m-r-5"></i> <span>Guardar</span> </button>
+                                        <!--<button id="btn_guarda_estructura" class="btn btn-success btn-block waves-effect waves-light m-b-5"> <i class="fa fa-save m-r-5"></i> <span>Guardar</span> </button>-->
+
+                                        <?= $this->btnGuardar->Render(); ?>
                                     </div>
 
                                     <div class="col-md-4">                                  
@@ -618,13 +620,13 @@ require(__CONFIGURATION__ . '/header.inc.php');
                 btn.attr("disabled", false);
             }
         });
-
+    });
+    
 //        setTimeout(function () {
 //            btn.removeClass("animacion");
 //            btn.children("span").html("Guardar");
 //            btn.attr("disabled", false);
 //        }, 3000);
-    });
 
 </script>
 
