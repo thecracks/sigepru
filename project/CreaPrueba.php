@@ -5,7 +5,7 @@ require('includes/configuration/prepend.inc.php');
 class CreaPrueba extends QForm {
 
     protected $inputCabecera;
-    protected $inputCuerpo;
+    protected $inputContenido;
     protected $btnGuardar;
     protected $chkVendor;
 
@@ -24,22 +24,25 @@ class CreaPrueba extends QForm {
 
     protected function Form_Create() {
 
-        $this->inputCabecera = new QTextBox($this,"inputcabecera");
+        $this->inputCabecera = new QTextBox($this, "inputocultocabecera");
         $this->inputCabecera->Display = FALSE;
 
-        $this->inputCuerpo = new QTextBox($this,"inputcontenido");
-        $this->inputCuerpo->Display = FALSE;
+        $this->inputContenido = new QTextBox($this, "inputocultocontenido");
+        $this->inputContenido->Display = FALSE;
 
         $this->btnGuardar = new QButton($this, 'btnguardaestructura');
         $this->btnGuardar->Text = '<i class="fa fa-save m-r-5"></i> <span>Guardar</span>';
         $this->btnGuardar->HtmlEntities = false;
         $this->btnGuardar->CssClass = "btn btn-success btn-block waves-effect waves-light m-b-5";
         $this->btnGuardar->AddAction(new QClickEvent(), new QAjaxAction('btnGuardar'));
-        
     }
 
     protected function btnGuardar($strFormId, $strControlId, $strParameter) {
-        
+
+        $htmlCabecera = $this->inputCabecera->Text;
+        $htmlContenido = $this->inputContenido->Text;
+
+        QApplication::ExecuteJavaScript("alert(".$htmlCabecera.")");
     }
 
 }

@@ -21,10 +21,7 @@ require(__CONFIGURATION__ . '/header.login.inc.php');
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="mdi mdi-account"></i></span>
                     </div>
-                    <!--<input class="form-control" type="text" required="" placeholder="Username">-->
-
-                    <?php $this->inputCabecera->Render(); ?>
-
+                    <input class="form-control" type="text" required="" placeholder="Username">
                 </div>
             </div>
         </div>
@@ -36,7 +33,7 @@ require(__CONFIGURATION__ . '/header.login.inc.php');
                         <span class="input-group-text"><i class="mdi mdi-radar"></i></span>
                     </div>
                     <!--<input class="form-control" type="password" required="" placeholder="Password">-->
-                    <?php $this->inputCuerpo->Render(); ?>
+                    <?php $this->inputContenido->Render(); ?>
 
                 </div>
             </div>

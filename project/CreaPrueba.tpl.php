@@ -350,8 +350,8 @@ require(__CONFIGURATION__ . '/header.inc.php');
     <!-- end container -->
 </div>
 
-
-
+<?= $this->inputCabecera->Render(); ?>
+<?= $this->inputContenido->Render(); ?>
 
 <?php $this->RenderEnd() ?>
 
@@ -410,6 +410,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
                     capturaParametrosInciales();
                     generaCabecera();
                     generaContenido();
+                    actualizaInputsOcultos();
                 }
             }
         });
@@ -529,6 +530,13 @@ require(__CONFIGURATION__ . '/header.inc.php');
     }
 
 
+    function actualizaInputsOcultos() {
+        $("#inputocultocabecera").val($("#div_tabla_cabecera").html());
+        $("#inputocultocontenido").val($("#div_tabla_contenido").html());
+    }
+
+
+
 
 //  EVENTOS : 
 
@@ -594,7 +602,11 @@ require(__CONFIGURATION__ . '/header.inc.php');
         }
     });
 
-    $(document).on('click', '#btn_guarda_estructura', function (e) {
+    $(document).on('click', '#btnguardaestructuraxx', function (e) {
+
+        $("#inputocultocabecera").val($("#div_tabla_cabecera").html());
+        $("#inputocultocontenido").val($("#div_tabla_contenido").html());
+
 
         var btn = $(this);
 
@@ -602,26 +614,28 @@ require(__CONFIGURATION__ . '/header.inc.php');
         btn.addClass("animacion");
         btn.attr("disabled", true);
 
-        $.ajax({
-            url: "crea-prueba/functionName",
-            type: "POST",
-//            dataType: 'json',
-            data: {ajaxmsg: "saludos desde ajax"},
-            success: function (data) {
-                msg_exito("Exito", data);
-                btn.removeClass("animacion");
-                btn.children("span").html("Guardar");
-                btn.attr("disabled", false);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                msg_error("Error", errorThrown);
-                btn.removeClass("animacion");
-                btn.children("span").html("Guardar");
-                btn.attr("disabled", false);
-            }
-        });
+        alert($("#inputocultocabecera").val());
+
+//        $.ajax({
+//            url: "crea-prueba/functionName",
+//            type: "POST",
+////            dataType: 'json',
+//            data: {ajaxmsg: "saludos desde ajax"},
+//            success: function (data) {
+//                msg_exito("Exito", data);
+//                btn.removeClass("animacion");
+//                btn.children("span").html("Guardar");
+//                btn.attr("disabled", false);
+//            },
+//            error: function (jqXHR, textStatus, errorThrown) {
+//                msg_error("Error", errorThrown);
+//                btn.removeClass("animacion");
+//                btn.children("span").html("Guardar");
+//                btn.attr("disabled", false);
+//            }
+//        });
     });
-    
+
 //        setTimeout(function () {
 //            btn.removeClass("animacion");
 //            btn.children("span").html("Guardar");
