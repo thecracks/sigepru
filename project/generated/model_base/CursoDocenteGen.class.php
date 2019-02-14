@@ -1022,7 +1022,7 @@
 							`updated`,
 							`active`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strCursoDocenteId) . ',
+							get_uuid(),
 							' . $objDatabase->SqlVariable($this->strCursoId) . ',
 							' . $objDatabase->SqlVariable($this->strSeccionId) . ',
 							' . $objDatabase->SqlVariable($this->strDocenteId) . ',

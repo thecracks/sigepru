@@ -786,7 +786,7 @@
 							`updated`,
 							`active`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strAlternativaId) . ',
+							get_uuid(),
 							' . $objDatabase->SqlVariable($this->strDescripcion) . ',
 							' . $objDatabase->SqlVariable($this->strPreguntaId) . ',
 							' . $objDatabase->SqlVariable($this->strEsCorrecta) . ',

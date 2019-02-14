@@ -1,31 +1,31 @@
 <?php
 	/**
-	 * The abstract RandomGen class defined here is
+	 * The abstract RandomonlyGen class defined here is
 	 * code-generated and contains all the basic CRUD-type functionality as well as
 	 * basic methods to handle relationships and index-based loading.
 	 *
-	 * To use, you should use the Random subclass which
-	 * extends this RandomGen class.
+	 * To use, you should use the Randomonly subclass which
+	 * extends this RandomonlyGen class.
 	 *
 	 * Because subsequent re-code generations will overwrite any changes to this
 	 * file, you should leave this file unaltered to prevent yourself from losing
 	 * any information or code changes.  All customizations should be done by
 	 * overriding existing or implementing new methods, properties and variables
-	 * in the Random class.
+	 * in the Randomonly class.
 	 *
 	 * @package My QCubed Application
 	 * @subpackage GeneratedDataObjects
 	 * @property string $RandomId the value of the random_id column (PK)
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
-	class RandomGen extends QBaseClass implements IteratorAggregate, JsonSerializable {
+	class RandomonlyGen extends QBaseClass implements IteratorAggregate, JsonSerializable {
 
 		use QModelTrait;
 
 		/** @var boolean Set to false in superclass to save a little time if this db object should not be watched for changes. */
 		public static $blnWatchChanges = true;
 
-		/** @var Random[] Short term cached Random objects */
+		/** @var Randomonly[] Short term cached Randomonly objects */
 		protected static $objCacheArray = array();
 
 	///////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@
 		///////////////////////////////////////////////////////////////////////
 
 		/**
-		 * Protected member variable that maps to the database PK column random.random_id
+		 * Protected member variable that maps to the database PK column randomonly.random_id
 		 * @var string strRandomId
 		 */
 		private $strRandomId;
@@ -86,7 +86,7 @@
 
 		
 		/**
-		 * Construct a new Random object.
+		 * Construct a new Randomonly object.
 		 */
 		public function __construct($blnInitialize = true) {
             if ($blnInitialize) {
@@ -99,7 +99,7 @@
 		 */
 		public function Initialize()
 		{
-			$this->strRandomId = Random::RandomIdDefault;
+			$this->strRandomId = Randomonly::RandomIdDefault;
 			$this->__blnValid[self::RANDOM_ID_FIELD] = true;
 		}
 
@@ -141,10 +141,10 @@
 		}
 
 		/**
-		 * Load a Random from PK Info
+		 * Load a Randomonly from PK Info
 		 * @param string $strRandomId
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return Random
+		 * @return Randomonly
 		 */
 		public static function Load($strRandomId, $objOptionalClauses = null) {
 			if (!$objOptionalClauses) {
@@ -153,9 +153,9 @@
 			}
 
 			// Use QuerySingle to Perform the Query
-			$objToReturn = Random::QuerySingle(
+			$objToReturn = Randomonly::QuerySingle(
 				QQ::AndCondition(
-					QQ::Equal(QQN::Random()->RandomId, $strRandomId)
+					QQ::Equal(QQN::Randomonly()->RandomId, $strRandomId)
 				),
 				$objOptionalClauses
 			);
@@ -164,17 +164,17 @@
 
 
 		/**
-		 * Load all Randoms
+		 * Load all Randomonlies
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return Random[]
+		 * @return Randomonly[]
 		 */
 		public static function LoadAll($objOptionalClauses = null) {
 			if (func_num_args() > 1) {
 				throw new QCallerException("LoadAll must be called with an array of optional clauses as a single argument");
 			}
-			// Call Random::QueryArray to perform the LoadAll query
+			// Call Randomonly::QueryArray to perform the LoadAll query
 			try {
-				return Random::QueryArray(QQ::All(), $objOptionalClauses);
+				return Randomonly::QueryArray(QQ::All(), $objOptionalClauses);
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
 				throw $objExc;
@@ -182,34 +182,34 @@
 		}
 
 		/**
-		 * Count all Randoms
+		 * Count all Randomonlies
 		 * @return int
 		 */
 		public static function CountAll() {
-			// Call Random::QueryCount to perform the CountAll query
-			return Random::QueryCount(QQ::All());
+			// Call Randomonly::QueryCount to perform the CountAll query
+			return Randomonly::QueryCount(QQ::All());
 		}
 
 		
 		/**
-		 * Static Qcubed Query method to query for a single Random object.
+		 * Static Qcubed Query method to query for a single Randomonly object.
 		 * Offloads work to QModelTrait.trait.php
 		 * @param QQCondition $objConditions any conditions on the query, itself
 		 * @param QQClause[] $objOptionalClausees additional optional QQClause objects for this query
 		 * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
-		 * @return Random the queried object
+		 * @return Randomonly the queried object
 		 */
 		public static function QuerySingle(QQCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
 			return static::_QuerySingle($objConditions, $objOptionalClauses, $mixParameterArray);
 		}
 
 		/**
-		 * Static Qcubed Query method to query for an array of Random objects.
+		 * Static Qcubed Query method to query for an array of Randomonly objects.
 		 * Offloads work to QModelTrait.trait.php
 		 * @param QQCondition $objConditions any conditions on the query, itself
 		 * @param QQClause[] $objOptionalClausees additional optional QQClause objects for this query
 		 * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
-		 * @return Random[] the queried objects as an array
+		 * @return Randomonly[] the queried objects as an array
 		 */
 		public static function QueryArray(QQCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
 			return static::_QueryArray($objConditions, $objOptionalClauses, $mixParameterArray); 
@@ -219,11 +219,11 @@
 			if ($objConditions === null) {
 				$objConditions = QQ::All();
 			}
-			$clauses[] = QQ::Select(QQN::Random()->RandomId);
-			$objRandoms = self::QueryArray($objConditions, $clauses);
+			$clauses[] = QQ::Select(QQN::Randomonly()->RandomId);
+			$objRandomonlies = self::QueryArray($objConditions, $clauses);
 			$pks = [];
-			foreach ($objRandoms as $objRandom) {
-				$pks[] = $objRandom->strRandomId;
+			foreach ($objRandomonlies as $objRandomonly) {
+				$pks[] = $objRandomonly->strRandomId;
 			}
 			return $pks;
 		}
@@ -241,9 +241,9 @@
 		///////////////////////////////
 
 		/**
-		 * Instantiate a Random from a Database Row.
+		 * Instantiate a Randomonly from a Database Row.
 		 * Takes in an optional strAliasPrefix, used in case another Object::InstantiateDbRow
-		 * is calling this Random::InstantiateDbRow in order to perform
+		 * is calling this Randomonly::InstantiateDbRow in order to perform
 		 * early binding on referenced objects.
 		 * @param QDatabaseRowBase $objDbRow
 		 * @param string $strAliasPrefix
@@ -253,7 +253,7 @@
 		 * @param boolean $blnCheckDuplicate Used by ExpandArray to indicate we should not create a new object if this is a duplicate of a previoius object
 		 * @param string $strParentExpansionKey If this is part of an expansion, indicates what the parent item is
 		 * @param mixed $objExpansionParent If this is part of an expansion, is the object corresponding to the key so that we can refer back to the parent object
-		 * @return mixed Either a Random, or false to indicate the dbrow was used in an expansion, or null to indicate that this leaf is a duplicate.
+		 * @return mixed Either a Randomonly, or false to indicate the dbrow was used in an expansion, or null to indicate that this leaf is a duplicate.
 		*/
 		public static function InstantiateDbRow(
                 QDatabaseRowBase $objDbRow,
@@ -282,8 +282,8 @@
 
 			$objToReturn = static::GetFromCache ($key);
 			if (empty($objToReturn)) {
-				// Create a new instance of the Random object
-				$objToReturn = new Random(false);
+				// Create a new instance of the Randomonly object
+				$objToReturn = new Randomonly(false);
 				$objToReturn->__blnRestored = true;
 				$blnNoCache = false;
 
@@ -333,7 +333,7 @@
 			}
 
 			if (!$strAliasPrefix)
-				$strAliasPrefix = 'random__';
+				$strAliasPrefix = 'randomonly__';
 
 
 				
@@ -342,11 +342,11 @@
 		}
 		
 		/**
-		 * Instantiate an array of Randoms from a Database Result
+		 * Instantiate an array of Randomonlies from a Database Result
 		 * @param DatabaseResultBase $objDbResult
 		 * @param QQNode $objExpandAsArrayNode
 		 * @param string[] $strColumnAliasArray
-		 * @return Random[]
+		 * @return Randomonly[]
 		 */
 		public static function InstantiateDbResult(QDatabaseResultBase $objDbResult, $objExpandAsArrayNode = null, $strColumnAliasArray = null) {
 			$objToReturn = array();
@@ -363,7 +363,7 @@
 				$objToReturn = array();
 				$objPrevItemArray = array();
 				while ($objDbRow = $objDbResult->GetNextRow()) {
-					$objItem = Random::InstantiateDbRow($objDbRow, null, $objExpandAsArrayNode, $objPrevItemArray, $strColumnAliasArray);
+					$objItem = Randomonly::InstantiateDbRow($objDbRow, null, $objExpandAsArrayNode, $objPrevItemArray, $strColumnAliasArray);
 					if ($objItem) {
 						$objToReturn[] = $objItem;
 						$objPrevItemArray[$objItem->strRandomId][] = $objItem;
@@ -372,7 +372,7 @@
 				}
 			} else {
 				while ($objDbRow = $objDbResult->GetNextRow())
-					$objToReturn[] = Random::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
+					$objToReturn[] = Randomonly::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
 			}
 
 			return $objToReturn;
@@ -380,11 +380,11 @@
 
 
 		/**
-		 * Instantiate a single Random object from a query cursor (e.g. a DB ResultSet).
+		 * Instantiate a single Randomonly object from a query cursor (e.g. a DB ResultSet).
 		 * Cursor is automatically moved to the "next row" of the result set.
 		 * Will return NULL if no cursor or if the cursor has no more rows in the resultset.
 		 * @param QDatabaseResultBase $objDbResult cursor resource
-		 * @return Random next row resulting from the query
+		 * @return Randomonly next row resulting from the query
 		 */
 		public static function InstantiateCursor(QDatabaseResultBase $objDbResult) {
 			// If blank resultset, then return empty result
@@ -405,7 +405,7 @@
 			}
 
 			// Load up the return result with a row and return it
-			return Random::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
+			return Randomonly::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
 		}
 
 
@@ -414,16 +414,16 @@
 		///////////////////////////////////////////////////
 
 		/**
-		 * Load a single Random object,
+		 * Load a single Randomonly object,
 		 * by RandomId Index(es)
 		 * @param string $strRandomId
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return Random
+		 * @return Randomonly
 		*/
 		public static function LoadByRandomId($strRandomId, $objOptionalClauses = null) {
-			return Random::QuerySingle(
+			return Randomonly::QuerySingle(
 				QQ::AndCondition(
-					QQ::Equal(QQN::Random()->RandomId, $strRandomId)
+					QQ::Equal(QQN::Randomonly()->RandomId, $strRandomId)
 				),
 				$objOptionalClauses
 			);
@@ -444,14 +444,14 @@
 		
 
 		/**
-		 * Save this Random
+		 * Save this Randomonly
 		 * @param bool $blnForceInsert
 		 * @param bool $blnForceUpdate
 		 * @return void
 		 */
 		public function Save($blnForceInsert = false, $blnForceUpdate = false) {
 			// Get the Database Object for this Class
-			$objDatabase = Random::GetDatabase();
+			$objDatabase = Randomonly::GetDatabase();
 
 			$mixToReturn = null;
 
@@ -479,17 +479,17 @@
 		}
 
    /**
-	* Insert into Random
+	* Insert into Randomonly
 	*/
 	protected function Insert() {
 		$mixToReturn = null;
-		$objDatabase = Random::GetDatabase();
+		$objDatabase = Randomonly::GetDatabase();
 
 		$objDatabase->NonQuery('
-			INSERT INTO `random` (
+			INSERT INTO `randomonly` (
 							`random_id`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strRandomId) . '
+							get_uuid()
 						)
 		');
 
@@ -500,7 +500,7 @@
 	}
 
    /**
-	* Update this Random
+	* Update this Randomonly
     * @param bool $blnForceUpdate
 	*/
 	protected function Update($blnForceUpdate = false) {
@@ -514,7 +514,7 @@
 
 		$strSql = '
             UPDATE
-                `random`
+                `randomonly`
             SET
                 ' . $strValues . '
 
@@ -549,21 +549,21 @@
 
 
 		/**
-		 * Delete this Random
+		 * Delete this Randomonly
 		 * @return void
 		 */
 		public function Delete() {
 			if ((is_null($this->strRandomId)))
-				throw new QUndefinedPrimaryKeyException('Cannot delete this Random with an unset primary key.');
+				throw new QUndefinedPrimaryKeyException('Cannot delete this Randomonly with an unset primary key.');
 
 			// Get the Database Object for this Class
-			$objDatabase = Random::GetDatabase();
+			$objDatabase = Randomonly::GetDatabase();
 
 
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`random`
+					`randomonly`
 				WHERE
 					`random_id` = ' . $objDatabase->SqlVariable($this->strRandomId) . '');
 
@@ -572,46 +572,46 @@
 		}
 
 		/**
-		 * Delete all Randoms
+		 * Delete all Randomonlies
 		 * @return void
 		 */
 		public static function DeleteAll() {
 			// Get the Database Object for this Class
-			$objDatabase = Random::GetDatabase();
+			$objDatabase = Randomonly::GetDatabase();
 
 			// Perform the Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`random`');
+					`randomonly`');
 
 			static::ClearCache();
 			static::BroadcastDeleteAll();
 		}
 
 		/**
-		 * Truncate random table
+		 * Truncate randomonly table
 		 * @return void
 		 */
 		public static function Truncate() {
 			// Get the Database Object for this Class
-			$objDatabase = Random::GetDatabase();
+			$objDatabase = Randomonly::GetDatabase();
 
 			// Perform the Query
 			$objDatabase->NonQuery('
-				TRUNCATE `random`');
+				TRUNCATE `randomonly`');
 
 			static::ClearCache();
 			static::BroadcastDeleteAll();
 		}
 
 		/**
-	 * Reload this Random from the database.
+	 * Reload this Randomonly from the database.
 	 * @return void
 	 */
 	public function Reload($clauses = null) {
 		// Make sure we are actually Restored from the database
 		if (!$this->__blnRestored)
-			throw new QCallerException('Cannot call Reload() on a new, unsaved Random object.');
+			throw new QCallerException('Cannot call Reload() on a new, unsaved Randomonly object.');
 
 		// throw away all previous state of the object
 		$this->DeleteFromCache();
@@ -619,7 +619,7 @@
 		$this->__blnDirty = null;
 
 		// Reload the Object
-		$objReloaded = Random::Load($this->__strRandomId, $clauses);
+		$objReloaded = Randomonly::Load($this->__strRandomId, $clauses);
 
 		// Update $this's local variables to match
 		$this->strRandomId = $objReloaded->strRandomId;
@@ -630,16 +630,16 @@
 		////////////////////
 		
 		/**
-		 *  Return an array of Randoms keyed by the unique RandomId property.
-		 *	@param Random[]
-		 *	@return Random[]
+		 *  Return an array of Randomonlies keyed by the unique RandomId property.
+		 *	@param Randomonly[]
+		 *	@return Randomonly[]
 		 **/
-		public static function KeyRandomsByRandomId($randoms) {
-			if (empty($randoms)) {
-				return $randoms;
+		public static function KeyRandomonliesByRandomId($randomonlies) {
+			if (empty($randomonlies)) {
+				return $randomonlies;
 			}
-			foreach ($randoms as $random) {
-				$aOut[$random->strRandomId] = $random;
+			foreach ($randomonlies as $randomonly) {
+				$aOut[$randomonly->strRandomId] = $randomonly;
 			}
 			return $aOut;
 		}
@@ -671,7 +671,7 @@
 	* Returns $this to allow chaining of setters.
 	* @param string $strRandomId
     * @throws QCallerException
-	* @return Random
+	* @return Randomonly
 	*/
 	public function setRandomId($strRandomId) {
         if ($strRandomId === null) {
@@ -719,7 +719,7 @@
 	*/
 	protected static function BroadcastInsert($pk) {
 		if (static::$blnWatchChanges) {
-			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'random');
+			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'randomonly');
 		}
 	}
 
@@ -731,7 +731,7 @@
 	*/
 	protected static function BroadcastUpdate($pk, $fields) {
 		if (static::$blnWatchChanges) {
-			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'random');
+			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'randomonly');
 		}
 	}
 
@@ -741,7 +741,7 @@
 	*/
 	protected static function BroadcastDelete($pk) {
 		if (static::$blnWatchChanges) {
-			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'random');
+			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'randomonly');
 		}
 	}
 
@@ -750,7 +750,7 @@
 	*/
 	protected static function BroadcastDeleteAll() {
 		if (static::$blnWatchChanges) {
-			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'random');
+			QWatcher::MarkTableModified (static::GetDatabase()->Database, 'randomonly');
 		}
 	}
 
@@ -862,7 +862,7 @@
 		 * @return string Name of the table from which this class has been created.
 		 */
 		public static function GetTableName() {
-			return "random";
+			return "randomonly";
 		}
 
 		/**
@@ -870,7 +870,7 @@
 		 * @return string Name of the database from which this class has been created.
 		 */
 		public static function GetDatabaseName() {
-			return QApplication::$Database[Random::GetDatabaseIndex()]->Database;
+			return QApplication::$Database[Randomonly::GetDatabaseIndex()]->Database;
 		}
 
 		/**
@@ -889,7 +889,7 @@
 		 * @return int position or index of the database in the config file.
 		 */
 		public static function BaseNode() {
-			return QQN::Random();
+			return QQN::Randomonly();
 		}
 
 		////////////////////////////////////////
@@ -897,7 +897,7 @@
 		////////////////////////////////////////
 
 		public static function GetSoapComplexTypeXml() {
-			$strToReturn = '<complexType name="Random"><sequence>';
+			$strToReturn = '<complexType name="Randomonly"><sequence>';
 			$strToReturn .= '<element name="RandomId" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
@@ -905,8 +905,8 @@
 		}
 
 		public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
-			if (!array_key_exists('Random', $strComplexTypeArray)) {
-				$strComplexTypeArray['Random'] = Random::GetSoapComplexTypeXml();
+			if (!array_key_exists('Randomonly', $strComplexTypeArray)) {
+				$strComplexTypeArray['Randomonly'] = Randomonly::GetSoapComplexTypeXml();
 			}
 		}
 
@@ -914,13 +914,13 @@
 			$objArrayToReturn = array();
 
 			foreach ($objSoapArray as $objSoapObject)
-				array_push($objArrayToReturn, Random::GetObjectFromSoapObject($objSoapObject));
+				array_push($objArrayToReturn, Randomonly::GetObjectFromSoapObject($objSoapObject));
 
 			return $objArrayToReturn;
 		}
 
 		public static function GetObjectFromSoapObject($objSoapObject) {
-			$objToReturn = new Random();
+			$objToReturn = new Randomonly();
 			if (property_exists($objSoapObject, 'RandomId'))
 				$objToReturn->strRandomId = $objSoapObject->RandomId;
 			if (property_exists($objSoapObject, '__blnRestored'))
@@ -935,7 +935,7 @@
 			$objArrayToReturn = array();
 
 			foreach ($objArray as $objObject)
-				array_push($objArrayToReturn, Random::GetSoapObjectFromObject($objObject, true));
+				array_push($objArrayToReturn, Randomonly::GetSoapObjectFromObject($objObject, true));
 
 			return unserialize(serialize($objArrayToReturn));
 		}
@@ -987,7 +987,7 @@
 		 * fields are valid, and QQ::Expand to control embedded objects.
 		 * WARNING: If an object is found in short-term cache, it will be used instead of the queried object and may
 		 * contain data fields that were fetched earlier. To really control what fields exist in this object, preceed
-		 * any query calls (like Load or QueryArray), with a call to Random::ClearCache()
+		 * any query calls (like Load or QueryArray), with a call to Randomonly::ClearCache()
 		 *
 		 * @return array An array that is json serializable
 		 */
@@ -1021,10 +1021,10 @@
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
-	class QQNodeRandom extends QQTableNode {
-		protected $strTableName = 'random';
+	class QQNodeRandomonly extends QQTableNode {
+		protected $strTableName = 'randomonly';
 		protected $strPrimaryKey = 'random_id';
-		protected $strClassName = 'Random';
+		protected $strClassName = 'Randomonly';
 
 		public function Fields() {
 			return [
@@ -1068,10 +1068,10 @@
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
-	class QQReverseReferenceNodeRandom extends QQReverseReferenceNode {
-		protected $strTableName = 'random';
+	class QQReverseReferenceNodeRandomonly extends QQReverseReferenceNode {
+		protected $strTableName = 'randomonly';
 		protected $strPrimaryKey = 'random_id';
-		protected $strClassName = 'Random';
+		protected $strClassName = 'Randomonly';
 
 		public function Fields() {
 			return [

@@ -69,12 +69,12 @@
 		QApplicationBase::$ClassFile['preguntaconnector'] = __MODEL_CONNECTOR__ . '/PreguntaConnector.class.php';
 		QApplicationBase::$ClassFile['preguntalist'] = __MODEL_CONNECTOR__ . '/PreguntaList.class.php';
 
-	// ClassPaths for the Random class
-		QApplicationBase::$ClassFile['random'] = __MODEL__ . '/Random.class.php';
-		QApplicationBase::$ClassFile['qqnoderandom'] = __MODEL__ . '/Random.class.php';
-		QApplicationBase::$ClassFile['qqreversereferencenoderandom'] = __MODEL__ . '/Random.class.php';
-		QApplicationBase::$ClassFile['randomconnector'] = __MODEL_CONNECTOR__ . '/RandomConnector.class.php';
-		QApplicationBase::$ClassFile['randomlist'] = __MODEL_CONNECTOR__ . '/RandomList.class.php';
+	// ClassPaths for the Randomonly class
+		QApplicationBase::$ClassFile['randomonly'] = __MODEL__ . '/Randomonly.class.php';
+		QApplicationBase::$ClassFile['qqnoderandomonly'] = __MODEL__ . '/Randomonly.class.php';
+		QApplicationBase::$ClassFile['qqreversereferencenoderandomonly'] = __MODEL__ . '/Randomonly.class.php';
+		QApplicationBase::$ClassFile['randomonlyconnector'] = __MODEL_CONNECTOR__ . '/RandomonlyConnector.class.php';
+		QApplicationBase::$ClassFile['randomonlylist'] = __MODEL_CONNECTOR__ . '/RandomonlyList.class.php';
 
 	// ClassPaths for the Seccion class
 		QApplicationBase::$ClassFile['seccion'] = __MODEL__ . '/Seccion.class.php';

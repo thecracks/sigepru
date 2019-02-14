@@ -61,10 +61,10 @@
 			return new QQNodePregunta('pregunta', null, null);
 		}
 		/**
-		 * @return QQNodeRandom
+		 * @return QQNodeRandomonly
 		 */
-		static public function Random() {
-			return new QQNodeRandom('random', null, null);
+		static public function Randomonly() {
+			return new QQNodeRandomonly('randomonly', null, null);
 		}
 		/**
 		 * @return QQNodeSeccion

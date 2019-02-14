@@ -718,7 +718,7 @@
 							`updated`,
 							`active`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strCursoId) . ',
+							get_uuid(),
 							' . $objDatabase->SqlVariable($this->strNombre) . ',
 							' . $objDatabase->SqlVariable($this->strDescripcion) . ',
 							' . $objDatabase->SqlVariable($this->strCreateby) . ',

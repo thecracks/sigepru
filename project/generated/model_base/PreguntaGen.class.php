@@ -822,7 +822,7 @@
 							`updated`,
 							`active`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strPreguntaId) . ',
+							get_uuid(),
 							' . $objDatabase->SqlVariable($this->strPreguntaHtml) . ',
 							' . $objDatabase->SqlVariable($this->strExamenId) . ',
 							' . $objDatabase->SqlVariable($this->strEnunciado) . ',

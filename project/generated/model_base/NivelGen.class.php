@@ -693,7 +693,7 @@
 							`updated`,
 							`active`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strNivelId) . ',
+							get_uuid(),
 							' . $objDatabase->SqlVariable($this->strNivel) . ',
 							' . $objDatabase->SqlVariable($this->strCreateby) . ',
 							' . $objDatabase->SqlVariable($this->dttCreated) . ',

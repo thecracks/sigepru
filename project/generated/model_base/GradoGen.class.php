@@ -772,7 +772,7 @@
 							`active`,
 							`nivel_id`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->strGradoId) . ',
+							get_uuid(),
 							' . $objDatabase->SqlVariable($this->strGrado) . ',
 							' . $objDatabase->SqlVariable($this->strCreateby) . ',
 							' . $objDatabase->SqlVariable($this->dttCreated) . ',

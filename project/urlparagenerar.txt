@@ -1,1 +1,0 @@
-http://localhost/prueba1/vendor/qcubed/qcubed/assets/php/_devtools/start_page.php

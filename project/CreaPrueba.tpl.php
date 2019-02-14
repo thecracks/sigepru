@@ -346,12 +346,15 @@ require(__CONFIGURATION__ . '/header.inc.php');
             </div>
         </div>
 
+
+        <?= $this->inputCabecera->Render(); ?>
+        <?= $this->inputContenido->Render(); ?>
+
     </div>
     <!-- end container -->
 </div>
 
-<?= $this->inputCabecera->Render(); ?>
-<?= $this->inputContenido->Render(); ?>
+
 
 <?php $this->RenderEnd() ?>
 
@@ -529,13 +532,17 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
     }
 
-
     function actualizaInputsOcultos() {
+    
         $("#inputocultocabecera").val($("#div_tabla_cabecera").html());
         $("#inputocultocontenido").val($("#div_tabla_contenido").html());
+
+        $('#inputocultocabecera').trigger("change");
+        $('#inputocultocontenido').trigger("change");
+        
+        
+        
     }
-
-
 
 
 //  EVENTOS : 
@@ -602,10 +609,12 @@ require(__CONFIGURATION__ . '/header.inc.php');
         }
     });
 
-    $(document).on('click', '#btnguardaestructuraxx', function (e) {
+    $(document).on('click', '#btnguardaestructura', function (e) {
 
-        $("#inputocultocabecera").val($("#div_tabla_cabecera").html());
-        $("#inputocultocontenido").val($("#div_tabla_contenido").html());
+        actualizaInputsOcultos();
+
+
+
 
 
         var btn = $(this);

@@ -12,8 +12,8 @@
 <?= _r($this->txtApellidoPaterno); ?>
 <?= _r($this->txtApellidoMaterno); ?>
 <?= _r($this->txtUser); ?>
-<?= _r($this->inputContenido); ?>
-<?= _r($this->inputCabecera); ?>
+<?= _r($this->txtPassword); ?>
+<?= _r($this->txtEmail); ?>
 <?= _r($this->txtDni); ?>
 <?= _r($this->txtCreateby); ?>
 <?= _r($this->calCreated); ?>

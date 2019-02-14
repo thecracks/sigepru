@@ -1,0 +1,5 @@
+// RUTA PARA AUTOGENERAR EL MODELO
+http://localhost/prueba1/vendor/qcubed/qcubed/assets/php/_devtools/start_page.php
+
+// ARCHIVO PARA MODIFICAR LA GENERACION DEL INSERT ( CAMBIE LA CLAVE PRIMARIA EN POR get_uuid() )
+C:\xampp\htdocs\prueba1\vendor\qcubed\qcubed\includes\codegen\templates\db_orm\class_gen\object_save.tpl.php
