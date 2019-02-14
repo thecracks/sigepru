@@ -49,13 +49,22 @@ class LoginUser extends QForm {
         $email = $this->txtEmail->Text;
         $password = $this->txtPassword->Text;
 
-        if ($email == 'admin' && $password == '123') {
-            QApplication::ExecuteJavaScript("msg_exito('Exito', 'Logeado correctamente')");
-            QApplication::Redirect(__MAIN_PATH__ . '/dashboard-docente');
+        $usuario = Usuario::LoadByEmail($email);
+
+        if ($usuario) {
+            if (password_verify($password, $usuario->Password)) {
+                QApplication::ExecuteJavaScript("msg_exito('Exito', 'Logeado correctamente')");
+                QApplication::Redirect(__MAIN_PATH__ . '/crea-prueba');
+                
+                $_SESSION["USER"] = serialize($obj);
+            } else {
+                QApplication::ExecuteJavaScript("msg_error('Error', 'Contraseña incorrecta')");
+            }
         } else {
-            QApplication::ExecuteJavaScript("msg_error('Error', 'Usuario/Password incorrectos')");
+            QApplication::ExecuteJavaScript("msg_error('Error', 'Usuario no registrado')");
         }
     }
+
 }
 
 LoginUser::Run('LoginUser');

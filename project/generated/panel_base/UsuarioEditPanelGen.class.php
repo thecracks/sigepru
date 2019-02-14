@@ -136,4 +136,13 @@ class UsuarioEditPanelGen extends QPanel {
 		$this->mctUsuario->DeleteUsuario();
 	}
 
+	// Check for records that may violate Unique Clauses
+	public function Validate() {
+		$blnToReturn = true;
+		if (($this->txtEmail) && ($objUsuario = Usuario::LoadByEmail($this->txtEmail->Text)) && ($objUsuario->UsuarioId != $this->mctUsuario->Usuario->UsuarioId )){
+				$blnToReturn = false;
+				$this->txtEmail->Warning = QApplication::Translate("This value is already in use.");
+			}
+		return $blnToReturn;
+	}
 }

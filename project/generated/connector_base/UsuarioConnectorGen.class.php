@@ -578,6 +578,7 @@
 		public function txtPassword_Create($strControlId = null) {
 			$this->txtPassword = new QTextBox($this->objParentObject, $strControlId);
 			$this->txtPassword->Name = QApplication::Translate('Password');
+			$this->txtPassword->Required = true;
 			$this->txtPassword->MaxLength = Usuario::PasswordMaxLength;
 			$this->txtPassword->PreferredRenderMethod = 'RenderWithName';
 			$this->txtPassword->LinkedNode = QQN::Usuario()->Password;
@@ -610,6 +611,7 @@
 		public function txtEmail_Create($strControlId = null) {
 			$this->txtEmail = new QTextBox($this->objParentObject, $strControlId);
 			$this->txtEmail->Name = QApplication::Translate('Email');
+			$this->txtEmail->Required = true;
 			$this->txtEmail->MaxLength = Usuario::EmailMaxLength;
 			$this->txtEmail->PreferredRenderMethod = 'RenderWithName';
 			$this->txtEmail->LinkedNode = QQN::Usuario()->Email;

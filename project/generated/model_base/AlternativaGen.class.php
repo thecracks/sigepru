@@ -742,11 +742,20 @@
 			$objDatabase = Alternativa::GetDatabase();
 
 			$mixToReturn = null;
+                        
+                        $User = new Usuario();
+                        if (array_key_exists('USER', $_SESSION) && ($_SESSION['USER'])) {
+                            $User = @unserialize($_SESSION['USER']);
+                        }
 
 			try {
 				if ((!$this->__blnRestored && !$blnForceUpdate) || ($blnForceInsert)) {
+                                        $this->Createby = $User->UsuarioId;
+                                        $this->Updateby = $User->UsuarioId;
 					$mixToReturn = $this->Insert();
 				} else {
+                                        $this->Updateby = $User->UsuarioId;
+                                        $this->Updated = QDateTime::Now;
 					$this->Update($blnForceUpdate);
 				}
 			} catch (QCallerException $objExc) {
@@ -786,7 +795,7 @@
 							`updated`,
 							`active`
 						) VALUES (
-							get_uuid(),
+							' . ($this->strAlternativaId ? $objDatabase->SqlVariable($this->strAlternativaId) : 'get_uuid()' ) . ',
 							' . $objDatabase->SqlVariable($this->strDescripcion) . ',
 							' . $objDatabase->SqlVariable($this->strPreguntaId) . ',
 							' . $objDatabase->SqlVariable($this->strEsCorrecta) . ',

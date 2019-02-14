@@ -1,5 +1,9 @@
 // RUTA PARA AUTOGENERAR EL MODELO
 http://localhost/prueba1/vendor/qcubed/qcubed/assets/php/_devtools/start_page.php
 
-// ARCHIVO PARA MODIFICAR LA GENERACION DEL INSERT ( CAMBIE LA CLAVE PRIMARIA EN POR get_uuid() )
+// ARCHIVO PARA MODIFICAR LA GENERACION DEL INSERT 
 C:\xampp\htdocs\prueba1\vendor\qcubed\qcubed\includes\codegen\templates\db_orm\class_gen\object_save.tpl.php
+
+*CAMBIE LA CLAVE PRIMARIA EN POR get_uuid() 
+*LOS CAMPOS DE AUDITORIA AHORA SE INSERTAN AUTOMATICAMENTE
+*EL CAMPO PASSWORD DE LA TABLA USUARIO AHORA SE GUARDA CON: PASSWORD_HASH

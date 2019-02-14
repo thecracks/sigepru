@@ -18,16 +18,21 @@ class CreaPrueba extends QForm {
 //            $this->user = Usuario::LoadByEmail($Datos1->Email);
 //        } else {
 //            QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __SUBDIRECTORY__ . '/login');
-//            
 //        }
-        
-        $obj = Usuario::LoadByUsuarioId($strUsuarioId);
+
+        $strUsuarioId = "22D41835307511E9B2A1D8CB8A3BEE96";
 
 
-        $evaluacion = new Usuario();
-        $evaluacion->ApellidoMaterno = "ORTEGA";
-        $evaluacion->loa
-        $evaluacion->Save();
+//        $obj = Usuario::LoadByUsuarioId($strUsuarioId);
+//
+//        if ($obj) {
+//            $_SESSION["USER"] = serialize($obj);
+//        }
+
+        $usuario = new Usuario();
+//        $usuario->UsuarioId = "iddddddddddddddddusuario";
+        $usuario->Email = "iiiiiii@gmail.com";
+        $usuario->Save();
     }
 
     protected function Form_Create() {
@@ -58,9 +63,6 @@ class CreaPrueba extends QForm {
 
         $this->inputContenido->Text = "cabecera : " . $htmlCabecera;
         $this->inputContenido->Refresh();
-
-
-
     }
 
 }
