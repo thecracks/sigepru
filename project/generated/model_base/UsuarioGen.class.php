@@ -764,13 +764,16 @@ class UsuarioGen extends QBaseClass implements IteratorAggregate, JsonSerializab
 
         $mixToReturn = null;
 
+        $User = new Usuario();
+        $User = $_SESSION['USER'];
+
         try {
             if ((!$this->__blnRestored && !$blnForceUpdate) || ($blnForceInsert)) {
-                $this->Createby = $_SESSION['createdby'];
-                $this->Updateby = $_SESSION['updatedby'];
+                $this->Createby = $User->UsuarioId;
+                $this->Updateby = $User->UsuarioId;
                 $mixToReturn = $this->Insert();
             } else {
-                $this->Updateby = "22222222222";
+                $this->Updateby = $User->UsuarioId;
                 $this->Updated = QDateTime::Now;
                 $this->Update($blnForceUpdate);
             }

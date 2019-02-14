@@ -20,11 +20,13 @@ class CreaPrueba extends QForm {
 //            QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __SUBDIRECTORY__ . '/login');
 //            
 //        }
+        
+        $obj = Usuario::LoadByUsuarioId($strUsuarioId);
 
-        $_SESSION['createdby'] = 'creadpor123213123';
-        $_SESSION['updatedby'] = "actualizadopor333333333";
+
         $evaluacion = new Usuario();
         $evaluacion->ApellidoMaterno = "ORTEGA";
+        $evaluacion->loa
         $evaluacion->Save();
     }
 
@@ -59,7 +61,6 @@ class CreaPrueba extends QForm {
 
 
 
-//        QApplication::ExecuteJavaScript("alert('" . () . "')");
     }
 
 }
