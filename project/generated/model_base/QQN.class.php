@@ -61,12 +61,6 @@
 			return new QQNodePregunta('pregunta', null, null);
 		}
 		/**
-		 * @return QQNodeRandomonly
-		 */
-		static public function Randomonly() {
-			return new QQNodeRandomonly('randomonly', null, null);
-		}
-		/**
 		 * @return QQNodeSeccion
 		 */
 		static public function Seccion() {

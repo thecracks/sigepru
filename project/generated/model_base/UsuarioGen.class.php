@@ -80,7 +80,7 @@
 		 * @var string strApellidoPaterno
 		 */
 		private $strApellidoPaterno;
-		const ApellidoPaternoMaxLength = 45;
+		const ApellidoPaternoMaxLength = 50;
 
 		const ApellidoPaternoDefault = null;
 		const APELLIDO_PATERNO_FIELD = 'apellido_paterno';
@@ -91,7 +91,7 @@
 		 * @var string strApellidoMaterno
 		 */
 		private $strApellidoMaterno;
-		const ApellidoMaternoMaxLength = 45;
+		const ApellidoMaternoMaxLength = 50;
 
 		const ApellidoMaternoDefault = null;
 		const APELLIDO_MATERNO_FIELD = 'apellido_materno';

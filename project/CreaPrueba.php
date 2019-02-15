@@ -31,8 +31,12 @@ class CreaPrueba extends QForm {
 
         $usuario = new Usuario();
 //        $usuario->UsuarioId = "iddddddddddddddddusuario";
-        $usuario->Email = "iiiiiii@gmail.com";
+        $usuario->Email = "rick@gmail.com";
         $usuario->Save();
+        
+        $docente = new Docente();
+        $docente->Docente=$usuario;
+        $docente->Save();
     }
 
     protected function Form_Create() {
