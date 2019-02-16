@@ -31,11 +31,11 @@ class CreaPrueba extends QForm {
 
         $usuario = new Usuario();
 //        $usuario->UsuarioId = "iddddddddddddddddusuario";
-        $usuario->Email = "rick@gmail.com";
+        $usuario->Email = "aaarick@gmail.com";
         $usuario->Save();
         
         $docente = new Docente();
-        $docente->Docente=$usuario;
+        $docente->DocenteId=$usuario->UsuarioId;
         $docente->Save();
     }
 
